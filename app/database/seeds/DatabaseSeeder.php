@@ -21,11 +21,6 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		// $this->call('UserTableSeeder');
-		$this->call('KabupatenTableSeeder');
-		$this->call('KecamatanTableSeeder');
-		$this->call('KelurahanTableSeeder');
-		$this->call('TpsTableSeeder');
-		$this->call('PemilihTableSeeder');
 	}
 
 }

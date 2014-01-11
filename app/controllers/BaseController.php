@@ -16,9 +16,6 @@ use View;
 
 class BaseController extends Controller {
 
-	// Deklarasi layout default
-	protected $layout = '_layouts.default';
-
 	/**
 	 * Setup the layout used by the controller.
 	 *
