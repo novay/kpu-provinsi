@@ -8,6 +8,7 @@
  * @author Novay Mawbowo ('novay@otaku.si')
  * 
  */
+
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
