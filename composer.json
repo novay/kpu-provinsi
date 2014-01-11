@@ -4,9 +4,7 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.1.*",
-		"laravelbook/ardent" : "dev-master",
-		"ourlearn/laravel-starter" : "dev-master"
+		"laravel/framework": "4.1.*"
 	},
 	"autoload": {
 		"classmap": [

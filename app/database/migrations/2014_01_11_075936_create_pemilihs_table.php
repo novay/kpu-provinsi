@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-
 /**
  *
  * ====================================
@@ -10,6 +8,8 @@ use Illuminate\Database\Migrations\Migration;
  * @author Novay Mawbowo ('novay@otaku.si')
  * 
  */
+
+use Illuminate\Database\Migrations\Migration;
 
 class CreatePemilihsTable extends Migration {    
 

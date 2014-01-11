@@ -1,8 +1,4 @@
 <?php
-namespace App\Controllers;
-
-use App\Controllers\BaseController;
-use View;
 
 /**
  *
@@ -12,6 +8,10 @@ use View;
  * @author Novay Mawbowo ('novay@otaku.si')
  * 
  */
+namespace App\Controllers;
+
+use App\Controllers\BaseController;
+use View;
 
 class HomeController extends BaseController {
 

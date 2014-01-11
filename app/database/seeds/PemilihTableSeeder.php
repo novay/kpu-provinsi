@@ -9,7 +9,7 @@
  * 
  */
 
-class PemilihsTableSeeder extends Seeder {
+class PemilihTableSeeder extends Seeder {
 	public function run()
 	{
 		$pemilih = array(

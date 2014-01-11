@@ -1,7 +1,5 @@
 <?php
 
-use LaravelBook\Ardent\Ardent;
-
 /**
  *
  * ====================================
@@ -10,6 +8,8 @@ use LaravelBook\Ardent\Ardent;
  * @author Novay Mawbowo ('novay@otaku.si')
  * 
  */
+
+use LaravelBook\Ardent\Ardent;
 
 class Tps extends Ardent {
 

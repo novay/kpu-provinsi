@@ -1,8 +1,4 @@
 <?php
-namespace App\Controllers;
-
-use App\Controllers\BaseController;
-use View;
 
 /**
  *
@@ -13,11 +9,15 @@ use View;
  * 
  */
 
+namespace App\Controllers;
+
+use App\Controllers\BaseController;
+
 class KabupatenController extends BaseController {
 
 	protected $kabupaten;
 
-	function __construct(KabupatenRepositoryInterface $kabupaten)
+	function __construct(App\\Repositories\\KabupatenRepositoryInterface $kabupaten)
 	{
 		$this->kabupaten = $kabupaten;
 	}

@@ -1,8 +1,4 @@
 <?php
-namespace App\Controllers;
-
-use Controller;
-use View;
 
 /**
  *
@@ -12,6 +8,11 @@ use View;
  * @author Novay Mawbowo ('novay@otaku.si')
  * 
  */
+
+namespace App\Controllers;
+
+use Controller;
+use View;
 
 class BaseController extends Controller {
 

@@ -1,5 +1,14 @@
 <?php
 
+/**
+ *
+ * ====================================
+ * Aplikasi Persentase Kekuatan Wilayah
+ * ====================================
+ * @author Novay Mawbowo ('novay@otaku.si')
+ * 
+ */
+
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 

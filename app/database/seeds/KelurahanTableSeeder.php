@@ -9,7 +9,7 @@
  * 
  */
 
-class KelurahansTableSeeder extends Seeder {
+class KelurahanTableSeeder extends Seeder {
 	public function run()
 	{
 		$kelurahan = array(
