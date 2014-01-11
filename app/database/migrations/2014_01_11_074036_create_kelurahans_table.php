@@ -2,11 +2,20 @@
 
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ *
+ * ====================================
+ * Aplikasi Persentase Kekuatan Wilayah
+ * ====================================
+ * @author Novay Mawbowo ('novay@otaku.si')
+ * 
+ */
+
 class CreateKelurahansTable extends Migration {    
 
 	public function up()
     {
-		Schema::create('kelurahans', function($table) {
+		Schema::create('kelurahan', function($table) {
 			$table->increments('id');
 			$table->string('nama');
 			$table->integer('id_kecamatan');
@@ -18,7 +27,7 @@ class CreateKelurahansTable extends Migration {
 
 	public function down()
     {
-		Schema::drop('kelurahans');
+		Schema::drop('kelurahan');
 
     }
 

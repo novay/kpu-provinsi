@@ -2,11 +2,20 @@
 
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ *
+ * ====================================
+ * Aplikasi Persentase Kekuatan Wilayah
+ * ====================================
+ * @author Novay Mawbowo ('novay@otaku.si')
+ * 
+ */
+
 class CreatePemilihsTable extends Migration {    
 
 	public function up()
     {
-		Schema::create('pemilihs', function($table) {
+		Schema::create('pemilih', function($table) {
 			$table->increments('id');
 			$table->integer('nik');
 			$table->string('nama');
@@ -29,7 +38,7 @@ class CreatePemilihsTable extends Migration {
 
 	public function down()
     {
-		Schema::drop('pemilihs');
+		Schema::drop('pemilih');
 
     }
 

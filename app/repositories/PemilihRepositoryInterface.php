@@ -1,5 +1,14 @@
 <?php
 
+/**
+ *
+ * ====================================
+ * Aplikasi Persentase Kekuatan Wilayah
+ * ====================================
+ * @author Novay Mawbowo ('novay@otaku.si')
+ * 
+ */
+
 interface PemilihRepositoryInterface {
 	public function all();
 	public function find($id);

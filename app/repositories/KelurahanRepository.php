@@ -1,5 +1,14 @@
 <?php
 
+/**
+ *
+ * ====================================
+ * Aplikasi Persentase Kekuatan Wilayah
+ * ====================================
+ * @author Novay Mawbowo ('novay@otaku.si')
+ * 
+ */
+
 class KelurahanRepository implements KelurahanRepositoryInterface
 {
 	public function all()

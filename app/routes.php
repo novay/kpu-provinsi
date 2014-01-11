@@ -11,16 +11,16 @@
 
 Route::get('/', 'App\\Controllers\\HomeController@getIndex');
 App::bind('KabupatenRepositoryInterface','KabupatenRepository');
-Route::resource('kabupatens', 'KabupatensController');
+Route::resource('kabupaten', 'KabupatenController');
 
 App::bind('KecamatanRepositoryInterface','KecamatanRepository');
-Route::resource('kecamatans', 'KecamatansController');
+Route::resource('kecamatan', 'KecamatanController');
 
 App::bind('KelurahanRepositoryInterface','KelurahanRepository');
-Route::resource('kelurahans', 'KelurahansController');
+Route::resource('kelurahan', 'KelurahanController');
 
 App::bind('TpsRepositoryInterface','TpsRepository');
 Route::resource('tps', 'TpsController');
 
 App::bind('PemilihRepositoryInterface','PemilihRepository');
-Route::resource('pemilihs', 'PemilihsController');
+Route::resource('pemilih', 'PemilihController');

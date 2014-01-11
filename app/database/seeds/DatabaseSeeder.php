@@ -1,5 +1,14 @@
 <?php
 
+/**
+ *
+ * ====================================
+ * Aplikasi Persentase Kekuatan Wilayah
+ * ====================================
+ * @author Novay Mawbowo ('novay@otaku.si')
+ * 
+ */
+
 class DatabaseSeeder extends Seeder {
 
 	/**
@@ -12,11 +21,11 @@ class DatabaseSeeder extends Seeder {
 		Eloquent::unguard();
 
 		// $this->call('UserTableSeeder');
-		$this->call('KabupatensTableSeeder');
-		$this->call('KecamatansTableSeeder');
-		$this->call('KelurahansTableSeeder');
+		$this->call('KabupatenTableSeeder');
+		$this->call('KecamatanTableSeeder');
+		$this->call('KelurahanTableSeeder');
 		$this->call('TpsTableSeeder');
-		$this->call('PemilihsTableSeeder');
+		$this->call('PemilihTableSeeder');
 	}
 
 }

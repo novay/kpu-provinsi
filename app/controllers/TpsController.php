@@ -1,4 +1,17 @@
 <?php
+namespace App\Controllers;
+
+use App\Controllers\BaseController;
+use View;
+
+/**
+ *
+ * ====================================
+ * Aplikasi Persentase Kekuatan Wilayah
+ * ====================================
+ * @author Novay Mawbowo ('novay@otaku.si')
+ * 
+ */
 
 class TpsController extends BaseController
 {

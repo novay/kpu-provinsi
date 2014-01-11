@@ -2,6 +2,15 @@
 
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ *
+ * ====================================
+ * Aplikasi Persentase Kekuatan Wilayah
+ * ====================================
+ * @author Novay Mawbowo ('novay@otaku.si')
+ * 
+ */
+
 class CreateTpsTable extends Migration {    
 
 	public function up()

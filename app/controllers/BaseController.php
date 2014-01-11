@@ -2,9 +2,21 @@
 namespace App\Controllers;
 
 use Controller;
+use View;
+
+/**
+ *
+ * ====================================
+ * Aplikasi Persentase Kekuatan Wilayah
+ * ====================================
+ * @author Novay Mawbowo ('novay@otaku.si')
+ * 
+ */
 
 class BaseController extends Controller {
-	protected $layout = 'layouts.default';
+
+	// Deklarasi layout default
+	protected $layout = '_layouts.default';
 
 	/**
 	 * Setup the layout used by the controller.
