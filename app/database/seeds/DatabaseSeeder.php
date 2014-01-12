@@ -1,15 +1,10 @@
 <?php
 
-/**
- *
- * ====================================
- * Aplikasi Persentase Kekuatan Wilayah
- * ====================================
- * @author Novay Mawbowo ('novay@otaku.si')
- * 
- */
-
 class DatabaseSeeder extends Seeder {
+
+	/**
+ 	  * @author : Noviyanto Rachmady ['novay@otaku.si']
+ 	  **/
 
 	/**
 	 * Run the database seeds.
@@ -20,7 +15,11 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->call('OrganisasiSeeder');
+		$this->command->info('======== Tabel Organisasi Di isi! ========');
+
+		$this->call('SatpamSeeder');
+		$this->command->info('======== Tabel Satpam Di isi! ========');
 	}
 
 }

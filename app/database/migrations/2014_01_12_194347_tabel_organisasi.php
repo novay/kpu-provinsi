@@ -2,12 +2,12 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class TabelSatpam extends Migration {
+class TabelOrganisasi extends Migration {
 
 	/**
  	  * @author : Noviyanto Rachmady ['novay@otaku.si']
  	  **/
-
+	
 	/**
 	 * Run the migrations.
 	 *
@@ -15,13 +15,12 @@ class TabelSatpam extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('satpam', function($table)
+		Schema::create('organisasi', function($table)
 		{
 			$table->increments('id');
-			$table->string('username');
-			$table->string('password');
-			$table->string('nama_tampilan');
-			$table->string('avatar')->default('user.png');
+			$table->string('nama', 100);
+			$table->string('logo')->nullable();
+			$table->text('alamat');
 			$table->timestamps();
 		});
 	}
@@ -33,7 +32,7 @@ class TabelSatpam extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('satpam');
+		Schema::drop('organisasi');
 	}
 
 }
