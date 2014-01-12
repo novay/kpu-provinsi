@@ -1,20 +1,20 @@
 <?php
 
-/**
- *
- * ====================================
- * Aplikasi Persentase Kekuatan Wilayah
- * ====================================
- * @author Novay Mawbowo ('novay@otaku.si')
- * 
- */
-
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePemilihsTable extends Migration {    
+class TabelPemilihTetap extends Migration {
 
+	/**
+ 	  * @author : Noviyanto Rachmady ['novay@otaku.si']
+ 	  **/
+	
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
 	public function up()
-    {
+	{
 		Schema::create('pemilih', function($table) {
 			$table->increments('id');
 			$table->integer('nik');
@@ -32,14 +32,17 @@ class CreatePemilihsTable extends Migration {
 			$table->integer('id_kecamatan');
 			$table->integer('id_kabupaten');
 			$table->timestamps();
-	});
+		});
+	}
 
-    }    
-
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
 	public function down()
-    {
+	{
 		Schema::drop('pemilih');
-
-    }
+	}
 
 }
