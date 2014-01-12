@@ -6,4 +6,3 @@
 
 // Mulai Routing
 
-});

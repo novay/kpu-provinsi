@@ -33,7 +33,7 @@ class TabelSatpam extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('satpam')
+		Schema::drop('satpam');
 	}
 
 }
