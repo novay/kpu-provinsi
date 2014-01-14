@@ -1,14 +1,5 @@
 <?php
 
-/**
- *
- * ====================================
- * Aplikasi Persentase Kekuatan Wilayah
- * ====================================
- * @author Novay Mawbowo ('novay@otaku.si')
- * 
- */
-
 class BaseController extends Controller {
 
 	/**

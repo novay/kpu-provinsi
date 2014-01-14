@@ -3,9 +3,9 @@
 class DatabaseSeeder extends Seeder {
 
 	/**
- 	  * @author : Noviyanto Rachmady ['novay@otaku.si']
- 	  **/
-
+	  * @author : Noviyanto Rachmady ['novay@otaku.si']
+	  **/
+	
 	/**
 	 * Run the database seeds.
 	 *
@@ -14,12 +14,10 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Eloquent::unguard();
-
 		$this->call('OrganisasiSeeder');
-		$this->command->info('======== Tabel Organisasi Di isi! ========');
-
+		$this->command->info('########## Tabel organisasi berhasil terisi! ##########');
 		$this->call('SatpamSeeder');
-		$this->command->info('======== Tabel Satpam Di isi! ========');
+		$this->command->info('########## Tabel admin berhasil terisi! ##########');
 	}
 
 }

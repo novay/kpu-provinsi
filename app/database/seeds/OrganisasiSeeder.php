@@ -11,19 +11,15 @@ class OrganisasiSeeder extends Seeder {
 	 *
 	 * @return void
 	 */
-	public function run()
-	{
-		$organisasi = [
-			
-			'nama'   	=> 'PDIP Kalimantan Timur', 
-			'logo'   	=> 'logo.png',
-			'alamat'	=> 'Jalan Milono No.112 RT.12 Tanjung Redeb - Berau',
+	public function run() {
+		$org = array(
+			'nama'   		=> 'Nama Organisasi',
+			'alamat'		=> 'Tuliskan Alamat Organisasi Disini.',
 			'created_at' 	=> new DateTime, 
 			'updated_at' 	=> new DateTime
+		);
 
-		];
-
-		DB::table('organisasi')->insert($organisasi);
+		DB::table('organisasi')->insert($org);
 	}
 
 }

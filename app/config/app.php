@@ -52,7 +52,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'id',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'l8kDSm66jNm2kvrOnMBYA4Nb5cWzzDdI',
+	'key' => 'N1Znp7K37NkGBDPQlalJfJ5gwmdDeGJQ',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -106,7 +106,6 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Ourlearn\LaravelStarter\LaravelStarterServiceProvider',
 
 	),
 

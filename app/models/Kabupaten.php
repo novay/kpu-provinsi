@@ -6,19 +6,20 @@ class Kabupaten extends Eloquent {
 	  * @author : Noviyanto Rachmady ['novay@otaku.si']
 	  **/
 
-	// Ambil tabel dari database
+	# Ambil tabel dari database
 	protected $table = 'kabupaten';
 
-	// Field yang boleh di input
+	# Field yang boleh di input
 	protected $fillable = ['nama'];
 
-	// Field yang jadi patokan
+	# Field yang jadi patokan
 	protected $guarded = ['id'];
+
+	# Validasi
+	public static $rules = ['nama'=>'required'];
 
 	/**
 	 * Tambah data ke database
-	 *
-	 * @return string
 	 */
 	public static function tambah($nama)
 	{
@@ -27,8 +28,6 @@ class Kabupaten extends Eloquent {
 
 	/**
 	 * Ganti data dalam database
-	 *
-	 * @return string
 	 */
 	public static function ganti($id, $nama)
 	{
@@ -39,8 +38,6 @@ class Kabupaten extends Eloquent {
 
 	/**
 	 * Hapus data dalam database
-	 *
-	 * @return string
 	 */
 	public static function hapus($id) 
 	{

@@ -6,19 +6,33 @@ class DataPemilih extends Eloquent {
 	  * @author : Noviyanto Rachmady ['novay@otaku.si']
 	  **/
 
-	// Ambil tabel dari database
+	# Ambil tabel dari database
 	protected $table = 'pemilih';
 
-	// Field yang boleh di input
+	# Field yang boleh di input
 	protected $fillable = ['nik', 'nama', 'jenis_kelamin', 'status', 'tempat_lahir', 'tanggal_lahir', 'umur', 'alamat', 'no_telp', 'keterangan', 'id_tps', 'id_kelurahan', 'id_kecamatan', 'id_kabupaten'];
 
-	// Field yang jadi patokan
+	# Field yang jadi patokan
 	protected $guarded = ['id'];
+
+	# Validasi
+	public static $rules = [
+		'nik'=>'required' 
+		'nama'=>'required', 
+		'jenis_kelamin'=>'required', 
+		'status'=>'required', 
+		'tempat_lahir'=>'required', 
+		'tanggal_lahir'=>'required', 
+		'umur'=>'required', 
+		'alamat'=>'required', 
+		'id_tps'=>'required', 
+		'id_kelurahan'=>'required', 
+		'id_kecamatan'=>'required', 
+		'id_kabupaten'=>'required'
+	];
 
 	/**
 	 * Tambah data ke database
-	 *
-	 * @return string
 	 */
 	public static function tambah($nama)
 	{
@@ -27,8 +41,6 @@ class DataPemilih extends Eloquent {
 
 	/**
 	 * Ganti data dalam database
-	 *
-	 * @return string
 	 */
 	public static function ganti($nik, $nama, $jenis_kelamin, $status, $tempat_lahir, $tanggal_lahir, $umur, $alamat, $no_telp, $keterangan, $id_tps, $id_kelurahan, $id_kecamatan, $id_kabupaten)
 	{
@@ -52,8 +64,6 @@ class DataPemilih extends Eloquent {
 
 	/**
 	 * Hapus data dalam database
-	 *
-	 * @return string
 	 */
 	public static function hapus($id) 
 	{

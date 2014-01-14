@@ -9,15 +9,21 @@ class Satpam extends Eloquent implements UserInterface, RemindableInterface {
 	  * @author : Noviyanto Rachmady ['novay@otaku.si']
 	  **/
 
-	// Ambil tabel dari database
+	# Ambil tabel dari database
 	protected $table = 'satpam';
 
-	// Field yang boleh di input
+	# Field yang boleh di input
 	protected $fillable = ['username', 'password', 'nama_tampilan', 'avatar'];
 
-	// Field yang jadi patokan
+	# Field yang jadi patokan
 	protected $guarded = ['id'];
 
+	# Rules validasi
+	public static $rules = [
+		'username'=>'required|min:5|exists:admin,username', 
+		'password'=>'required|min:5'
+	];
+	
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
@@ -57,8 +63,6 @@ class Satpam extends Eloquent implements UserInterface, RemindableInterface {
 
  	/**
 	 * Tambah data ke database
-	 *
-	 * @return string
 	 */
 	public static function tambah($username, $password, $nama_tampilan, $avatar)
 	{
@@ -68,8 +72,6 @@ class Satpam extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
 	 * Ganti data dalam database
-	 *
-	 * @return string
 	 */
 	public static function ganti($id, $username, $password, $nama_tampilan, $avatar)
 	{
@@ -85,8 +87,6 @@ class Satpam extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
 	 * Hapus data dalam database
-	 *
-	 * @return string
 	 */
 	public static function hapus($id) 
 	{
@@ -95,8 +95,6 @@ class Satpam extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
 	 * Ubah nama pengguna / username
-	 *
-	 * @return string
 	 */
 	public static function username($id, $username_baru)
 	{
@@ -107,8 +105,6 @@ class Satpam extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
 	 * Ubah kata sandi / password
-	 *
-	 * @return string
 	 */
 	public static function password($id, $password_baru)
 	{
@@ -119,8 +115,6 @@ class Satpam extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
 	 * Ubah nama tampilan
-	 *
-	 * @return string
 	 */
 	public static function nama_tampilan($id, $nama_tampilan)
 	{
@@ -131,14 +125,20 @@ class Satpam extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
 	 * Ubah avatar
-	 *
-	 * @return string
 	 */
 	public static function avatar($id, $avatar)
 	{
 		$temp = Satpam::find($id);
 		$temp->avatar = $avatar;
 		$temp->save();
+	}
+
+	/**
+	 * Logika Administrator
+	 */
+	public static function admin()
+	{
+		Auth::user()->id == 1;
 	}
 
 }

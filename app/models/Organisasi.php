@@ -6,19 +6,20 @@ class Organisasi extends Eloquent {
 	  * @author : Noviyanto Rachmady ['novay@otaku.si']
 	  **/
 
-	// Ambil tabel dari database
+	# Ambil tabel dari database
 	protected $table = 'organisasi';
 
-	// Field yang boleh di input
+	# Field yang boleh di input
 	protected $fillable = ['nama', 'alamat'];
 
-	// Field yang jadi patokan
+	# Field yang jadi patokan
 	protected $guarded = ['id'];
+
+	# Validasi
+	public static $rules = ['nama'=>'required|max:50', 'alamat'=>'required|max:255', 'logo'=>'required|mimes:png,jpg,bmp|max:5000'];
 
 	/**
 	 * Tambah data ke database
-	 *
-	 * @return string
 	 */
 	public static function data()
 	{
@@ -27,8 +28,6 @@ class Organisasi extends Eloquent {
 
 	/**
 	 * Ganti data dalam database
-	 *
-	 * @return string
 	 */
 	public static function ganti($nama, $alamat, $logo)
 	{

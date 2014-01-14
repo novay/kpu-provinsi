@@ -11,28 +11,16 @@ class SatpamSeeder extends Seeder {
 	 *
 	 * @return void
 	 */
-	public function run()
-	{
-		$satpam = [	
-			[
-				'username'   	=> 'novay', 
-				'password'   	=> Hash::make('pedobear'),
-				'nama_tampilan'	=> 'Administrator',
-				'avatar'		=> 'admin.png',
-				'created_at' 	=> new DateTime, 
-				'updated_at' 	=> new DateTime
-			],
-			[
-				'username'   	=> 'tamu', 
-				'password'   	=> Hash::make('pedobear'),
-				'nama_tampilan'	=> 'Tamu Terhormat',
-				'avatar'		=> 'user.png',
-				'created_at' 	=> new DateTime, 
-				'updated_at' 	=> new DateTime
-			],
-		];
+	public function run() {
+		$org = array(
+			'nama_tampilan'	=> 'Admin',
+			'username'		=> 'admin',
+			'password'		=> Hash::make('admins'),
+			'created_at' 	=> new DateTime, 
+			'updated_at' 	=> new DateTime
+		);
 
-		DB::table('satpam')->insert($satpam);
+		DB::table('admin')->insert($org);
 	}
 
 }

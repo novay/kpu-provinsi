@@ -1,14 +1,5 @@
 <?php
 
-/**
- *
- * ====================================
- * Aplikasi Persentase Kekuatan Wilayah
- * ====================================
- * @author Novay Mawbowo ('novay@otaku.si')
- * 
- */
-
 /*
 |--------------------------------------------------------------------------
 | Application & Route Filters
@@ -86,4 +77,20 @@ Route::filter('csrf', function()
 	{
 		throw new Illuminate\Session\TokenMismatchException;
 	}
+});
+
+/*
+|--------------------------------------------------------------------------
+| AJAX Filter
+|--------------------------------------------------------------------------
+|
+| Simpel, fungsinya agar web lebih cepat merespon halaman yang dituju,
+| dan men-disable tombol back pada keyboard yang biasa digunakan untuk
+| kembali kehalaman sebelumnya. Berguna sekali untuk halaman login.
+|
+*/
+Route::filter('ajax', function()
+{
+	// Jika tidak ada permintaan ajax() tampilkan halaman error 404
+	if (!Request::ajax()) return App::abort(404);
 });

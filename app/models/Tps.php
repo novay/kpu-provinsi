@@ -17,8 +17,6 @@ class Tps extends Eloquent {
 
 	/**
 	 * Tambah data ke database
-	 *
-	 * @return string
 	 */
 	public static function tambah($nama)
 	{
@@ -27,8 +25,6 @@ class Tps extends Eloquent {
 
 	/**
 	 * Ganti data dalam database
-	 *
-	 * @return string
 	 */
 	public static function ganti($id, $nama, $id_kelurahan, $id_kecamatan, $id_kabupaten)
 	{
@@ -42,8 +38,6 @@ class Tps extends Eloquent {
 
 	/**
 	 * Hapus data dalam database
-	 *
-	 * @return string
 	 */
 	public static function hapus($id) 
 	{
