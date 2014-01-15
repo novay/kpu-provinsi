@@ -1,3 +1,4 @@
+// ################# Master Link ###################### //
 function dataKabupaten() {
 	$('title').text('Data Kabupaten');
 	$('.konten').load(url_kabupaten, function() { properti(); });
@@ -14,6 +15,33 @@ function dataTps() {
 	$('title').text('Data TPS');
 	$('.konten').load(url_tps, function() { properti(); });
 }
+// ################# Akhir Master Link ###################### //
+
+// ################# Modal tambah ###################### //
+function tambahKabupaten() {
+	$('.modal').load(url_tambah_kabupaten, function() {
+		$('.modal').modal('show');
+	});
+}
+function tambahKecamatan() {
+	$('.modal').load(url_tambah_kecamatan, function() {
+		$('.modal').modal('show');
+	});
+}
+function tambahKelurahan() {
+	$('.modal').load(url_tambah_kelurahan, function() {
+		$('.modal').modal('show');
+	});
+}
+function tambahTps() {
+	$('.modal').load(url_tambah_tps, function() {
+		$('.modal').modal('show');
+	});
+}
+// ################# Akhir Modal tambah ###################### //
+
+
+
 
 
 

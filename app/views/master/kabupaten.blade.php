@@ -17,7 +17,7 @@
 						<h3 class="lighter smaller">Anda belum memiliki data <strong>kabupaten</strong> untuk ditampilkan.</h3>
 						<hr />
 						<div>
-							<a href="#" class="btn btn-app btn-primary no-radius">
+							<a onclick="tambahKabupaten()" class="btn btn-app btn-primary no-radius">
 								<i class="icon-plus bigger-230"></i>
 								Tambah
 							</a>
