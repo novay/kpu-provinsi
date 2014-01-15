@@ -13,7 +13,7 @@
 							<a onclick="dataKabupaten()" style="cursor:pointer;">
 								<div class="clearfix">
 									<span class="pull-left">Kabupaten</span>
-									<span class="pull-right label arrowed">12</span>
+									<span class="pull-right label arrowed">{{ Kabupaten::all()->count() }}</span>
 								</div>
 							</a>
 						</li>
@@ -21,7 +21,7 @@
 							<a onclick="dataKecamatan()" style="cursor:pointer;">
 								<div class="clearfix">
 									<span class="pull-left">Kecamatan</span>
-									<span class="pull-right label arrowed">12</span>
+									<span class="pull-right label arrowed">{{ Kecamatan::all()->count() }}</span>
 								</div>
 							</a>
 						</li>
@@ -29,7 +29,7 @@
 							<a onclick="dataKelurahan()" style="cursor:pointer;">
 								<div class="clearfix">
 									<span class="pull-left">Kelurahan</span>
-									<span class="pull-right label arrowed">12</span>
+									<span class="pull-right label arrowed">{{ Kelurahan::all()->count() }}</span>
 								</div>
 							</a>
 						</li>
@@ -37,7 +37,7 @@
 							<a onclick="dataTps()">
 								<div class="clearfix" style="cursor:pointer;">
 									<span class="pull-left">TPS</span>
-									<span class="pull-right label arrowed">12</span>
+									<span class="pull-right label arrowed">{{ Tps::all()->count() }}</span>
 								</div>
 							</a>
 						</li>

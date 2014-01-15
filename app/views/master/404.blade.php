@@ -37,41 +37,41 @@
 <body>
 <div class="konten">
 	<div class="page-content text-center">
-					<div class="row-fluid">
-						<div class="span12">
-							<!--PAGE CONTENT BEGINS-->
-							<div class="error-container">
-								<div class="well">
-									<h1 class="grey lighter smaller">
-										<span class="blue bigger-125">
-											<i class="icon-sitemap"></i>
-											404
-										</span>
-										Page Not Found
-									</h1>
-									<hr />
-									<h3 class="lighter smaller">Halaman yang Anda cari tidak ditemukan!</h3>
-									<div>
-										<h4 class="smaller">Anda akan dialihkan ke halaman utama.</h4>
-									</div>
-									<hr />
-									<div class="space"></div>
-			
-									<div class="row-fluid">
-										<div class="center">
-											<div class="progress">
-												<div class="bar" style="width: 0%;"></div>
-											</div>
-										</div>
-									</div>
-									<div class="space"></div>
-									<p>Develop by Noviyanto Rachmady</p>
+		<div class="row-fluid">
+			<div class="span12">
+				<!--PAGE CONTENT BEGINS-->
+				<div class="error-container">
+					<div class="well">
+						<h1 class="grey lighter smaller">
+							<span class="blue bigger-125">
+								<i class="icon-sitemap"></i>
+								404
+							</span>
+							Page Not Found
+						</h1>
+						<hr />
+						<h3 class="lighter smaller">Halaman yang Anda cari tidak ditemukan!</h3>
+						<div>
+							<h4 class="smaller">Anda akan dialihkan ke halaman utama.</h4>
+						</div>
+						<hr />
+						<div class="space"></div>
+
+						<div class="row-fluid">
+							<div class="center">
+								<div class="progress">
+									<div class="bar" style="width: 0%;"></div>
 								</div>
-							</div><!--PAGE CONTENT ENDS-->
-						</div><!--/.span-->
-					</div><!--/.row-fluid-->
-				</div><!--/.page-content-->
-			</div>
+							</div>
+						</div>
+						<div class="space"></div>
+						<p>Develop by Noviyanto Rachmady</p>
+					</div>
+				</div><!--PAGE CONTENT ENDS-->
+			</div><!--/.span-->
+		</div><!--/.row-fluid-->
+	</div><!--/.page-content-->
+</div>
 	<!--basic scripts-->
 
 		<!--[if !IE]>-->

@@ -21,9 +21,9 @@ class TpsController extends BaseController {
 	 */
 	public function getIndex() {
 		# Ambil isi tabel Tps, urutkan berdasarkan nama
-		$nama = Tps::orderBy('nama', 'DESC')->get();
+		$daftar = Tps::orderBy('nama', 'DESC')->get();
 		# Tampilkan halaman tujuan
-		return View::make('master.tps', compact('nama'));
+		return View::make('master.tps', compact('daftar'));
 	}
 
 	/**

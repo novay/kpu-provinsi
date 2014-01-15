@@ -21,9 +21,9 @@ class KelurahanController extends BaseController {
 	 */
 	public function getIndex() {
 		# Ambil isi tabel Kelurahan, urutkan berdasarkan nama
-		$nama = Kelurahan::orderBy('nama', 'DESC')->get();
+		$daftar = Kelurahan::orderBy('nama', 'DESC')->get();
 		# Tampilkan halaman tujuan
-		return View::make('master.kelurahan', compact('nama'));
+		return View::make('master.kelurahan', compact('daftar'));
 	}
 
 	/**
