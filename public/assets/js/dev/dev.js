@@ -18,36 +18,67 @@ function dataTps() {
 // ################# Akhir Master Link ###################### //
 
 // ################# Modal tambah ###################### //
-function tambahKabupaten() {
+function modalTambahKabupaten() {
 	$('.modal').load(url_tambah_kabupaten, function() {
 		$('.modal').modal('show');
 	});
 }
-function tambahKecamatan() {
+function modalTambahKecamatan() {
 	$('.modal').load(url_tambah_kecamatan, function() {
 		$('.modal').modal('show');
 	});
 }
-function tambahKelurahan() {
+function modalTambahKelurahan() {
 	$('.modal').load(url_tambah_kelurahan, function() {
 		$('.modal').modal('show');
 	});
 }
-function tambahTps() {
+function modalTambahTps() {
 	$('.modal').load(url_tambah_tps, function() {
 		$('.modal').modal('show');
 	});
 }
 // ################# Akhir Modal tambah ###################### //
 
+// ################# Fungsi Enter tiap Bagian ###################### //
+function enterTambahKabupaten(k) { if (k.which == 13) tambahKabupaten(); }
+function enterTambahKelurahan(k) { if (k.which == 13) tambahKelurahan(); }
+function enterTambahKecamatan(k) { if (k.which == 13) tambahKecamatan(); }
+function enterTambahTps(k) { if (k.which == 13) tambahTps(); }
+// ################# Fungsi Enter tiap Bagian ###################### //
+
+// ################# Fungsi Tambah ###################### //
+function tambahKabupaten() {
+	$('.form-tambah-kabupaten').ajaxSubmit({
+		success: function(r) {		
+			if (r.status == '') {			
+				if (r.nama) {
+					$('#control-nama').removeClass('info').addClass('error');
+					$('#error-nama').text(r.cover);
+				} else {
+					$('#control-nama').removeClass('error').addClass('info');
+					$('#error-nama').text('');
+				};
+			} else {
+				$('.modal').modal('hide');
+				$('.modal').html('');
+				notif('Kabupaten baru berhasil ditambah.', 'info');
+				dataKabupaten();
+			};		
+		}
+	});
+}
 
 
 
-
-
-
-
-
+// Fungsi notifikasi
+function notif(pesan, tipe) {
+	Messenger().post({
+		message:pesan,
+		type:tipe,
+		showCloseButton:true
+	});
+}
 
 
 
@@ -74,3 +105,4 @@ $('.modal').on('shown', function()
 {
 	$('.input-focus').focus();
 });
+
