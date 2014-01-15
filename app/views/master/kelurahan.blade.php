@@ -17,7 +17,7 @@
 						<h3 class="lighter smaller">Anda belum memiliki data <strong>kelurahan</strong> untuk ditampilkan.</h3>
 						<hr />
 						<div>
-							<a href="#" class="btn btn-app btn-primary no-radius">
+							<a href="modalTambahKelurahan()" class="btn btn-app btn-primary no-radius">
 								<i class="icon-plus bigger-230"></i>
 								Tambah
 							</a>
@@ -27,4 +27,5 @@
 			</div><!--/.span-->
 		</div><!--/.row-fluid-->
 	</div><!--/.page-content-->
+	<div id="#" class="modal hide fade" tabindex="-1"></div>
 @endif

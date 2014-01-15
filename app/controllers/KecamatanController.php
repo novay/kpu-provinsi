@@ -31,7 +31,7 @@ class KecamatanController extends BaseController {
 	 */
 	public function getBaru() {
 		# Tampilkan halaman
-		return View::make('_partials.modal.kecamatan_tambah');
+		return View::make('_modal.tambah.kecamatan');
 	}
 
 	/**

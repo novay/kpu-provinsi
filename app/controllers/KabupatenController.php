@@ -31,7 +31,7 @@ class KabupatenController extends BaseController {
 	 */
 	public function getBaru() {
 		# Tampilkan halaman
-		return View::make('_partials.modal.kabupaten_tambah');
+		return View::make('_modal.tambah.kabupaten');
 	}
 
 	/**
@@ -40,19 +40,19 @@ class KabupatenController extends BaseController {
 	public function postBaru() {
 		# validasi
 		$v = Validator::make(Input::all(), Kabupaten::$rules);
-		# jika validasi valid
-		if ($v->passes()) {
-			# inputan dari form
-			$nama = Input::get('nama');
-			# Input data dalam database
-			Kabupaten::tambah($nama);
-		# jika validasi gagal	
-		} else {
+		# jika validasi tidak valid
+		if ($v->fails()) {
 			# koleksi variabel error
 			$nama = $v->messages()->first('nama') ?: '';
 			$status = '';
 			# Kirim nama
 			return Response::json(compact('nama', 'status'));
+		# jika validasi gagal	
+		} else {
+			# inputan dari form
+			$nama = Input::get('nama');
+			# Input data dalam database
+			Kabupaten::tambah($nama);
 		} 
 	}
 

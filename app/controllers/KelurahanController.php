@@ -31,7 +31,7 @@ class KelurahanController extends BaseController {
 	 */
 	public function getBaru() {
 		# Tampilkan halaman
-		return View::make('_partials.modal.kelurahan_tambah');
+		return View::make('_modal.tambah.kelurahan');
 	}
 
 	/**

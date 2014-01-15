@@ -31,7 +31,7 @@ class TpsController extends BaseController {
 	 */
 	public function getBaru() {
 		# Tampilkan halaman
-		return View::make('_partials.modal.tps_tambah');
+		return View::make('_modal.tambah.tps');
 	}
 
 	/**

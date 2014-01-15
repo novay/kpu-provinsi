@@ -17,7 +17,7 @@
 						<h3 class="lighter smaller">Anda belum memiliki data <strong>kabupaten</strong> untuk ditampilkan.</h3>
 						<hr />
 						<div>
-							<a onclick="tambahKabupaten()" class="btn btn-app btn-primary no-radius">
+							<a onclick="modalTambahKabupaten()" role="button" class="btn btn-app btn-primary no-radius" data-toggle="modal">
 								<i class="icon-plus bigger-230"></i>
 								Tambah
 							</a>
@@ -27,4 +27,5 @@
 			</div><!--/.span-->
 		</div><!--/.row-fluid-->
 	</div><!--/.page-content-->
+	<div id="#" class="modal hide fade" tabindex="-1"></div>
 @endif
