@@ -80,3 +80,8 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+// error
+App::missing(function() {
+	return Response::view('master.404');
+});

@@ -21,9 +21,9 @@ class KabupatenController extends BaseController {
 	 */
 	public function getIndex() {
 		# Ambil isi tabel kabupaten, urutkan berdasarkan nama
-		$nama = Kabupaten::orderBy('nama', 'DESC')->get();
+		$daftar = Kabupaten::orderBy('nama', 'DESC')->get();
 		# Tampilkan halaman tujuan
-		return View::make('master.kabupaten', compact('nama'));
+		return View::make('master.kabupaten', compact('daftar'));
 	}
 
 	/**

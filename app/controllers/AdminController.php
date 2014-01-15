@@ -2,72 +2,77 @@
 
 class AdminController extends BaseController {
 
-	public function __construct()
-	{
-		// filter
-		$this->beforeFilter('auth', array('except' => array('getLogin', 'postLogin')));
-		$this->beforeFilter('guest', array('only' => array('getLogin')));
-		$this->beforeFilter('ajax', array('except' => array('home', 'getLogin')));
-		$this->beforeFilter('csrf', array('only' => array('postRubahFoto', 'postRubahNama', 'postRubahUsername', 'postRubahPassword')));
+	/**
+	  * @author : Noviyanto Rachmady ['novay@otaku.si']
+	  **/
+
+	/**
+	 * Pemberian fungsi konstruksi untuk mem-filter aksi
+	 */
+	public function __construct() {
+		# Koleksi filter
+		$this->beforeFilter('auth',  ['except' => ['getLogin', 'postLogin']]);
+		$this->beforeFilter('guest', ['only'   => ['getLogin']]);
+		$this->beforeFilter('ajax',  ['except' => ['getIndex', 'getLogin']]);
 	}
 
-	public function home()
-	{
-		// belum login
-		if (Auth::guest()) return Redirect::to_route('login');
-		
-		// sudah login
-		return (Request::ajax()) ? Request::ajax() : View::make('index');
+	/**
+	 * Halaman index
+	 */
+	public function getIndex() {
+		# jika belum login, rujuk ke login
+		if (Auth::guest()) return Redirect::to('login');
+		# bila sudah, tampilkan
+		return (Request::ajax()) ? Request::ajax() : View::make('_layouts.index');
 	}
 
+	/**
+	 * Halaman login
+	 */
 	public function getLogin() {
-		return View::make('login');
+		# tampilkan halaman login
+		return View::make('_layouts.login');
 	}
 
-	public function postLogin()
-	{
-		// validasi
-		$input = Input::all();
-		$rules = array('username' => 'required|min:5|max:20|exists:admin,username', 'password' => 'required|min:5');
-		$validasi = Validator::make(Input::all(), $rules);
-
-		// tidak valid
-		if ($validasi->fails()) {
-			// pesan
-			$username = $validasi->messages()->first('username') ?: '';
-			$password = $validasi->messages()->first('password') ?: '';
+	/**
+	 * Verifikasi akun
+	 */
+	public function postLogin() {
+		# validasi
+		$v = Validator::make(Input::all(), Admin::$rules);
+		# jika validasi gagal
+		if ($v->fails()) {
+			# koleksi pesan error tiap variabel
+			$username = $v->messages()->first('username') ?: '';
+			$password = $v->messages()->first('password') ?: '';
 			$status = '';
-
+			# kirim json
 			return Response::json(compact('username', 'password', 'status'));
 		}
-
-		// input
+		# untuk validasi sukses, koleksi inputan form
 		$username = trim(Input::get('username'));
 		$password = trim(Input::get('password'));
 		$ingat = (trim(Input::get('ingat')) == 1) ? true : false;
-
-		// auth
-		$data = compact('username', 'password');
-
-		// cocok
-		if (Auth::attempt($data, $ingat)) {
-			$status = 'ok';
-
+		# gabungan 2 variabel
+		$userdata = compact('username', 'password');
+		# proses pencocokan cocok
+		if (Auth::attempt($userdata, $ingat)) {
+			# kirim status sukses
+			$status = 'sukses';
 			return Response::json(compact('status'));
-
-		// tidak cocok
+		# bila tidak cocok
 		} else {
-			$status = 'error';
-
+			# kirim status error
+			$status = 'gagal';
 			return Response::json(compact('status'));
 		}
 	}
 
-	
-
-	public function logout()
-	{
-		// logout admin
+	/**
+	 * Logout akun
+	 */
+	public function logout() {
+		# logout admin
 		Auth::logout();
 	}
 

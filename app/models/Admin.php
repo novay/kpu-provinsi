@@ -6,13 +6,23 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class Admin extends Eloquent implements UserInterface, RemindableInterface {
 
 	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
+	  * @author : Noviyanto Rachmady ['novay@otaku.si']
+	  **/
+
+	# Ambil tabel dari database
 	protected $table = 'admin';
-	protected $fillable = array('foto', 'nama', 'username', 'password');
-	protected $guarded = array('id');
+
+	# Field yang boleh di input
+	protected $fillable = ['username', 'password', 'nama_tampilan', 'avatar'];
+
+	# Field yang jadi patokan
+	protected $guarded = ['id'];
+
+	# Rules validasi
+	public static $rules = [
+		'username'=>'required|min:5|exists:admin,username', 
+		'password'=>'required|min:5'
+	];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -51,64 +61,76 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
-	public static function semua()
+	/**
+	 * Tambah data ke database
+	 */
+	public static function tambah($username, $password, $nama_tampilan, $avatar)
 	{
-		return Admin::orderBy('nama', 'asc')->get();
+		// Kirim data ke dalam database disesuaikan berdasarkan field
+		Satpam::create(compact('username', 'password', 'nama_tampilan', 'avatar'));
 	}
 
-	public static function data()
+	/**
+	 * Ganti data dalam database
+	 */
+	public static function ganti($id, $username, $password, $nama_tampilan, $avatar)
 	{
-		return Admin::orderBy('nama', 'asc')->paginate(20);
+		$temp = Satpam::find($id);
+		$temp->username	   	 = $username;
+		$temp->password 	 = $password;
+		$temp->nama_tampilan = $nama_tampilan;
+		// Jika avatar ada, kirim ke database
+		if($avatar!=null) $temp->avatar = $avatar;
+		// Jika tidak, abaikan
+		$temp->save();
 	}
 
-	public static function tambah($foto, $nama, $username, $password)
+	/**
+	 * Hapus data dalam database
+	 */
+	public static function hapus($id) 
 	{
-		Admin::create(compact('foto', 'nama', 'username', 'password'));
+		Satpam::destroy($id);
 	}
 
-	public static function set($id) {
-		return Admin::find($id);
-	}
-
-	public static function rubah($id, $foto, $nama, $username, $password)
+	/**
+	 * Ubah nama pengguna / username
+	 */
+	public static function username($id, $username_baru)
 	{
-		$admin = Admin::find($id);
-		$admin->foto = $foto;
-		$admin->nama = $nama;
-		$admin->username = $username;
-		$admin->password = $password;
-		$admin->save();
+		$temp = Satpam::find($id);
+		$temp->username = $username_baru;
+		$temp->save();
 	}
 
-	public static function hapus($id) {
-		Admin::destroy($id);
-	}
-
-	public static function rubahFoto($id, $foto)
+	/**
+	 * Ubah kata sandi / password
+	 */
+	public static function password($id, $password_baru)
 	{
-		$me = Admin::find($id);
-		$me->foto = $foto;
-		$me->save();
+		$temp = Satpam::find($id);
+		$temp->password = $password_baru;
+		$temp->save();
 	}
 
-	public static function rubahNama($id, $nama)
+	/**
+	 * Ubah nama tampilan
+	 */
+	public static function nama_tampilan($id, $nama_tampilan)
 	{
-		$me = Admin::find($id);
-		$me->nama = $nama;
-		$me->save();
+		$temp = Satpam::find($id);
+		$temp->nama_tampilan = $nama_tampilan;
+		$temp->save();
 	}
 
-	public static function rubahUsername($id, $username_baru)
+	/**
+	 * Ubah avatar
+	 */
+	public static function avatar($id, $avatar)
 	{
-		$me = Admin::find($id);
-		$me->username = $username_baru;
-		$me->save();
+		$temp = Satpam::find($id);
+		$temp->avatar = $avatar;
+		$temp->save();
 	}
 
-	public static function rubahPassword($id, $password_baru)
-	{
-		$me = Admin::find($id);
-		$me->password = $password_baru;
-		$me->save();
-	}
 }

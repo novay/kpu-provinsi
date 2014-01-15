@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>Login Satpam</title>
+		<title>Beranda | KPU</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 {{-- Favicon --}}
@@ -33,12 +33,46 @@
 	
 		@include('_partials.nav')
 
-		@yield('konten')
+		<div class="page-content">
+			<div class="row-fluid">
+				<div class="span12">
+					<!--PAGE CONTENT BEGINS-->
+					<div class="error-container">
+						<div class="well">
+							<h1 class="grey lighter smaller">
+								<span class="blue bigger-125">
+									<i class="icon-coffee"></i>
+									KPU
+								</span>
+								WebApps
+							</h1>
+							<hr />
+							<h3 class="lighter smaller">
+								Keep Calm
+								<i class="icon-wrench icon-animated-wrench bigger-125"></i>
+								on progress!
+							</h3>
+
+							<div class="space"></div>
+
+							<div>
+								<h4 class="lighter smaller">Penjelasannya nanti, intinya aplikasi ini jadi dulu.</h4>
+							</div>
+
+							<hr />
+							<div class="space"></div>
+							<h4 class="lighter smaller pull-right">Regard, <a href="http://github.com/novay" target="_blank"> Noviyanto Rachmady</a></h4><br />
+							<div class="space"></div>
+						</div>
+					</div>
+					<!--PAGE CONTENT ENDS-->
+				</div><!--/.span-->
+			</div><!--/.row-fluid-->
+		</div><!--/.page-content-->
 
 		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
 			<i class="icon-double-angle-up icon-only bigger-110"></i>
 		</a>
-
 
 {{-- Koleksi Jacascript --}}
 		{{ HTML::script('assets/js/jquery-2.0.3.js') }}
@@ -72,9 +106,11 @@
 		{{ HTML::script('packages/digilib/js/backbone.js') }}
 		{{ HTML::script('packages/digilib/js/messenger.js') }}
 		{{ HTML::script('packages/digilib/js/future.js') }}
-		{{ HTML::script('packages/digilib/js/script/login.js') }}
-		{{ HTML::script('packages/digilib/js/script/layout.js') }}
-		{{ HTML::script('packages/digilib/js/script/database.js') }}
+{{-- JSON Dev --}}
+		{{ HTML::script('assets/js/dev/dev.js') }}
+		{{ HTML::script('assets/js/dev/autentikasi.js') }}
+
+		@include('_partials.url')
 {{-- Untuk JS tambahan --}}
 @yield('script')
 		

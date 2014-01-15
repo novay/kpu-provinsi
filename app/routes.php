@@ -6,7 +6,7 @@
 
 # Mulai Routing
 
-Route::get('/', array('as' => 'home', 'uses' => 'AdminController@home'));
+Route::get('/', array('as' => 'home', 'uses' => 'AdminController@getIndex'));
 
 Route::get('login', array('as' => 'login', 'uses' => 'AdminController@getLogin'));
 Route::post('login', array('uses' => 'AdminController@postLogin'));
