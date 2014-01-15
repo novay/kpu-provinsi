@@ -32,7 +32,7 @@
 	<body>
 	
 		@include('_partials.nav')
-
+	<div class="konten">
 		<div class="page-content">
 			<div class="row-fluid">
 				<div class="span12">
@@ -69,6 +69,7 @@
 				</div><!--/.span-->
 			</div><!--/.row-fluid-->
 		</div><!--/.page-content-->
+	</div>
 
 		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
 			<i class="icon-double-angle-up icon-only bigger-110"></i>

@@ -1,10 +1,11 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
-	"license": "MIT",
+	"name": "KPU WebApps",
+	"description": "Aplikasi Persentasi kekuatan suatu organisasi skala provinsi.",
+	"keywords": ["kpu", "daftar pemilih tetap", "indonesia"],
 	"require": {
-		"laravel/framework": "4.1.*"
+		"laravel/framework": "4.1.*",
+		"phpoffice/phpexcel": "dev-master",
+		"rah/danpu": "2.*@dev"
 	},
 	"autoload": {
 		"classmap": [

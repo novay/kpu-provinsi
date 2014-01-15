@@ -76,6 +76,6 @@ Route::post('tamu/hapus/ceklis', array('uses' => 'TamuController@postHapusCeklis
 Route::get('tamu/excel', array('as' => 'excel_tamu', 'uses' => 'TamuController@getExcel'));
 
 ## Halaman Database
-Route::get('db/backup', array('as' => 'backup', 'uses' => 'DatabaseController@getBackup'));
-Route::get('db/restore', array('as' => 'restore', 'uses' => 'DatabaseController@getRestore'));
-Route::post('db/restore', array('uses' => 'DatabaseController@postRestore'));
+Route::get('db/backup',   ['as'   => 'backup',  'uses' => 'DatabaseController@getBackup']);
+Route::get('db/restore',  ['as'   => 'restore', 'uses' => 'DatabaseController@getRestore']);
+Route::post('db/restore', ['uses' => 'DatabaseController@postRestore']);
