@@ -40,23 +40,21 @@ class KelurahanController extends BaseController {
 	public function postBaru() {
 		# validasi
 		$v = Validator::make(Input::all(), Kelurahan::$rules);
-		# jika validasi valid
-		if ($v->passes()) {
-			# inputan dari form
-			$nama = Input::get('nama');
-			$id_kecamatan = Input::get('id_kecamatan');
-			$id_kabupaten = Input::get('id_kabupaten');
-			# Input data dalam database
-			Kelurahan::tambah($nama, $id_kecamatan, $id_kabupaten);
 		# jika validasi gagal	
-		} else {
+		if ($v->fails()) {
 			# koleksi variabel error
 			$nama = $v->messages()->first('nama') ?: '';
 			$id_kecamatan = $v->messages()->first('id_kecamatan') ?: '';
-			$id_kabupaten = $v->messages()->first('id_kabupaten') ?: '';
 			$status = '';
 			# Kirim nama
-			return Response::json(compact('nama', 'id_kecamatan', 'id_kabupaten', 'status'));
+			return Response::json(compact('nama', 'id_kecamatan', 'status'));
+		# jika validasi valid
+		} else {
+			# inputan dari form
+			$nama = trim(Input::get('nama'));
+			$id_kecamatan = Input::get('id_kecamatan');
+			# Input data dalam database
+			Kelurahan::tambah($nama, $id_kecamatan);
 		} 
 	}
 
@@ -82,18 +80,16 @@ class KelurahanController extends BaseController {
 			# inputan dari form
 			$nama = Input::get('nama');
 			$id_kecamatan = Input::get('id_kecamatan');
-			$id_kabupaten = Input::get('id_kabupaten');
 			# Input data dalam database
-			Kelurahan::ganti($nama, $id_kecamatan, $id_kabupaten);
+			Kelurahan::ganti($nama, $id_kecamatan);
 		# jika validasi gagal	
 		} else {
 			# koleksi variabel error
 			$nama = $v->messages()->first('nama') ?: '';
 			$id_kecamatan = $v->messages()->first('id_kecamatan') ?: '';
-			$id_kabupaten = $v->messages()->first('id_kabupaten') ?: '';
 			$status = '';
 			# Kirim nama
-			return Response::json(compact('nama', 'id_kecamatan', 'id_kabupaten', 'status'));
+			return Response::json(compact('nama', 'id_kecamatan', 'status'));
 		}  
 	}
 

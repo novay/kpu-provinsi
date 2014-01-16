@@ -15,6 +15,7 @@
 		<!--[if IE 7]> {{ HTML::style('packages/ace/css/font-awesome-ie7.min.css') }} <![endif]-->
 {{-- Plugin Style --}}
 		{{ HTML::style('packages/ace/css/jquery-ui-1.10.3.custom.min.css') }}
+		
 {{-- Fonts --}}
 		<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" /> -->
 {{-- Paket Ace Style --}}
@@ -27,7 +28,7 @@
 		{{ HTML::style('packages/digilib/css/future.css') }}
 {{-- Untuk CSS tambahan --}}
 @yield('style')
-
+		{{ HTML::style('packages/ace/css/chosen.css') }}
 	</head>
 	<body>
 	
@@ -76,6 +77,24 @@
 		</a>
 
 {{-- Koleksi Jacascript --}}
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				$(".chzn-select").chosen(); 
+				//chosen plugin inside a modal will have a zero width because the select element is originally hidden
+				//and its width cannot be determined.
+				//so we set the width after modal is show
+				$('#modal-form').on('show', function () {
+					$(this).find('.chzn-container').each(function(){
+						$(this).find('a:first-child').css('width' , '200px');
+						$(this).find('.chzn-drop').css('width' , '210px');
+						$(this).find('.chzn-search input').css('width' , '200px');
+					});
+				})
+			});
+		</script>
+
 		{{ HTML::script('assets/js/jquery-2.0.3.js') }}
 		{{ HTML::script('assets/js/jquery.form.js') }}
 		<!--[if IE]> 
@@ -100,6 +119,7 @@
 		<![endif]-->
 		{{ HTML::script('packages/ace/js/jquery-ui-1.10.3.custom.min.js') }}
 		{{ HTML::script('packages/ace/js/jquery.ui.touch-punch.min.js') }}
+		{{ HTML::script('packages/ace/js/chosen.jquery.min.js') }}
 {{-- Skrip Ace --}}
 		{{ HTML::script('packages/ace/js/ace-elements.min.js') }}
 		{{ HTML::script('packages/ace/js/ace.min.js') }}

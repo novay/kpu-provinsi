@@ -41,10 +41,18 @@ function modalTambahTps() {
 // ################# Akhir Modal tambah ###################### //
 
 // ################# Fungsi Enter tiap Bagian ###################### //
-function enterTambahKabupaten(k) { if (k.which == 13) tambahKabupaten(); }
-function enterTambahKelurahan(k) { if (k.which == 13) tambahKelurahan(); }
-function enterTambahKecamatan(k) { if (k.which == 13) tambahKecamatan(); }
-function enterTambahTps(k)       { if (k.which == 13) tambahTps(); }
+function enterTambahKabupaten(event) { 
+	if (event.which == 13) { event.preventDefault(); tambahKabupaten(); }
+} 
+function enterTambahKecamatan(event) { 
+	if (event.which == 13) { event.preventDefault(); tambahKecamatan(); }
+} 
+function enterTambahKelurahan(event) { 
+	if (event.which == 13) { event.preventDefault(); tambahKelurahan(); }
+} 
+function enterTambahTps(event) { 
+	if (event.which == 13) { event.preventDefault(); tambahTps(); }
+} 
 // ################# Fungsi Enter tiap Bagian ###################### //
 
 // ################# Fungsi Tambah ###################### //
@@ -79,6 +87,13 @@ function tambahKecamatan() {
 					$('#control-nama').removeClass('error').addClass('info');
 					$('#error-nama').text('');
 				};
+				if (r.id_kabupaten) {
+					$('#control-kabupaten').removeClass('info').addClass('error');
+					$('#error-kabupaten').text(r.id_kabupaten);
+				} else {
+					$('#control-kabupaten').removeClass('error').addClass('info');
+					$('#error-kabupaten').text('');
+				};
 			} else {
 				$('.modal').modal('hide');
 				$('.modal').html('');
@@ -98,6 +113,13 @@ function tambahKelurahan() {
 				} else {
 					$('#control-nama').removeClass('error').addClass('info');
 					$('#error-nama').text('');
+				};
+				if (r.id_kecamatan) {
+					$('#control-kecamatan').removeClass('info').addClass('error');
+					$('#error-kecamatan').text(r.id_kecamatan);
+				} else {
+					$('#control-kecamatan').removeClass('error').addClass('info');
+					$('#error-kecamatan').text('');
 				};
 			} else {
 				$('.modal').modal('hide');

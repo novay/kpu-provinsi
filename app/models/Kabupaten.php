@@ -53,8 +53,7 @@ class Kabupaten extends Eloquent {
 	/**
 	 * Ganti data dalam database
 	 */
-	public static function ganti($id, $nama)
-	{
+	public static function ganti($id, $nama) {
 		$temp = Kabupaten::find($id);
 		$temp->nama	= $nama;
 		$temp->save();
@@ -63,9 +62,25 @@ class Kabupaten extends Eloquent {
 	/**
 	 * Hapus data dalam database
 	 */
-	public static function hapus($id) 
-	{
+	public static function hapus($id) {
 		Kabupaten::destroy($id);
 	}
+
+	/**
+	 * Menu dropdown
+	 */
+	public static function dropdown() {
+        # Ambil semua nilai model kategori
+        $kabupaten = Kabupaten::all();
+        # Inisialisasi pilihsn array dengan nilai default
+        $pilihan[''] = 'Pilih Kabupaten...';
+        # Lakukan perulangan
+        foreach($kabupaten as $temp) { 
+            # Tampikan semua nama berdasarkan id kategori yang ada
+        	$pilihan[$temp->id] = $temp->nama;
+        }
+        # Kirim nilai
+        return $pilihan;
+    }
 
 }

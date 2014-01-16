@@ -16,9 +16,9 @@
 				}}
 				<div class="controls">
 					{{ Form::text('nama', NULL, [
-						'id'=>'nama',
-						'onkeypress'=>'enterTambahKabupaten(event)',
-						'maxlength'=>50]) 
+						'id' => 'nama',
+						'onKeyPress' => 'enterTambahKabupaten(event)',
+						'maxlength' => 50]) 
 					}}
 					<small><span class="help-block" id="error-nama"></span></small>
 				</div>

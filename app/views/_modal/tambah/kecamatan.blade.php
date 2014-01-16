@@ -10,6 +10,16 @@
 	}}
 	<div class="row-fluid">
 		<div class="span10">
+			<div class="control-group" id="control-kabupaten">
+				{{ Form::label('id_kabupaten', 'Kabupaten', [
+					'class' => 'control-label']) 
+				}}
+				<div class="controls">
+					{{ Form::select('id_kabupaten', Kabupaten::dropdown(), ['class'=>'chzn-select'] ) }}
+					<small><span class="help-block" id="error-kabupaten"></span></small>
+				</div>
+			</div>
+
 			<div class="control-group" id="control-nama">
 				{{ Form::label('nama', 'Nama Kecamatan', [
 					'class' => 'control-label']) 
@@ -39,7 +49,4 @@
 	}}
 	{{ Form::close() }}
 </div>
-
-
-
 

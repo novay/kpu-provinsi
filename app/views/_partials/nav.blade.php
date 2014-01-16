@@ -9,7 +9,7 @@
 					<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-folder-close"></i> Data Master <i class="icon-caret-down"></i></a>
 					<ul class="dropdown-navbar dropdown-menu dropdown-caret ">
 						<li class="nav-header"><i class="icon-ok"></i> Pilih Salah Satu Master :</li>
-						<li id="link-kabupaten">
+						<li>
 							<a onclick="dataKabupaten()" style="cursor:pointer;">
 								<div class="clearfix">
 									<span class="pull-left">Kabupaten</span>
@@ -17,7 +17,7 @@
 								</div>
 							</a>
 						</li>
-						<li id="link-kecamatan">
+						<li>
 							<a onclick="dataKecamatan()" style="cursor:pointer;">
 								<div class="clearfix">
 									<span class="pull-left">Kecamatan</span>
@@ -25,7 +25,7 @@
 								</div>
 							</a>
 						</li>
-						<li id="link-kelurahan">
+						<li>
 							<a onclick="dataKelurahan()" style="cursor:pointer;">
 								<div class="clearfix">
 									<span class="pull-left">Kelurahan</span>
@@ -33,7 +33,7 @@
 								</div>
 							</a>
 						</li>
-						<li id="link-tps">
+						<li>
 							<a onclick="dataTps()">
 								<div class="clearfix" style="cursor:pointer;">
 									<span class="pull-left">TPS</span>

@@ -40,21 +40,20 @@ class KecamatanController extends BaseController {
 	public function postBaru() {
 		# validasi
 		$v = Validator::make(Input::all(), Kecamatan::$rules);
-		# jika validasi valid
-		if ($v->passes()) {
-			# inputan dari form
-			$nama = Input::get('nama');
-			$id_kabupaten = Input::get('id_kabupaten');
-			# Input data dalam database
-			Kecamatan::tambah($nama, $id_kabupaten);
-		# jika validasi gagal	
-		} else {
-			# koleksi variabel error
+		# jika validasi tidak valid
+		if ($v->fails()) {
+			# koleksi variabel error lalu kirim
 			$nama = $v->messages()->first('nama') ?: '';
 			$id_kabupaten = $v->messages()->first('id_kabupaten') ?: '';
 			$status = '';
-			# Kirim nama
 			return Response::json(compact('nama', 'id_kabupaten', 'status'));
+		# jika validasi gagal	
+		} else {
+			# inputan dari form
+			$nama = trim(Input::get('nama'));
+			$id_kabupaten = Input::get('id_kabupaten');
+			# Input data dalam database
+			Kecamatan::tambah($nama, $id_kabupaten);
 		} 
 	}
 
