@@ -50,7 +50,7 @@ class KabupatenController extends BaseController {
 		# jika validasi gagal	
 		} else {
 			# inputan dari form
-			$nama = Input::get('nama');
+			$nama = trim(Input::get('nama'));
 			# Input data dalam database
 			Kabupaten::tambah($nama);
 		} 

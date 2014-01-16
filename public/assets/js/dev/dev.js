@@ -54,7 +54,7 @@ function tambahKabupaten() {
 			if (r.status == '') {			
 				if (r.nama) {
 					$('#control-nama').removeClass('info').addClass('error');
-					$('#error-nama').text(r.cover);
+					$('#error-nama').text(r.nama);
 				} else {
 					$('#control-nama').removeClass('error').addClass('info');
 					$('#error-nama').text('');
@@ -68,7 +68,67 @@ function tambahKabupaten() {
 		}
 	});
 }
-
+function tambahKecamatan() {
+	$('.form-tambah-kecamatan').ajaxSubmit({
+		success: function(r) {		
+			if (r.status == '') {			
+				if (r.nama) {
+					$('#control-nama').removeClass('info').addClass('error');
+					$('#error-nama').text(r.nama);
+				} else {
+					$('#control-nama').removeClass('error').addClass('info');
+					$('#error-nama').text('');
+				};
+			} else {
+				$('.modal').modal('hide');
+				$('.modal').html('');
+				notif('Kecamatan baru berhasil ditambah.', 'info');
+				dataKecamatan();
+			};		
+		}
+	});
+}
+function tambahKelurahan() {
+	$('.form-tambah-kelurahan').ajaxSubmit({
+		success: function(r) {		
+			if (r.status == '') {			
+				if (r.nama) {
+					$('#control-nama').removeClass('info').addClass('error');
+					$('#error-nama').text(r.nama);
+				} else {
+					$('#control-nama').removeClass('error').addClass('info');
+					$('#error-nama').text('');
+				};
+			} else {
+				$('.modal').modal('hide');
+				$('.modal').html('');
+				notif('Kelurahan baru berhasil ditambah.', 'info');
+				dataKelurahan();
+			};		
+		}
+	});
+}
+function tambahTps() {
+	$('.form-tambah-tps').ajaxSubmit({
+		success: function(r) {		
+			if (r.status == '') {			
+				if (r.nama) {
+					$('#control-nama').removeClass('info').addClass('error');
+					$('#error-nama').text(r.nama);
+				} else {
+					$('#control-nama').removeClass('error').addClass('info');
+					$('#error-nama').text('');
+				};
+			} else {
+				$('.modal').modal('hide');
+				$('.modal').html('');
+				notif('TPS baru berhasil ditambah.', 'info');
+				dataTps();
+			};		
+		}
+	});
+}
+// ################# Akhir Fungsi Tambah ###################### //
 
 
 // Fungsi notifikasi
@@ -80,17 +140,8 @@ function notif(pesan, tipe) {
 	});
 }
 
-
-
 function properti() {
 	$('.tip').tooltip();
-
-	$('.tanggal').datepicker({
-		format: 'dd-mm-yyyy',
-		autoclose: true,
-		language: 'id'
-	});
-
 	$('.type').typeahead({
 		items: 5
 	});

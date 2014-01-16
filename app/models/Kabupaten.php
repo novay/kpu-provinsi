@@ -16,7 +16,31 @@ class Kabupaten extends Eloquent {
 	protected $guarded = ['id'];
 
 	# Validasi
-	public static $rules = ['nama'=>'required'];
+	public static $rules = ['nama'=>'required|max:50|min:3'];
+
+	/**
+	 * Relasi
+	 */
+	public function Kecamatan()
+    {
+        return $this->hasMany('Kecamatan', 'id_kabupaten');
+    }
+
+    /**
+	 * Relasi
+	 */
+	public function Kelurahan()
+    {
+        return $this->hasMany('Kelurahan', 'id_kabupaten');
+    }
+
+    /**
+	 * Relasi
+	 */
+	public function Tps()
+    {
+        return $this->hasMany('Tps', 'id_kabupaten');
+    }
 
 	/**
 	 * Tambah data ke database

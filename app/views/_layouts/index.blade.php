@@ -77,6 +77,7 @@
 
 {{-- Koleksi Jacascript --}}
 		{{ HTML::script('assets/js/jquery-2.0.3.js') }}
+		{{ HTML::script('assets/js/jquery.form.js') }}
 		<!--[if IE]> 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
 		<![endif]-->
@@ -102,6 +103,8 @@
 {{-- Skrip Ace --}}
 		{{ HTML::script('packages/ace/js/ace-elements.min.js') }}
 		{{ HTML::script('packages/ace/js/ace.min.js') }}
+		{{ HTML::script('packages/ace/js/jquery.dataTables.min.js') }}
+		{{ HTML::script('packages/ace/js/jquery.dataTables.bootstrap.js') }}
 {{-- Paket dari Heru --}}
 		{{ HTML::script('packages/digilib/js/underscore.js') }}
 		{{ HTML::script('packages/digilib/js/backbone.js') }}

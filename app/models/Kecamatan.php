@@ -19,6 +19,30 @@ class Kecamatan extends Eloquent {
 	public static $rules = ['nama'=>'required', 'id_kabupaten'=>'required'];
 
 	/**
+	 * Relasi
+	 */
+	public function Kabupaten()
+	{
+		return $this->belongsTo('Kabupaten', 'id_kabupaten');
+	}
+
+	/**
+	 * Relasi
+	 */
+	public function Kelurahan()
+    {
+        return $this->hasMany('Kelurahan', 'id_kecamatan');
+    }
+
+    /**
+	 * Relasi
+	 */
+	public function Tps()
+    {
+        return $this->hasMany('Tps', 'id_kecamatan');
+    }
+
+	/**
 	 * Tambah data ke database
 	 */
 	public static function tambah($nama, $id_kabupaten)

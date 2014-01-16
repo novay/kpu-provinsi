@@ -15,6 +15,33 @@ class Tps extends Eloquent {
 	// Field yang jadi patokan
 	protected $guarded = ['id'];
 
+	# Validasi
+	public static $rules = ['nama'=>'required', 'id_kecamatan'=>'required', 'id_kabupaten'=>'required', 'id_kelurahan'];
+
+	/**
+	 * Relasi
+	 */
+	public function Kabupaten()
+	{
+		return $this->belongsTo('Kabupaten', 'id_kabupaten');
+	}
+
+	/**
+	 * Relasi
+	 */
+	public function Kecamatan()
+    {
+        return $this->belongsTo('Kecamatan', 'id_kecamatan');
+    }
+
+    /**
+	 * Relasi
+	 */
+	public function Kelurahan()
+    {
+        return $this->belongsTo('Kelurahan', 'id_kelurahan');
+    }
+
 	/**
 	 * Tambah data ke database
 	 */
