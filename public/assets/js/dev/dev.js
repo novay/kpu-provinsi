@@ -44,7 +44,7 @@ function modalTambahTps() {
 function enterTambahKabupaten(k) { if (k.which == 13) tambahKabupaten(); }
 function enterTambahKelurahan(k) { if (k.which == 13) tambahKelurahan(); }
 function enterTambahKecamatan(k) { if (k.which == 13) tambahKecamatan(); }
-function enterTambahTps(k) { if (k.which == 13) tambahTps(); }
+function enterTambahTps(k)       { if (k.which == 13) tambahTps(); }
 // ################# Fungsi Enter tiap Bagian ###################### //
 
 // ################# Fungsi Tambah ###################### //

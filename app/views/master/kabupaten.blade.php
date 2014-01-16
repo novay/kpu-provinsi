@@ -6,6 +6,8 @@
 						<div class="span12">
 							<!--PAGE CONTENT BEGINS-->
 							<div class="row-fluid">
+								<a onclick="modalTambahKabupaten()" role="button" class="btn btn-primary pull-right no-border" data-toggle="modal"><i class="icon-plus"></i> Tambah Baru</a>
+								<div id="#" class="modal hide fade" tabindex="-1"></div>
 								<h3 class="header smaller lighter blue">Daftar Kabupaten</h3>
 								<div class="table-header">
 									Results for "Latest Registered Domains"
@@ -34,7 +36,7 @@
 											<td class="center">
 												<label><input type="checkbox" /><span class="lbl"></span></label>
 											</td>
-											<td class="hidden-480">{{ $temp->nama }}</td>
+											<td>{{ $temp->nama }}</td>
 											<td class="hidden-480">
 												<span class="label label-primary">
 													{{ Kabupaten::find($temp->id)->Kecamatan()->count() }} Kecamatan

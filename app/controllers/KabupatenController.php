@@ -42,10 +42,9 @@ class KabupatenController extends BaseController {
 		$v = Validator::make(Input::all(), Kabupaten::$rules);
 		# jika validasi tidak valid
 		if ($v->fails()) {
-			# koleksi variabel error
+			# koleksi variabel error lalu kirim
 			$nama = $v->messages()->first('nama') ?: '';
 			$status = '';
-			# Kirim nama
 			return Response::json(compact('nama', 'status'));
 		# jika validasi gagal	
 		} else {
