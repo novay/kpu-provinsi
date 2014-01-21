@@ -27,5 +27,4 @@
 			</div><!--/.span-->
 		</div><!--/.row-fluid-->
 	</div><!--/.page-content-->
-	<div id="#" class="modal hide fade" tabindex="-1"></div>
 @endif

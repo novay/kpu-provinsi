@@ -12,6 +12,21 @@
 	var url_tambah_kecamatan = '{{ route('kecamatan_baru') }}';
 	var url_tambah_kelurahan = '{{ route('kelurahan_baru') }}';
 	var url_tambah_tps		 = '{{ route('tps_baru') }}';
+	// Modal Hapus
+	var url_hapus_kabupaten = '{{ route('hapus_kabupaten') }}';
+	var url_hapus_kecamatan = '{{ route('hapus_kecamatan') }}';
+	var url_hapus_kelurahan = '{{ route('hapus_kelurahan') }}';
+	var url_hapus_tps	    = '{{ route('hapus_tps') }}';
+	// Modal Ubah
+	var url_ubah_kabupaten = '{{ route('ubah_kabupaten') }}';
+	var url_ubah_kecamatan = '{{ route('ubah_kecamatan') }}';
+	var url_ubah_kelurahan = '{{ route('ubah_kelurahan') }}';
+	var url_ubah_tps	   = '{{ route('ubah_tps') }}';
+	// Modal Lihat
+	var url_lihat_kabupaten = '{{ route('lihat_kabupaten') }}';
+
+	// Modal Pilihan
+	var url_hapus_daftar_kabupaten = '{{ route('hapus_daftar_kabupaten') }}';
 
 	var url_backup 	   = '{{ route('backup') }}';
 	var url_restore    = '{{ route('restore') }}';

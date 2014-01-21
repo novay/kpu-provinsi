@@ -25,6 +25,7 @@ Route::post('kabupaten/hapus/{id?}', array('uses' => 'KabupatenController@postHa
 Route::get('kabupaten/hapus/ceklis', array('as' => 'hapus_daftar_kabupaten', 'uses' => 'KabupatenController@getHapusCeklis'));
 Route::post('kabupaten/hapus/ceklis', array('uses' => 'KabupatenController@postHapusCeklis'));
 Route::get('kabupaten/excel', array('as' => 'excel_kabupaten', 'uses' => 'KabupatenController@getExcel'));
+Route::get('kabupaten/{id?}', array('as' => 'lihat_kabupaten', 'uses' => 'KabupatenController@getLihat'))->where('id', '\d+');
 
 ## Kecamatan
 Route::get('kecamatan', array('as' => 'kecamatan', 'uses' => 'KecamatanController@getIndex'));

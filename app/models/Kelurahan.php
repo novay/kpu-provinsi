@@ -10,13 +10,13 @@ class Kelurahan extends Eloquent {
 	protected $table = 'kelurahan';
 
 	# Field yang boleh di input
-	protected $fillable = ['nama', 'id_kecamatan'];
+	protected $fillable = ['nama', 'id_kecamatan', 'id_kabupaten'];
 
 	# Field yang jadi patokan
 	protected $guarded = ['id'];
 
 	# Validasi
-	public static $rules = ['nama'=>'required', 'id_kecamatan'=>'required'];
+	public static $rules = ['nama'=>'required|min:3', 'id_kecamatan'=>'required', 'id_kabupaten'=>'required'];
 
 	/**
 	 * Relasi
@@ -45,9 +45,11 @@ class Kelurahan extends Eloquent {
 	/**
 	 * Tambah data ke database
 	 */
-	public static function tambah($nama, $id_kecamatan)
+	public static function tambah($nama, $id_kecamatan, $id_kabupaten)
 	{
-		Kelurahan::create(compact('nama', 'id_kecamatan'));
+		$id_kabupaten = Kecamatan::find($id_kecamatan)->id_kabupaten;
+
+		Kelurahan::create(compact('nama', 'id_kecamatan', 'id_kabupaten'));
 	}
 
 	/**

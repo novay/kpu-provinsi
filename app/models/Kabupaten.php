@@ -16,7 +16,7 @@ class Kabupaten extends Eloquent {
 	protected $guarded = ['id'];
 
 	# Validasi
-	public static $rules = ['nama'=>'required|max:50|min:3'];
+	public static $rules = ['nama'=>'required|max:50|min:3|unique:kabupaten,nama'];
 
 	/**
 	 * Relasi

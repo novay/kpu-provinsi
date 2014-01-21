@@ -10,7 +10,6 @@
 	}}
 	<div class="row-fluid">
 		<div class="span10">
-
 			<div class="control-group" id="control-kecamatan">
 				{{ Form::label('id_kecamatan', 'Kecamatan', [
 					'class' => 'control-label']) 
@@ -20,9 +19,24 @@
 					<small><span class="help-block" id="error-kecamatan"></span></small>
 				</div>
 			</div>
+			<script type="text/javascript">
+				$(function() {
+					$(".chzn-select").chosen(); 
+					//chosen plugin inside a modal will have a zero width because the select element is originally hidden
+					//and its width cannot be determined.
+					//so we set the width after modal is show
+					$('#modal-form').on('show', function () {
+						$(this).find('.chzn-container').each(function(){
+							$(this).find('a:first-child').css('width' , '200px');
+							$(this).find('.chzn-drop').css('width' , '210px');
+							$(this).find('.chzn-search input').css('width' , '200px');
+						});
+					})
+				});
+			</script>
 
 			<div class="control-group" id="control-nama">
-				{{ Form::label('nama', 'Nama Kecamatan', [
+				{{ Form::label('nama', 'Nama Kelurahan', [
 					'class' => 'control-label']) 
 				}}
 				<div class="controls">
@@ -50,7 +64,4 @@
 	}}
 	{{ Form::close() }}
 </div>
-
-
-
 

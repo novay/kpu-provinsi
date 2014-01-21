@@ -15,6 +15,9 @@ class OrganisasiSeeder extends Seeder {
 		$org = array(
 			'nama'   		=> 'Nama Organisasi',
 			'alamat'		=> 'Tuliskan Alamat Organisasi Disini.',
+			'kota'			=> 'Samarinda',
+			'provinsi'		=> 'Kalimantan Timur',
+			'negara'		=> 'Indonesia',
 			'created_at' 	=> new DateTime, 
 			'updated_at' 	=> new DateTime
 		);

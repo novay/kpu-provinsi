@@ -89,13 +89,23 @@ class KabupatenController extends BaseController {
 	}
 
 	/**
+	 * Lihat data
+	 */
+	public function getLihat($id) {
+		# Sesuaikan id target
+		$kabupaten = Kabupaten::find($id);
+		# Tampilkan halaman
+		return View::make('_modal.lihat', compact('kabupaten'));
+	}
+
+	/**
 	 * Hapus data
 	 */
 	public function getHapus($id) {
 		# Sesuaikan id target
-		$kab = Kabupaten::find($id);
+		$kabupaten = Kabupaten::find($id);
 		# Tampilkan halaman
-		return View::make('_partials.modal.kabupaten_hapus', compact('kab'));
+		return View::make('_modal.hapus.kabupaten', compact('kabupaten'));
 	}
 
 	/**
@@ -104,28 +114,6 @@ class KabupatenController extends BaseController {
 	public function postHapus($id) {
 		# hapus isi database
 		Kabupaten::hapus($id);
-	}
-
-	/**
-	 * Hapus semua data yang dipilih
-	 */
-	public function getHapusCeklis() {
-		# tampilkan halaman
-		return View::make('_partials.modal.kabupaten_hapus_daftar');
-	}
-
-	/**
-	 * Hapus semua isi database yang dipilih
-	 */
-	public function postHapusCeklis() {
-		# buat variabel untuk menampung id
-		$id = Input::get('id');
-		# untuk nilai i = 0, selama nilai i lebih kecil dari $id, 
-		# lakukan perulangan dengan menambahkan 1 setiap putarannya
-		for ($i = 0; $i<count($id); $i++) {
-			# hapus isi database
-			Kabupaten::hapus($id[$i]['value']);
-		}
 	}
 
 	/**

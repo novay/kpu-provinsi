@@ -19,6 +19,9 @@ class BuatTabelOrganisasi extends Migration {
 			$table->string('nama', 100);
 			$table->string('logo')->nullable();
 			$table->string('alamat');
+			$table->string('kota');
+			$table->string('provinsi');
+			$table->string('negara');
 			$table->timestamps();
 		});
 	}

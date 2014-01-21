@@ -29,8 +29,13 @@
 {{-- Untuk CSS tambahan --}}
 @yield('style')
 		{{ HTML::style('packages/ace/css/chosen.css') }}
+		<style type="text/css">
+		a {
+			cursor:pointer;
+		}
+		</style>
 	</head>
-	<body>
+	<body class="navbar-fixed">
 	
 		@include('_partials.nav')
 		<div class="konten">
@@ -59,7 +64,6 @@
 								<div>
 									<h4 class="lighter smaller">Penjelasannya nanti, intinya aplikasi ini jadi dulu.</h4>
 								</div>
-
 								<hr />
 								<div class="space"></div>
 								<h4 class="lighter smaller pull-right">Regard, <a href="http://github.com/novay" target="_blank"> Noviyanto Rachmady</a></h4><br />
@@ -76,24 +80,11 @@
 			<i class="icon-double-angle-up icon-only bigger-110"></i>
 		</a>
 
+		<div id="modal" class="modal hide fade" aria-hidden="true" data-backdrop="static"></div>
+		
 {{-- Koleksi Jacascript --}}
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-		<script type="text/javascript">
-			$(function() {
-				$(".chzn-select").chosen(); 
-				//chosen plugin inside a modal will have a zero width because the select element is originally hidden
-				//and its width cannot be determined.
-				//so we set the width after modal is show
-				$('#modal-form').on('show', function () {
-					$(this).find('.chzn-container').each(function(){
-						$(this).find('a:first-child').css('width' , '200px');
-						$(this).find('.chzn-drop').css('width' , '210px');
-						$(this).find('.chzn-search input').css('width' , '200px');
-					});
-				})
-			});
-		</script>
 
 		{{ HTML::script('assets/js/jquery-2.0.3.js') }}
 		{{ HTML::script('assets/js/jquery.form.js') }}

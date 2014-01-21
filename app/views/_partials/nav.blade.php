@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container-fluid">
 			<a onclick="home()" class="brand">
@@ -10,15 +10,15 @@
 					<ul class="dropdown-navbar dropdown-menu dropdown-caret ">
 						<li class="nav-header"><i class="icon-ok"></i> Pilih Salah Satu Master :</li>
 						<li>
-							<a onclick="dataKabupaten()" style="cursor:pointer;">
+							<a onclick="dataKabupaten()">
 								<div class="clearfix">
-									<span class="pull-left">Kabupaten</span>
+									<span class="pull-left">Kabupaten / Kota</span>
 									<span class="pull-right label arrowed">{{ Kabupaten::all()->count() }}</span>
 								</div>
 							</a>
 						</li>
 						<li>
-							<a onclick="dataKecamatan()" style="cursor:pointer;">
+							<a onclick="dataKecamatan()">
 								<div class="clearfix">
 									<span class="pull-left">Kecamatan</span>
 									<span class="pull-right label arrowed">{{ Kecamatan::all()->count() }}</span>
@@ -26,16 +26,16 @@
 							</a>
 						</li>
 						<li>
-							<a onclick="dataKelurahan()" style="cursor:pointer;">
+							<a onclick="dataKelurahan()">
 								<div class="clearfix">
-									<span class="pull-left">Kelurahan</span>
+									<span class="pull-left">Kelurahan / Desa</span>
 									<span class="pull-right label arrowed">{{ Kelurahan::all()->count() }}</span>
 								</div>
 							</a>
 						</li>
 						<li>
 							<a onclick="dataTps()">
-								<div class="clearfix" style="cursor:pointer;">
+								<div class="clearfix">
 									<span class="pull-left">TPS</span>
 									<span class="pull-right label arrowed">{{ Tps::all()->count() }}</span>
 								</div>
@@ -49,8 +49,8 @@
 				<li class="light-blue">
 					<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-hdd"></i> Database <i class="icon-caret-down"></i></a>
 					<ul class="dropdown-navbar dropdown-menu dropdown-caret ">
-						<li><a onclick="backup()" style="cursor:pointer;"><i class="icon-download-alt"></i> Backup Database</a></li>
-						<li><a onclick="modalRestore()" style="cursor:pointer;"><i class="icon-upload-alt"></i> Restore Database</a></li>
+						<li><a onclick="backup()"><i class="icon-download-alt"></i> Backup Database</a></li>
+						<li><a onclick="modalRestore()"><i class="icon-upload-alt"></i> Restore Database</a></li>
 						<li></li>
 					</ul>
 				</li>
@@ -68,7 +68,7 @@
 						<li><a href="#"><i class="icon-cog"></i> Settings</a></li>
 						<li><a href="#"><i class="icon-user"></i> Profile</a></li>
 						<li class="divider"></li>
-						<li><a onclick="logout()" style="cursor:pointer;"><i class="icon-off"></i> Logout</a></li>
+						<li><a onclick="logout()"><i class="icon-off"></i> Logout</a></li>
 					</ul>
 				</li>
 			</ul><!--/.ace-nav-->

@@ -5,7 +5,6 @@
 			<!--PAGE CONTENT BEGINS-->
 			<div class="row-fluid">
 				<a onclick="modalTambahKecamatan()" role="button" class="btn btn-primary pull-right no-border" data-toggle="modal"><i class="icon-plus"></i> Tambah Baru</a>
-				<div id="#" class="modal hide fade" tabindex="-1"></div>
 				<h3 class="header smaller lighter blue">Daftar Kecamatan</h3>
 				<div class="table-header">
 					Results for "Latest Registered Domains"
@@ -160,5 +159,5 @@
 			</div><!--/.span-->
 		</div><!--/.row-fluid-->
 	</div><!--/.page-content-->
-	<div id="#modal-form" class="modal hide fade" tabindex="-1"></div>
 @endif
+

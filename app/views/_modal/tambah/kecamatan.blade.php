@@ -15,7 +15,11 @@
 					'class' => 'control-label']) 
 				}}
 				<div class="controls">
-					{{ Form::select('id_kabupaten', Kabupaten::dropdown(), ['class'=>'chzn-select'] ) }}
+
+					{{ Form::select('id_kabupaten', Kabupaten::dropdown(), [
+						'class'=>'chzn-select', 
+						'data-placeholder'=>'Pilih Kabupaten...'] ) 
+					}}
 					<small><span class="help-block" id="error-kabupaten"></span></small>
 				</div>
 			</div>

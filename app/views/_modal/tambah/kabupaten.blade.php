@@ -17,6 +17,7 @@
 				<div class="controls">
 					{{ Form::text('nama', NULL, [
 						'id' => 'nama',
+						'class' => 'input-focus',
 						'onKeyPress' => 'enterTambahKabupaten(event)',
 						'maxlength' => 50]) 
 					}}

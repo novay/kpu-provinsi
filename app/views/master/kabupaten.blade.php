@@ -5,11 +5,11 @@
 		<div class="span12">
 			<!--PAGE CONTENT BEGINS-->
 			<div class="row-fluid">
-				<a onclick="modalTambahKabupaten()" role="button" class="btn btn-primary pull-right no-border" data-toggle="modal"><i class="icon-plus"></i> Tambah Baru</a>
-				<div id="#" class="modal hide fade" tabindex="-1"></div>
-				<h3 class="header smaller lighter blue">Daftar Kabupaten</h3>
+				<a onclick="modalTambahKabupaten()" class="btn btn-primary pull-right no-border" data-toggle="modal"><i class="icon-plus"></i> Tambah Baru</a>
+				<!-- <a onclick="modalHapusDaftarKabupaten()" class="btn btn-danger pull-right no-border" data-toggle="modal"><i class="icon-trash"></i> Hapus</a> -->
+				<h3 class="header smaller lighter blue">Daftar Kabupaten/Kota</h3>
 				<div class="table-header">
-					Results for "Latest Registered Domains"
+					<small>*Gunakan fungsi search untuk memudahkan Anda dalam pencarian...</small>
 				</div>
 
 				<table id="daftar-kabupaten" class="table table-striped table-bordered table-hover">
@@ -33,7 +33,9 @@
 						@foreach($daftar as $temp)
 						<tr>
 							<td class="center">
-								<label><input type="checkbox" /><span class="lbl"></span></label>
+								<label>
+									<input type="checkbox" value="id[{{ $temp->id }}]" class="id-kabupaten"/><span class="lbl"></span>
+								</label>
 							</td>
 							<td>{{ $temp->nama }}</td>
 							<td class="hidden-480">
@@ -53,13 +55,13 @@
 							</td>
 							<td class="td-actions">
 								<div class="hidden-phone visible-desktop action-buttons">
-									<a class="blue" href="#">
+									<a class="blue" data-toggle="modal" onclick="modalLihatKabupaten({{ $temp->id }})">
 										<i class="icon-zoom-in bigger-130"></i>
 									</a>
-									<a class="green" href="#">
+									<a class="green" data-toggle="modal" onclick="modalUbahKabupaten({{ $temp->id }})">
 										<i class="icon-pencil bigger-130"></i>
 									</a>
-									<a class="red" href="#">
+									<a class="red" data-toggle="modal" onclick="modalHapusKabupaten({{ $temp->id }})">
 										<i class="icon-trash bigger-130"></i>
 									</a>
 								</div>
@@ -122,8 +124,7 @@
 			.each(function(){
 				this.checked = that.checked;
 				$(this).closest('tr').toggleClass('selected');
-			});
-				
+			});		
 		});
 	
 		$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
@@ -169,5 +170,4 @@
 			</div><!--/.span-->
 		</div><!--/.row-fluid-->
 	</div><!--/.page-content-->
-	<div id="#" class="modal hide fade" tabindex="-1"></div>
 @endif

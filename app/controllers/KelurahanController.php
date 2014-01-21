@@ -40,15 +40,14 @@ class KelurahanController extends BaseController {
 	public function postBaru() {
 		# validasi
 		$v = Validator::make(Input::all(), Kelurahan::$rules);
-		# jika validasi gagal	
+		# jika validasi tidak valid
 		if ($v->fails()) {
-			# koleksi variabel error
+			# koleksi variabel error lalu kirim
 			$nama = $v->messages()->first('nama') ?: '';
 			$id_kecamatan = $v->messages()->first('id_kecamatan') ?: '';
 			$status = '';
-			# Kirim nama
 			return Response::json(compact('nama', 'id_kecamatan', 'status'));
-		# jika validasi valid
+		# jika validasi gagal	
 		} else {
 			# inputan dari form
 			$nama = trim(Input::get('nama'));
