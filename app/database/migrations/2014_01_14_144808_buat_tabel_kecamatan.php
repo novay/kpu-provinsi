@@ -17,7 +17,10 @@ class BuatTabelKecamatan extends Migration {
 		Schema::create('kecamatan', function($table) {
 			$table->increments('id');
 			$table->string('nama');
-			$table->integer('id_kabupaten');
+			$table->unsignedInteger('id_kabupaten');
+            $table->foreign('id_kabupaten')
+                ->references('id')->on('kabupaten')
+                ->onDelete('cascade');
 			$table->timestamps();
 		});
 	}

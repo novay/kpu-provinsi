@@ -17,9 +17,18 @@ class BuatTabelTps extends Migration {
 		Schema::create('tps', function($table) {
 			$table->increments('id');
 			$table->string('nama');
-			$table->integer('id_kelurahan');
-			$table->integer('id_kecamatan');
-			$table->integer('id_kabupaten');
+			$table->unsignedInteger('id_kelurahan');
+            $table->foreign('id_kelurahan')
+                ->references('id')->on('kelurahan')
+                ->onDelete('cascade');
+			$table->unsignedInteger('id_kecamatan');
+            $table->foreign('id_kecamatan')
+                ->references('id')->on('kecamatan')
+                ->onDelete('cascade');
+			$table->unsignedInteger('id_kabupaten');
+            $table->foreign('id_kabupaten')
+                ->references('id')->on('kabupaten')
+                ->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
