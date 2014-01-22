@@ -170,21 +170,7 @@ function modalLihatKabupaten(n) {
 		$('.modal').modal('show');
 	});
 }
-function modalLihatKecamatan(n) {
-	$('.modal').load(url_lihat_kecamatan + '/' + n, function() {
-		$('.modal').modal('show');
-	});
-}
-function modalLihatKelurahan(n) {
-	$('.modal').load(url_lihat_kelurahan + '/' + n, function() {
-		$('.modal').modal('show');
-	});
-}
-function modalLihatTps(n) {
-	$('.modal').load(url_lihat_tps + '/' + n, function() {
-		$('.modal').modal('show');
-	});
-}
+
 // ################# Akhir Modal Lihat ###################### //
 
 // ################# Modal Ubah ###################### //
@@ -193,21 +179,7 @@ function modalUbahKabupaten(n) {
 		$('.modal').modal('show');
 	});
 }
-function modalUbahKecamatan(n) {
-	$('.modal').load(url_ubah_kecamatan + '/' + n, function() {
-		$('.modal').modal('show');
-	});
-}
-function modalUbahKelurahan(n) {
-	$('.modal').load(url_ubah_kelurahan + '/' + n, function() {
-		$('.modal').modal('show');
-	});
-}
-function modalUbahTps(n) {
-	$('.modal').load(url_ubah_tps + '/' + n, function() {
-		$('.modal').modal('show');
-	});
-}
+
 // ################# Akhir Modal Ubah ###################### //
 
 // ################# Fungsi Ubah ###################### //
@@ -231,66 +203,7 @@ function ubahKabupaten() {
 		}
 	});
 }
-function ubahKecamatan() {
-	$('.form-ubah-kecamatan').ajaxSubmit({
-		success: function(r) {		
-			if (r.status == '') {
-				if (r.nama) {
-					$('#control-nama').removeClass('info').addClass('error');
-					$('#error-nama').text(r.nama);
-				} else {
-					$('#control-nama').removeClass('error').addClass('info');
-					$('#error-nama').text('');
-				};		
-			} else {
-				$('.modal').modal('hide');
-				$('.modal').html('');
-				notif('Kecamatan berhasil di ubah.', 'info');
-				dataKecamatan();
-			};		
-		}
-	});
-}
-function ubahKelurahan() {
-	$('.form-ubah-kelurahan').ajaxSubmit({
-		success: function(r) {		
-			if (r.status == '') {
-				if (r.nama) {
-					$('#control-nama').removeClass('info').addClass('error');
-					$('#error-nama').text(r.nama);
-				} else {
-					$('#control-nama').removeClass('error').addClass('info');
-					$('#error-nama').text('');
-				};		
-			} else {
-				$('.modal').modal('hide');
-				$('.modal').html('');
-				notif('Kelurahan berhasil di ubah.', 'info');
-				dataKelurahan();
-			};		
-		}
-	});
-}
-function ubahTps() {
-	$('.form-ubah-tps').ajaxSubmit({
-		success: function(r) {		
-			if (r.status == '') {
-				if (r.nama) {
-					$('#control-nama').removeClass('info').addClass('error');
-					$('#error-nama').text(r.nama);
-				} else {
-					$('#control-nama').removeClass('error').addClass('info');
-					$('#error-nama').text('');
-				};		
-			} else {
-				$('.modal').modal('hide');
-				$('.modal').html('');
-				notif('TPS berhasil di ubah.', 'info');
-				dataTps();
-			};		
-		}
-	});
-}
+
 // ################# Akhir Fungsi Ubah ###################### //
 
 
@@ -300,21 +213,7 @@ function modalHapusKabupaten(n) {
 		$('.modal').modal('show');
 	});
 }
-function modalHapusKecamatan(n) {
-	$('.modal').load(url_hapus_kecamatan + '/' + n, function() {
-		$('.modal').modal('show');
-	});
-}
-function modalHapusKelurahan(n) {
-	$('.modal').load(url_hapus_kelurahan + '/' + n, function() {
-		$('.modal').modal('show');
-	});
-}
-function modalHapusTps(n) {
-	$('.modal').load(url_hapus_tps + '/' + n, function() {
-		$('.modal').modal('show');
-	});
-}
+
 // ################# Akhir Modal Hapus ###################### //
 
 // ################# Fungsi Hapus ###################### //
@@ -326,53 +225,8 @@ function hapusKabupaten(n) {
 		dataKabupaten();
 	});
 }
-function hapusKecamatan(n) {
-	$.post(url_hapus_kecamatan + '/' + n, { _token:token }, function(r) {
-		$('.modal').modal('hide');
-		$('.modal').html('');
-		notif('Data Kecamatan berhasil dihapus.', 'info');
-		dataKecamatan();
-	});
-}
-function hapusKelurahan(n) {
-	$.post(url_hapus_kelurahan + '/' + n, { _token:token }, function(r) {
-		$('.modal').modal('hide');
-		$('.modal').html('');
-		notif('Data Kelurahan berhasil dihapus.', 'info');
-		dataKelurahan();
-	});
-}
-function hapusTps(n) {
-	$.post(url_hapus_tps + '/' + n, { _token:token }, function(r) {
-		$('.modal').modal('hide');
-		$('.modal').html('');
-		notif('Data TPS berhasil dihapus.', 'info');
-		dataTps();
-	});
-}
-// ################# Fungsi Hapus ###################### //
 
-// ################# Fungsi Hapus Daftar ###################### //
-function modalHapusDaftarKabupaten() {
-	var id = $('.id-kabupaten:checked').serializeArray();
-	if (id.length > 0) {
-		$('.modal').load(url_hapus_daftar_kabupaten, function() {
-			$('.modal').modal('show');
-		});
-	} else {
-		notif('Pilih dulu kabupaten yg ingin dihapus.', 'error');
-	};
-}
-function hapusDaftarKabupaten() {
-	var id = $('.id-kabupaten:checked').serializeArray();
-	$.post(url_hapus_daftar_kabupaten, { id:id, _token:token }, function(r) {
-		$('.modal').modal('hide');
-		$('.modal').html('');
-		notif('Data kabupaten berhasil dihapus.', 'info');
-		dataKabupaten();
-	});
-}
-// ################# Fungsi Hapus Daftar ###################### //
+// ################# Fungsi Hapus ###################### //
 
 
 // Fungsi notifikasi

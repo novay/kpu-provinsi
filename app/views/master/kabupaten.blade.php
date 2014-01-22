@@ -55,13 +55,13 @@
 							</td>
 							<td class="td-actions">
 								<div class="hidden-phone visible-desktop action-buttons">
-									<a class="blue" data-toggle="modal" onclick="modalLihatKabupaten({{ $temp->id }})">
+									<a class="blue" data-toggle="modal" onclick="modalLihatKabupaten({{$temp->id}})">
 										<i class="icon-zoom-in bigger-130"></i>
 									</a>
-									<a class="green" data-toggle="modal" onclick="modalUbahKabupaten({{ $temp->id }})">
+									<a class="green" data-toggle="modal" onclick="modalUbahKabupaten({{$temp->id}})">
 										<i class="icon-pencil bigger-130"></i>
 									</a>
-									<a class="red" data-toggle="modal" onclick="modalHapusKabupaten({{ $temp->id }})">
+									<a class="red" data-toggle="modal" onclick="modalHapusKabupaten({{$temp->id}})">
 										<i class="icon-trash bigger-130"></i>
 									</a>
 								</div>
@@ -74,23 +74,21 @@
 
 										<ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
 											<li>
-												<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+												<a data-toggle="modal" onclick="modalLihatKabupaten({{$temp->id}})" class="tooltip-info" data-rel="tooltip" title="View">
 													<span class="blue">
 														<i class="icon-zoom-in bigger-120"></i>
 													</span>
 												</a>
 											</li>
-
 											<li>
-												<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+												<a data-toggle="modal" onclick="modalUbahKabupaten({{$temp->id}})" class="tooltip-success" data-rel="tooltip" title="Edit">
 													<span class="green">
 														<i class="icon-edit bigger-120"></i>
 													</span>
 												</a>
 											</li>
-
 											<li>
-												<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+												<a data-toggle="modal" onclick="modalHapusKabupaten({{$temp->id}})" class="tooltip-error" data-rel="tooltip" title="Delete">
 													<span class="red">
 														<i class="icon-trash bigger-120"></i>
 													</span>

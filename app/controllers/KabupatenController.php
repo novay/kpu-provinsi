@@ -21,7 +21,7 @@ class KabupatenController extends BaseController {
 	 */
 	public function getIndex() {
 		# Ambil isi tabel kabupaten, urutkan berdasarkan nama
-		$daftar = Kabupaten::orderBy('nama', 'DESC')->get();
+		$daftar = Kabupaten::orderBy('created_at', 'DESC')->get();
 		# Tampilkan halaman tujuan
 		return View::make('master.kabupaten', compact('daftar'));
 	}
@@ -60,52 +60,54 @@ class KabupatenController extends BaseController {
 	 */
 	public function getGanti($id) {
 		# Sesuaikan id target
-		$kab = Kabupaten::find($id);
+		$temp = Kabupaten::find($id);
 		# Tampilkan halaman
-		return View::make('_partials.modal.kabupaten_ganti', compact('kab'));
+		return View::make('_modal.ganti.kabupaten', compact('temp'));
 	}
 
 	/**
 	 * Ganti isi database
 	 */
-	public function postGanti() 
+	public function postGanti($id) 
 	{
 		# validasi
 		$v = Validator::make(Input::all(), Kabupaten::$rules);
-		# jika validasi valid
-		if ($v->passes()) {
-			# inputan dari form
-			$nama = Input::get('nama');
-			# Input data dalam database
-			Kabupaten::ganti($nama);
-		# jika validasi gagal	
-		} else {
-			# koleksi variabel error
+		# jika validasi tidak valid
+		if ($v->fails()) {
+			# koleksi variabel error lalu kirim
 			$nama = $v->messages()->first('nama') ?: '';
 			$status = '';
-			# Kirim nama
 			return Response::json(compact('nama', 'status'));
-		}  
+		# jika validasi gagal	
+		} else {
+			# inputan dari form
+			$nama = trim(Input::get('nama'));
+			# Input data dalam database
+			Kabupaten::ganti($id, $nama);
+		} 
 	}
 
 	/**
 	 * Lihat data
 	 */
 	public function getLihat($id) {
+		$title = 'Kabupaten/Kota';
 		# Sesuaikan id target
-		$kabupaten = Kabupaten::find($id);
+		$temp = Kabupaten::find($id);
 		# Tampilkan halaman
-		return View::make('_modal.lihat', compact('kabupaten'));
+		return View::make('_modal.lihat', compact('temp', 'title'));
 	}
 
 	/**
 	 * Hapus data
 	 */
 	public function getHapus($id) {
+		# Title Kontrol
+		$title = 'Kabupaten/Kota';
 		# Sesuaikan id target
-		$kabupaten = Kabupaten::find($id);
+		$temp = Kabupaten::find($id);
 		# Tampilkan halaman
-		return View::make('_modal.hapus.kabupaten', compact('kabupaten'));
+		return View::make('_modal.hapus', compact('title', 'temp'));
 	}
 
 	/**
