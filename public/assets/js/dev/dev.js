@@ -312,7 +312,7 @@ function hapusKecamatanKelurahan(n) {
 	});
 }
 
-// ################# Fungsi Hapus ###################### //
+// ################# Akhir Fungsi Hapus ###################### //
 
 
 // Fungsi notifikasi
