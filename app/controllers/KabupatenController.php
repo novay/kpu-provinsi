@@ -91,11 +91,10 @@ class KabupatenController extends BaseController {
 	 * Lihat data
 	 */
 	public function getLihat($id) {
-		$title = 'Kabupaten/Kota';
 		# Sesuaikan id target
 		$temp = Kabupaten::find($id);
 		# Tampilkan halaman
-		return View::make('_modal.lihat', compact('temp', 'title'));
+		return View::make('_modal.lihat.kabupaten', compact('temp'));
 	}
 
 	/**
@@ -104,10 +103,12 @@ class KabupatenController extends BaseController {
 	public function getHapus($id) {
 		# Title Kontrol
 		$title = 'Kabupaten/Kota';
+		# Onclick button
+		$onclick = 'hapusKabupaten('.$id.')';
 		# Sesuaikan id target
 		$temp = Kabupaten::find($id);
 		# Tampilkan halaman
-		return View::make('_modal.hapus', compact('title', 'temp'));
+		return View::make('_modal.hapus', compact('title', 'onclick', 'temp'));
 	}
 
 	/**
@@ -124,9 +125,9 @@ class KabupatenController extends BaseController {
 	public function getExcel() {
 		# kumpulkan data dari models
 		$org = Organisasi::data();
-		$kab = Kabupaten::orderBy('nama', 'DESC')->get();
+		$temp = Kabupaten::orderBy('nama', 'DESC')->get();
 		# tampilkan halaman
-		return View::make('excel.kabupaten', compact('org', 'kab'));
+		return View::make('excel.kabupaten', compact('org', 'temp'));
 	}
 
 }

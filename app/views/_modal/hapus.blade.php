@@ -9,5 +9,5 @@
 
 <div class="modal-footer">
 	<a class="btn btn-small" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> Batal</a>
-	<a onclick="hapusKabupaten({{$temp->id}})" class="btn btn-small btn-primary"><i class="icon-ok"></i> Hapus</a>
+	<a onclick="{{ $onclick }}" class="btn btn-small btn-primary"><i class="icon-ok"></i> Hapus</a>
 </div>

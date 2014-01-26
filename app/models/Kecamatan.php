@@ -16,7 +16,7 @@ class Kecamatan extends Eloquent {
 	protected $guarded = ['id'];
 
 	# Validasi
-	public static $rules = ['nama'=>'required', 'id_kabupaten'=>'required'];
+	public static $rules = ['nama'=>'required|max:50|min:3', 'id_kabupaten'=>'required'];
 
 	/**
 	 * Relasi
@@ -68,22 +68,5 @@ class Kecamatan extends Eloquent {
 	{
 		Kecamatan::destroy($id);
 	}
-
-	/**
-	 * Menu dropdown
-	 */
-	public static function dropdown() {
-        # Ambil semua nilai model kategori
-        $kecamatan = Kecamatan::all();
-        # Inisialisasi pilihsn array dengan nilai default
-        $pilihan[''] = 'Pilih Kecamatan...';
-        # Lakukan perulangan
-        foreach($kecamatan as $temp) { 
-            # Tampikan semua nama berdasarkan id kategori yang ada
-        	$pilihan[$temp->id] = $temp->nama;
-        }
-        # Kirim nilai
-        return $pilihan;
-    }
 
 }

@@ -24,9 +24,8 @@
 	var url_ubah_tps	   = '{{ route('ubah_tps') }}';
 	// Modal Lihat
 	var url_lihat_kabupaten = '{{ route('lihat_kabupaten') }}';
-
-	// Modal Pilihan
-	var url_hapus_daftar_kabupaten = '{{ route('hapus_daftar_kabupaten') }}';
+	var url_lihat_kecamatan = '{{ route('lihat_kecamatan') }}';
+	var url_lihat_kelurahan = '{{ route('lihat_kelurahan') }}';
 
 	var url_backup 	   = '{{ route('backup') }}';
 	var url_restore    = '{{ route('restore') }}';

@@ -16,7 +16,7 @@ class Kelurahan extends Eloquent {
 	protected $guarded = ['id'];
 
 	# Validasi
-	public static $rules = ['nama'=>'required|min:3', 'id_kecamatan'=>'required', 'id_kabupaten'=>'required'];
+	public static $rules = ['nama'=>'required|max:50|min:3', 'id_kecamatan'=>'required', 'id_kabupaten'=>'required'];
 
 	/**
 	 * Relasi
@@ -47,8 +47,6 @@ class Kelurahan extends Eloquent {
 	 */
 	public static function tambah($nama, $id_kecamatan, $id_kabupaten)
 	{
-		$id_kabupaten = Kecamatan::find($id_kecamatan)->id_kabupaten;
-
 		Kelurahan::create(compact('nama', 'id_kecamatan', 'id_kabupaten'));
 	}
 
@@ -60,6 +58,7 @@ class Kelurahan extends Eloquent {
 		$temp = Kelurahan::find($id);
 		$temp->nama			= $nama;
 		$temp->id_kecamatan	= $id_kecamatan;
+		$temp->id_kabupaten	= $id_kabupaten;
 		$temp->save();
 	}
 

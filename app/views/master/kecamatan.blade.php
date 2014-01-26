@@ -1,13 +1,15 @@
+{{-- Jika ada --}}
 @if($daftar->count())
 <div class="page-content">
 	<div class="row-fluid">
 		<div class="span12">
 			<!--PAGE CONTENT BEGINS-->
 			<div class="row-fluid">
-				<a onclick="modalTambahKecamatan()" role="button" class="btn btn-primary pull-right no-border" data-toggle="modal"><i class="icon-plus"></i> Tambah Baru</a>
+				<a onclick="modalTambahKecamatan()" class="btn btn-primary pull-right no-border" data-toggle="modal"><i class="icon-plus"></i> Tambah Baru</a>
+				<!-- <a onclick="modalHapusDaftarKecamatan()" class="btn btn-danger pull-right no-border" data-toggle="modal"><i class="icon-trash"></i> Hapus</a> -->
 				<h3 class="header smaller lighter blue">Daftar Kecamatan</h3>
 				<div class="table-header">
-					Results for "Latest Registered Domains"
+					<small>*Gunakan fungsi search untuk memudahkan Anda dalam pencarian...</small>
 				</div>
 
 				<table id="daftar-kecamatan" class="table table-striped table-bordered table-hover">
@@ -45,13 +47,13 @@
 							</td>
 							<td class="td-actions">
 								<div class="hidden-phone visible-desktop action-buttons">
-									<a class="blue" href="#">
+									<a class="blue" data-toggle="modal" onclick="modalLihatKecamatan({{$temp->id}})">
 										<i class="icon-zoom-in bigger-130"></i>
 									</a>
-									<a class="green" href="#">
+									<a class="green" data-toggle="modal" onclick="modalUbahKecamatan({{$temp->id}})">
 										<i class="icon-pencil bigger-130"></i>
 									</a>
-									<a class="red" href="#">
+									<a class="red" data-toggle="modal" onclick="modalHapusKecamatan({{$temp->id}})">
 										<i class="icon-trash bigger-130"></i>
 									</a>
 								</div>
@@ -64,23 +66,21 @@
 
 										<ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
 											<li>
-												<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+												<a data-toggle="modal" onclick="modalLihatKecamatan({{$temp->id}})" class="tooltip-info" data-rel="tooltip" title="View">
 													<span class="blue">
 														<i class="icon-zoom-in bigger-120"></i>
 													</span>
 												</a>
 											</li>
-
 											<li>
-												<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+												<a data-toggle="modal" onclick="modalUbahKecamatan({{$temp->id}})" class="tooltip-success" data-rel="tooltip" title="Edit">
 													<span class="green">
 														<i class="icon-edit bigger-120"></i>
 													</span>
 												</a>
 											</li>
-
 											<li>
-												<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+												<a data-toggle="modal" onclick="modalHapusKecamatan({{$temp->id}})" class="tooltip-error" data-rel="tooltip" title="Delete">
 													<span class="red">
 														<i class="icon-trash bigger-120"></i>
 													</span>
@@ -133,6 +133,8 @@
 		}
 	})
 </script>
+
+{{-- Jika kosong --}}
 @else
 	<div class="space"></div>
 	<div class="page-content text-center">

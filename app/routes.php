@@ -22,8 +22,6 @@ Route::get('kabupaten/ganti/{id?}', array('as' => 'ubah_kabupaten', 'uses' => 'K
 Route::post('kabupaten/ganti/{id?}', array('uses' => 'KabupatenController@postGanti'))->where('id', '\d+');
 Route::get('kabupaten/hapus/{id?}', array('as' => 'hapus_kabupaten', 'uses' => 'KabupatenController@getHapus'))->where('id', '\d+');
 Route::post('kabupaten/hapus/{id?}', array('uses' => 'KabupatenController@postHapus'))->where('id', '\d+');
-Route::get('kabupaten/hapus/ceklis', array('as' => 'hapus_daftar_kabupaten', 'uses' => 'KabupatenController@getHapusCeklis'));
-Route::post('kabupaten/hapus/ceklis', array('uses' => 'KabupatenController@postHapusCeklis'));
 Route::get('kabupaten/excel', array('as' => 'excel_kabupaten', 'uses' => 'KabupatenController@getExcel'));
 Route::get('kabupaten/{id?}', array('as' => 'lihat_kabupaten', 'uses' => 'KabupatenController@getLihat'))->where('id', '\d+');
 
@@ -35,9 +33,8 @@ Route::get('kecamatan/ganti/{id?}', array('as' => 'ubah_kecamatan', 'uses' => 'K
 Route::post('kecamatan/ganti/{id?}', array('uses' => 'KecamatanController@postGanti'))->where('id', '\d+');
 Route::get('kecamatan/hapus/{id?}', array('as' => 'hapus_kecamatan', 'uses' => 'KecamatanController@getHapus'))->where('id', '\d+');
 Route::post('kecamatan/hapus/{id?}', array('uses' => 'KecamatanController@postHapus'))->where('id', '\d+');
-Route::get('kecamatan/hapus/ceklis', array('as' => 'hapus_daftar_kecamatan', 'uses' => 'KecamatanController@getHapusCeklis'));
-Route::post('kecamatan/hapus/ceklis', array('uses' => 'KecamatanController@postHapusCeklis'));
 Route::get('kecamatan/excel', array('as' => 'excel_kecamatan', 'uses' => 'KecamatanController@getExcel'));
+Route::get('kecamatan/{id?}', array('as' => 'lihat_kecamatan', 'uses' => 'KecamatanController@getLihat'))->where('id', '\d+');
 
 ## Kelurahan
 Route::get('kelurahan', array('as' => 'kelurahan', 'uses' => 'KelurahanController@getIndex'));
@@ -47,9 +44,8 @@ Route::get('kelurahan/ganti/{id?}', array('as' => 'ubah_kelurahan', 'uses' => 'K
 Route::post('kelurahan/ganti/{id?}', array('uses' => 'KelurahanController@postGanti'))->where('id', '\d+');
 Route::get('kelurahan/hapus/{id?}', array('as' => 'hapus_kelurahan', 'uses' => 'KelurahanController@getHapus'))->where('id', '\d+');
 Route::post('kelurahan/hapus/{id?}', array('uses' => 'KelurahanController@postHapus'))->where('id', '\d+');
-Route::get('kelurahan/hapus/ceklis', array('as' => 'hapus_daftar_kelurahan', 'uses' => 'KelurahanController@getHapusCeklis'));
-Route::post('kelurahan/hapus/ceklis', array('uses' => 'KelurahanController@postHapusCeklis'));
 Route::get('kelurahan/excel', array('as' => 'excel_kelurahan', 'uses' => 'KelurahanController@getExcel'));
+Route::get('kelurahan/{id?}', array('as' => 'lihat_kelurahan', 'uses' => 'KelurahanController@getLihat'))->where('id', '\d+');
 
 ## TPS
 Route::get('tps', array('as' => 'tps', 'uses' => 'TpsController@getIndex'));

@@ -17,7 +17,7 @@
 	<div class="modal-body text-center">
 		<div class="tab-content">
 			<div id="detail" class="tab-pane in active">
-				<h2>{{$title}} <strong>{{strtoupper($temp->nama)}}</strong></h2>
+				<h2>Kecamatan <strong>{{strtoupper($temp->nama)}}</strong></h2>
 
 				<div class="profile-user-info profile-user-info-striped">
 					<div class="profile-info-row">
@@ -29,9 +29,9 @@
 					</div>
 
 					<div class="profile-info-row">
-						<div class="profile-info-name"> Kecamatan </div>
+						<div class="profile-info-name"> Kabupaten </div>
 						<div class="profile-info-value">
-							<span>{{ $temp->Kecamatan()->count() }} Kecamatan</span>
+							<span>{{ Kabupaten::find($temp->id_kabupaten)->nama }}</span>
 						</div>
 					</div>
 
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 			<div id="map" class="tab-pane">
-				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=id&amp;q={{$temp->nama}},+{{Organisasi::data()->provinsi}},+{{Organisasi::data()->negara}}&amp;aq=1&amp;ie=UTF8&amp;hq=&amp;hnear={{$temp->nama}},+{{Organisasi::data()->provinsi}},+{{Organisasi::data()->negara}}&amp;z=7&amp;iwloc=near&output=embed"></iframe>
+				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=id&amp;q={{$temp->nama}},+{{Kabupaten::find($temp->id_kabupaten)->nama}},+{{Organisasi::data()->provinsi}},+{{Organisasi::data()->negara}}&amp;aq=1&amp;ie=UTF8&amp;hq=&amp;hnear={{$temp->nama}},,+{{Kabupaten::find($temp->id_kabupaten)->nama}},+{{Organisasi::data()->provinsi}},+{{Organisasi::data()->negara}}&amp;z=7&amp;iwloc=near&output=embed"></iframe>
 			</div>
 		</div>
 	</div>

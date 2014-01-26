@@ -21,7 +21,7 @@ class KelurahanController extends BaseController {
 	 */
 	public function getIndex() {
 		# Ambil isi tabel Kelurahan, urutkan berdasarkan nama
-		$daftar = Kelurahan::orderBy('nama', 'DESC')->get();
+		$daftar = Kelurahan::orderBy('created_at', 'DESC')->get();
 		# Tampilkan halaman tujuan
 		return View::make('master.kelurahan', compact('daftar'));
 	}
@@ -39,21 +39,23 @@ class KelurahanController extends BaseController {
 	 */
 	public function postBaru() {
 		# validasi
-		$v = Validator::make(Input::all(), Kelurahan::$rules);
+		$v = Validator::make(Input::all(), Kecamatan::$rules);
 		# jika validasi tidak valid
 		if ($v->fails()) {
 			# koleksi variabel error lalu kirim
 			$nama = $v->messages()->first('nama') ?: '';
+			$id_kabupaten = $v->messages()->first('id_kabupaten') ?: '';
 			$id_kecamatan = $v->messages()->first('id_kecamatan') ?: '';
 			$status = '';
-			return Response::json(compact('nama', 'id_kecamatan', 'status'));
+			return Response::json(compact('nama', 'id_kabupaten', 'id_kecamatan', 'status'));
 		# jika validasi gagal	
 		} else {
 			# inputan dari form
 			$nama = trim(Input::get('nama'));
+			$id_kabupaten = Input::get('id_kabupaten');
 			$id_kecamatan = Input::get('id_kecamatan');
 			# Input data dalam database
-			Kelurahan::tambah($nama, $id_kecamatan);
+			Kecamatan::tambah($nama, $id_kabupaten, $id_kecamatan);
 		} 
 	}
 
@@ -62,44 +64,58 @@ class KelurahanController extends BaseController {
 	 */
 	public function getGanti($id) {
 		# Sesuaikan id target
-		$kab = Kelurahan::find($id);
+		$temp = Kelurahan::find($id);
 		# Tampilkan halaman
-		return View::make('_partials.modal.kelurahan_ganti', compact('kab'));
+		return View::make('_modal.ganti.kelurahan', compact('temp'));
 	}
 
 	/**
 	 * Ganti isi database
 	 */
-	public function postGanti() 
-	{
+	public function postGanti($id) {
 		# validasi
-		$v = Validator::make(Input::all(), Kelurahan::$rules);
-		# jika validasi valid
-		if ($v->passes()) {
-			# inputan dari form
-			$nama = Input::get('nama');
-			$id_kecamatan = Input::get('id_kecamatan');
-			# Input data dalam database
-			Kelurahan::ganti($nama, $id_kecamatan);
-		# jika validasi gagal	
-		} else {
-			# koleksi variabel error
+		$v = Validator::make(Input::all(), Kecamatan::$rules);
+		# jika validasi tidak valid
+		if ($v->fails()) {
+			# koleksi variabel error lalu kirim
 			$nama = $v->messages()->first('nama') ?: '';
+			$id_kabupaten = $v->messages()->first('id_kabupaten') ?: '';
 			$id_kecamatan = $v->messages()->first('id_kecamatan') ?: '';
 			$status = '';
-			# Kirim nama
-			return Response::json(compact('nama', 'id_kecamatan', 'status'));
-		}  
+			return Response::json(compact('nama', 'id_kabupaten', 'id_kecamatan', 'status'));
+		# jika validasi gagal	
+		} else {
+			# inputan dari form
+			$nama = trim(Input::get('nama'));
+			$id_kabupaten = Input::get('id_kabupaten');
+			$id_kecamatan = Input::get('id_kecamatan');
+			# Input data dalam database
+			Kecamatan::ganti($id, $nama, $id_kabupaten, $id_kecamatan);
+		}
+	}
+
+	/**
+	 * Lihat data
+	 */
+	public function getLihat($id) {
+		# Sesuaikan id target
+		$temp = Kelurahan::find($id);
+		# Tampilkan halaman
+		return View::make('_modal.lihat.kelurahan', compact('temp'));
 	}
 
 	/**
 	 * Hapus data
 	 */
 	public function getHapus($id) {
+		# Title Kontrol
+		$title = 'Kelurahan/Desa';
+		# Onclick button
+		$onclick = 'hapusKelurahan('.$id.')';
 		# Sesuaikan id target
-		$kab = Kelurahan::find($id);
+		$temp = Kelurahan::find($id);
 		# Tampilkan halaman
-		return View::make('_partials.modal.kelurahan_hapus', compact('kab'));
+		return View::make('_modal.hapus', compact('title', 'onclick', 'temp'));
 	}
 
 	/**
@@ -111,36 +127,14 @@ class KelurahanController extends BaseController {
 	}
 
 	/**
-	 * Hapus semua data yang dipilih
-	 */
-	public function getHapusCeklis() {
-		# tampilkan halaman
-		return View::make('_partials.modal.kelurahan_hapus_daftar');
-	}
-
-	/**
-	 * Hapus semua isi database yang dipilih
-	 */
-	public function postHapusCeklis() {
-		# buat variabel untuk menampung id
-		$id = Input::get('id');
-		# untuk nilai i = 0, selama nilai i lebih kecil dari $id, 
-		# lakukan perulangan dengan menambahkan 1 setiap putarannya
-		for ($i = 0; $i<count($id); $i++) {
-			# hapus isi database
-			Kelurahan::hapus($id[$i]['value']);
-		}
-	}
-
-	/**
 	 * Simpan ke halaman .XLS
 	 */
 	public function getExcel() {
 		# kumpulkan data dari models
 		$org = Organisasi::data();
-		$kab = Kelurahan::orderBy('nama', 'DESC')->get();
+		$temp = Kelurahan::orderBy('nama', 'DESC')->get();
 		# tampilkan halaman
-		return View::make('excel.kelurahan', compact('org', 'kab'));
+		return View::make('excel.kelurahan', compact('org', 'temp'));
 	}
 
 }
