@@ -19,7 +19,7 @@ class TpsController extends BaseController {
 	/**
 	 * Halaman index
 	 */
-	public function getIndex() {
+	public function getIndex() { 
 		# Ambil isi tabel, urutkan berdasarkan nama
 		$daftar = Tps::orderBy('created_at', 'DESC')->get();
 		# Tampilkan halaman tujuan
