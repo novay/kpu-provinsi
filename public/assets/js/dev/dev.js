@@ -25,11 +25,13 @@ function modalTambahKabupaten() {
 }
 function modalTambahKecamatan() {
 	$('.modal').load(url_tambah_kecamatan, function() {
+		$(".chzn-select").chosen(); 
 		$('.modal').modal('show');
 	});
 }
 function modalTambahKelurahan() {
 	$('.modal').load(url_tambah_kelurahan, function() {
+		$(".chzn-select").chosen(); 
 		$('.modal').modal('show');
 	});
 }
@@ -118,19 +120,19 @@ function tambahKelurahan() {
 					$('#control-nama').removeClass('error').addClass('info');
 					$('#error-nama').text('');
 				};
+				if (r.id_kecamatan) {
+					$('#control-kecamatan').removeClass('info').addClass('error');
+					$('#error-kecamatan').text(r.id_kecamatan);
+				} else {
+					$('#control-kecamatan').removeClass('error').addClass('info');
+					$('#error-kecamatan').text('');
+				};	
 				if (r.id_kabupaten) {
 					$('#control-kabupaten').removeClass('info').addClass('error');
 					$('#error-kabupaten').text(r.id_kabupaten);
 				} else {
 					$('#control-kabupaten').removeClass('error').addClass('info');
 					$('#error-kabupaten').text('');
-				};
-				if (r.id_kelurahan) {
-					$('#control-kelurahan').removeClass('info').addClass('error');
-					$('#error-kelurahan').text(r.id_kelurahan);
-				} else {
-					$('#control-kelurahan').removeClass('error').addClass('info');
-					$('#error-kelurahan').text('');
 				};
 			} else {
 				$('.modal').modal('hide');

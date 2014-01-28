@@ -78,7 +78,7 @@
 															<div class="clearfix">
 																<label class="inline">
 																	{{ Form::checkbox('ingat', true, null, [
-																		'id' => 'ingat']) 
+																		'id' => 'ingat', 'class'=>'ace-checkbox-2']) 
 																	}}
 																	<span class="lbl"> Ingatkan Saya</span>
 																</label>

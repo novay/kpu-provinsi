@@ -16,7 +16,7 @@ class Kelurahan extends Eloquent {
 	protected $guarded = ['id'];
 
 	# Validasi
-	public static $rules = ['nama'=>'required|max:50|min:3', 'id_kecamatan'=>'required', 'id_kabupaten'=>'required'];
+	public static $rules = ['nama'=>'required|max:50|min:3', 'id_kecamatan'=>'required'];
 
 	/**
 	 * Relasi

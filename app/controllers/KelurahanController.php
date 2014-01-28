@@ -30,7 +30,7 @@ class KelurahanController extends BaseController {
 	 * Kehalaman tambah
 	 */
 	public function getBaru() {
-		# Tampilkan halaman
+		# Tampilkan halaman index beserta variabel daftar
 		return View::make('_modal.tambah.kelurahan');
 	}
 
@@ -39,7 +39,7 @@ class KelurahanController extends BaseController {
 	 */
 	public function postBaru() {
 		# validasi
-		$v = Validator::make(Input::all(), Kecamatan::$rules);
+		$v = Validator::make(Input::all(), Kelurahan::$rules);
 		# jika validasi tidak valid
 		if ($v->fails()) {
 			# koleksi variabel error lalu kirim
@@ -55,7 +55,7 @@ class KelurahanController extends BaseController {
 			$id_kabupaten = Input::get('id_kabupaten');
 			$id_kecamatan = Input::get('id_kecamatan');
 			# Input data dalam database
-			Kecamatan::tambah($nama, $id_kabupaten, $id_kecamatan);
+			Kelurahan::tambah($nama, $id_kabupaten, $id_kecamatan);
 		} 
 	}
 
@@ -74,7 +74,7 @@ class KelurahanController extends BaseController {
 	 */
 	public function postGanti($id) {
 		# validasi
-		$v = Validator::make(Input::all(), Kecamatan::$rules);
+		$v = Validator::make(Input::all(), Kelurahan::$rules);
 		# jika validasi tidak valid
 		if ($v->fails()) {
 			# koleksi variabel error lalu kirim
@@ -90,7 +90,7 @@ class KelurahanController extends BaseController {
 			$id_kabupaten = Input::get('id_kabupaten');
 			$id_kecamatan = Input::get('id_kecamatan');
 			# Input data dalam database
-			Kecamatan::ganti($id, $nama, $id_kabupaten, $id_kecamatan);
+			Kelurahan::ganti($id, $nama, $id_kabupaten, $id_kecamatan);
 		}
 	}
 

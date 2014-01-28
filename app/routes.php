@@ -46,6 +46,7 @@ Route::get('kelurahan/hapus/{id?}', array('as' => 'hapus_kelurahan', 'uses' => '
 Route::post('kelurahan/hapus/{id?}', array('uses' => 'KelurahanController@postHapus'))->where('id', '\d+');
 Route::get('kelurahan/excel', array('as' => 'excel_kelurahan', 'uses' => 'KelurahanController@getExcel'));
 Route::get('kelurahan/{id?}', array('as' => 'lihat_kelurahan', 'uses' => 'KelurahanController@getLihat'))->where('id', '\d+');
+Route::post('kelurahan/dropdown', array('as'=>'dropdown', 'uses'=>'KelurahanController@postDropdown'));
 
 ## TPS
 Route::get('tps', array('as' => 'tps', 'uses' => 'TpsController@getIndex'));

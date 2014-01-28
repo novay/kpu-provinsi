@@ -73,7 +73,7 @@ class Kabupaten extends Eloquent {
         # Ambil semua nilai model kategori
         $kabupaten = Kabupaten::all();
         # Inisialisasi pilihsn array dengan nilai default
-        $pilihan[''] = 'Pilih Kabupaten...';
+        $pilihan[''] = '';
         # Lakukan perulangan
         foreach($kabupaten as $temp) { 
             # Tampikan semua nama berdasarkan id kategori yang ada

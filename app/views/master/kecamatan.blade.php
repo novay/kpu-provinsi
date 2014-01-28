@@ -22,6 +22,7 @@
 								</label>
 							</th>
 							<th>Nama</th>
+							<th class="hidden-480">Kabupaten</th>
 							<th class="hidden-480">Kelurahan</th>
 							<th class="hidden-480">TPS</th>
 							<th></th>
@@ -35,6 +36,9 @@
 								<label><input type="checkbox" /><span class="lbl"></span></label>
 							</td>
 							<td>{{ $temp->nama }}</td>
+							<td class="hidden-480">
+								{{ Kabupaten::find($temp->id_kabupaten)->nama }}
+							</td>
 							<td class="hidden-480">
 								<span class="label label-primary">
 									{{ Kecamatan::find($temp->id)->Kelurahan()->count() }} Kelurahan
@@ -104,7 +108,7 @@
 		var oTable1 = $('#daftar-kecamatan').dataTable( {
 		"aoColumns": [
 	      { "bSortable": false },
-	      null, null,null,
+	      null, null,null, null
 		  { "bSortable": false }
 		] } );
 		

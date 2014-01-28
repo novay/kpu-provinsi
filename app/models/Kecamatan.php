@@ -69,4 +69,21 @@ class Kecamatan extends Eloquent {
 		Kecamatan::destroy($id);
 	}
 
+ 	/**
+	 * Menu dropdown
+	 */
+	public static function dropdown() {
+        # Ambil semua nilai model kategori
+        $kecamatan = Kecamatan::all();
+        # Inisialisasi pilihsn array dengan nilai default
+        $pilihan[''] = '';
+        # Lakukan perulangan
+        foreach($kecamatan as $temp) { 
+            # Tampikan semua nama berdasarkan id kategori yang ada
+        	$pilihan[$temp->id] = $temp->nama;
+        }
+        # Kirim nilai
+        return $pilihan;
+    }
+
 }

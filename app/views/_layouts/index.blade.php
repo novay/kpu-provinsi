@@ -13,6 +13,7 @@
 		{{ HTML::style('packages/ace/css/bootstrap-responsive.min.css') }}
 		{{ HTML::style('packages/ace/css/font-awesome.min.css') }}
 		<!--[if IE 7]> {{ HTML::style('packages/ace/css/font-awesome-ie7.min.css') }} <![endif]-->
+		{{ HTML::style('packages/ace/css/chosen.css') }}
 {{-- Plugin Style --}}
 		{{ HTML::style('packages/ace/css/jquery-ui-1.10.3.custom.min.css') }}
 		
@@ -28,7 +29,7 @@
 		{{ HTML::style('packages/digilib/css/future.css') }}
 {{-- Untuk CSS tambahan --}}
 @yield('style')
-		{{ HTML::style('packages/ace/css/chosen.css') }}
+		
 		<style type="text/css">
 		a {
 			cursor:pointer;
@@ -105,12 +106,13 @@
 		if("ontouchend" in document) document.write("<script src='../packages/ace/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 		{{ HTML::script('packages/ace/js/bootstrap.min.js') }}
+		{{ HTML::script('packages/ace/js/chosen.jquery.min.js') }}
 		<!--[if lte IE 8]>
 			{{ HTML::script('packages/ace/js/excanvas.min.js') }}
 		<![endif]-->
 		{{ HTML::script('packages/ace/js/jquery-ui-1.10.3.custom.min.js') }}
 		{{ HTML::script('packages/ace/js/jquery.ui.touch-punch.min.js') }}
-		{{ HTML::script('packages/ace/js/chosen.jquery.min.js') }}
+		
 {{-- Skrip Ace --}}
 		{{ HTML::script('packages/ace/js/ace-elements.min.js') }}
 		{{ HTML::script('packages/ace/js/ace.min.js') }}
