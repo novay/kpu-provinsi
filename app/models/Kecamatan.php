@@ -67,6 +67,8 @@ class Kecamatan extends Eloquent {
 	public static function hapus($id) 
 	{
 		Kecamatan::destroy($id);
+		Kelurahan::where('id_kecamatan', $id)->delete();
+		Tps::where('id_kecamatan', $id)->delete();
 	}
 
  	/**

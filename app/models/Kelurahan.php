@@ -68,6 +68,7 @@ class Kelurahan extends Eloquent {
 	public static function hapus($id) 
 	{
 		Kelurahan::destroy($id);
+		Tps::where('id_kelurahan', $id)->delete();
 	}
 
 	/**

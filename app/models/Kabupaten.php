@@ -62,8 +62,12 @@ class Kabupaten extends Eloquent {
 	/**
 	 * Hapus data dalam database
 	 */
-	public static function hapus($id) {
+	public static function hapus($id) 
+	{
 		Kabupaten::destroy($id);
+		Kecamatan::where('id_kabupaten', $id)->delete();
+		Kelurahan::where('id_kabupaten', $id)->delete();
+		Tps::where('id_kabupaten', $id)->delete();
 	}
 
 	/**
