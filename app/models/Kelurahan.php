@@ -10,7 +10,7 @@ class Kelurahan extends Eloquent {
 	protected $table = 'kelurahan';
 
 	# Field yang boleh di input
-	protected $fillable = ['nama', 'id_kecamatan', 'id_kabupaten'];
+	protected $fillable = ['nama', 'id_kecamatan'];
 
 	# Field yang jadi patokan
 	protected $guarded = ['id'];
@@ -69,5 +69,22 @@ class Kelurahan extends Eloquent {
 	{
 		Kelurahan::destroy($id);
 	}
+
+	/**
+	 * Menu dropdown
+	 */
+	public static function dropdown() {
+        # Ambil semua nilai model kategori
+        $kelurahan = Kelurahan::all();
+        # Inisialisasi pilihsn array dengan nilai default
+        $pilihan[''] = '';
+        # Lakukan perulangan
+        foreach($kelurahan as $temp) { 
+            # Tampikan semua nama berdasarkan id kategori yang ada
+        	$pilihan[$temp->id] = $temp->nama;
+        }
+        # Kirim nilai
+        return $pilihan;
+    }
 
 }
