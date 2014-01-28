@@ -133,9 +133,9 @@ class KelurahanController extends BaseController {
 	public function getExcel() {
 		# kumpulkan data dari models
 		$org = Organisasi::data();
-		$temp = Kecamatan::orderBy('nama', 'DESC')->get();
+		$temp = Kelurahan::orderBy('nama', 'DESC')->get();
 		# tampilkan halaman
-		return View::make('excel.kecamatan', compact('org', 'temp'));
+		return View::make('excel.kelurahan', compact('org', 'temp'));
 	}
 
 }

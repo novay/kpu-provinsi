@@ -26,6 +26,7 @@
 	var url_lihat_kabupaten = '{{ route('lihat_kabupaten') }}';
 	var url_lihat_kecamatan = '{{ route('lihat_kecamatan') }}';
 	var url_lihat_kelurahan = '{{ route('lihat_kelurahan') }}';
+	var url_lihat_tps 		= '{{ route('lihat_tps') }}';
 
 	var url_backup 	   = '{{ route('backup') }}';
 	var url_restore    = '{{ route('restore') }}';

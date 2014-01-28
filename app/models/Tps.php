@@ -16,7 +16,7 @@ class Tps extends Eloquent {
 	protected $guarded = ['id'];
 
 	# Validasi
-	public static $rules = ['nama'=>'required', 'id_kecamatan'=>'required', 'id_kabupaten'=>'required', 'id_kelurahan'];
+	public static $rules = ['nama'=>'required|max:50|min:3', 'id_kelurahan'=>'required'];
 
 	/**
 	 * Relasi
@@ -45,7 +45,7 @@ class Tps extends Eloquent {
 	/**
 	 * Tambah data ke database
 	 */
-	public static function tambah($nama)
+	public static function tambah($nama, $id_kelurahan, $id_kecamatan, $id_kabupaten)
 	{
 		Tps::create(compact('nama', 'id_kelurahan', 'id_kecamatan', 'id_kabupaten'));
 	}

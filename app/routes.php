@@ -47,7 +47,6 @@ Route::post('kelurahan/hapus/{id?}', array('uses' => 'KelurahanController@postHa
 Route::get('kelurahan/excel', array('as' => 'excel_kelurahan', 'uses' => 'KelurahanController@getExcel'));
 Route::get('kelurahan/{id?}', array('as' => 'lihat_kelurahan', 'uses' => 'KelurahanController@getLihat'))->where('id', '\d+');
 
-
 ## TPS
 Route::get('tps', array('as' => 'tps', 'uses' => 'TpsController@getIndex'));
 Route::get('tps/tambah', array('as' => 'tps_baru', 'uses' => 'TpsController@getBaru'));
@@ -56,9 +55,8 @@ Route::get('tps/ganti/{id?}', array('as' => 'ubah_tps', 'uses' => 'TpsController
 Route::post('tps/ganti/{id?}', array('uses' => 'TpsController@postGanti'))->where('id', '\d+');
 Route::get('tps/hapus/{id?}', array('as' => 'hapus_tps', 'uses' => 'TpsController@getHapus'))->where('id', '\d+');
 Route::post('tps/hapus/{id?}', array('uses' => 'TpsController@postHapus'))->where('id', '\d+');
-Route::get('tps/hapus/ceklis', array('as' => 'hapus_daftar_tps', 'uses' => 'TpsController@getHapusCeklis'));
-Route::post('tps/hapus/ceklis', array('uses' => 'TpsController@postHapusCeklis'));
 Route::get('tps/excel', array('as' => 'excel_tps', 'uses' => 'TpsController@getExcel'));
+Route::get('tps/{id?}', array('as' => 'lihat_tps', 'uses' => 'TpsController@getLihat'))->where('id', '\d+');
 
 ## Tamu / Username
 Route::get('tamu', array('as' => 'tamu', 'uses' => 'TamuController@getIndex'));
