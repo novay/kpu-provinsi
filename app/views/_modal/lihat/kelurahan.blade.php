@@ -60,7 +60,7 @@
 				</div>
 			</div>
 			<div id="map" class="tab-pane">
-				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=id&amp;q={{$temp->nama}},+{{Kecamatan::find($temp->id_kecamatan)->nama}},+{{Kabupaten::find($temp->id_kabupaten)->nama}},+{{Organisasi::data()->provinsi}},+{{Organisasi::data()->negara}}&amp;aq=1&amp;ie=UTF8&amp;hq=&amp;hnear={{$temp->nama}},+{{Kecamatan::find($temp->id_kecamatan)->nama}},+{{Kabupaten::find($temp->id_kabupaten)->nama}},+{{Organisasi::data()->provinsi}},+{{Organisasi::data()->negara}}&amp;z=7&amp;iwloc=near&output=embed"></iframe>
+				<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=id&amp;q={{$temp->nama}},+{{Kecamatan::find($temp->id_kecamatan)->nama}},+{{Kabupaten::find($temp->id_kabupaten)->nama}},+{{Organisasi::data()->provinsi}},+{{Organisasi::data()->negara}}&amp;aq=1&amp;ie=UTF8&amp;hq=&amp;hnear={{$temp->nama}},+{{Kecamatan::find($temp->id_kecamatan)->nama}},+{{Kabupaten::find($temp->id_kabupaten)->nama}},+{{Organisasi::data()->provinsi}},+{{Organisasi::data()->negara}}&amp;z=5&amp;iwloc=near&output=embed"></iframe>
 			</div>
 		</div>
 	</div>
