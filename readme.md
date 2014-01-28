@@ -3,6 +3,12 @@
 Aplikasi ini menggunakan Laravel sebagai frameworknya.
 Penjelasan selanjutnya ntar aja kalo aplikasinya jadi.
 
+### Fitur
+ - AJAX Process
+ - Google Maps Integrated
+ - Responsive Template
+ - and so on...
+
 ### Instalasi
  - Download ZIP => Extract
  - `composer install`

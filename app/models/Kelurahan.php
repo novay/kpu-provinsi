@@ -10,7 +10,7 @@ class Kelurahan extends Eloquent {
 	protected $table = 'kelurahan';
 
 	# Field yang boleh di input
-	protected $fillable = ['nama', 'id_kecamatan'];
+	protected $fillable = ['nama', 'id_kecamatan', 'id_kabupaten'];
 
 	# Field yang jadi patokan
 	protected $guarded = ['id'];
@@ -53,7 +53,7 @@ class Kelurahan extends Eloquent {
 	/**
 	 * Ganti data dalam database
 	 */
-	public static function ganti($id, $nama, $id_kecamatan)
+	public static function ganti($id, $nama, $id_kecamatan, $id_kabupaten)
 	{
 		$temp = Kelurahan::find($id);
 		$temp->nama			= $nama;

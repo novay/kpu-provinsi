@@ -21,7 +21,7 @@
 									<span class="lbl"></span>
 								</label>
 							</th>
-							<th>Nama</th>
+							<th>Nama Kecamatan</th>
 							<th class="hidden-480">Kabupaten</th>
 							<th class="hidden-480">Kelurahan</th>
 							<th class="hidden-480">TPS</th>
@@ -108,7 +108,7 @@
 		var oTable1 = $('#daftar-kecamatan').dataTable( {
 		"aoColumns": [
 	      { "bSortable": false },
-	      null, null,null, null
+	      null,null,null,null,
 		  { "bSortable": false }
 		] } );
 		
@@ -118,8 +118,7 @@
 			.each(function(){
 				this.checked = that.checked;
 				$(this).closest('tr').toggleClass('selected');
-			});
-				
+			});		
 		});
 	
 		$('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});

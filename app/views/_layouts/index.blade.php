@@ -84,9 +84,6 @@
 		<div id="modal" class="modal hide fade" aria-hidden="true" data-backdrop="static"></div>
 		
 {{-- Koleksi Jacascript --}}
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
 		{{ HTML::script('assets/js/jquery-2.0.3.js') }}
 		{{ HTML::script('assets/js/jquery.form.js') }}
 		<!--[if IE]> 

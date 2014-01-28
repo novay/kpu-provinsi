@@ -21,7 +21,7 @@
 									<span class="lbl"></span>
 								</label>
 							</th>
-							<th>Nama</th>
+							<th>Nama Kabupaten</th>
 							<th class="hidden-480">Kecamatan</th>
 							<th class="hidden-480">Kelurahan</th>
 							<th class="hidden-480">TPS</th>
@@ -112,7 +112,7 @@
 		var oTable1 = $('#daftar-kabupaten').dataTable( {
 		"aoColumns": [
 	      { "bSortable": false },
-	      null, null,null, null,
+	      null,null,null,null,
 		  { "bSortable": false }
 		] } );
 		
