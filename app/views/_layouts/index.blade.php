@@ -38,45 +38,63 @@
 	</head>
 	<body class="navbar-fixed">
 	
-		@include('_partials.nav')
-		<div class="konten">
-			<div class="page-content">
-				<div class="row-fluid">
-					<div class="span12">
-						<!--PAGE CONTENT BEGINS-->
-						<div class="error-container">
-							<div class="well">
-								<h1 class="grey lighter smaller">
-									<span class="blue bigger-125">
-										<i class="icon-coffee"></i>
-										KPU
-									</span>
-									WebApps
-								</h1>
-								<hr />
-								<h3 class="lighter smaller">
-									Keep Calm
-									<i class="icon-wrench icon-animated-wrench bigger-125"></i>
-									on progress!
-								</h3>
-
-								<div class="space"></div>
-
-								<div>
-									<h4 class="lighter smaller">Penjelasannya nanti, intinya aplikasi ini jadi dulu.</h4>
-								</div>
-								<hr />
-								<div class="space"></div>
-								<h4 class="lighter smaller pull-right">Regard, <a href="http://github.com/novay" target="_blank"> Noviyanto Rachmady</a></h4><br />
-								<div class="space"></div>
-							</div>
-						</div>
-						<!--PAGE CONTENT ENDS-->
-					</div><!--/.span-->
-				</div><!--/.row-fluid-->
-			</div><!--/.page-content-->
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a onclick="home()" class="brand">
+						<img src="{{ asset('/assets/img/kpu.png') }}" width="25px"> 
+						<small>{{{ Organisasi::data()->nama }}}</small>
+					</a>
+				</div>
+			</div>
 		</div>
+		<div class="main-container container-fluid">
+			<a class="menu-toggler" id="menu-toggler" href="#">
+				<span class="menu-text"></span>
+			</a>
+		
+			@include('_partials.sidebar')
+		
+			<div class="main-content">
+			<div class="page-content">
+				<div class="konten">
+					<div class="row-fluid">
+						<div class="span12">
+							<!--PAGE CONTENT BEGINS-->
+							<div class="error-container">
+								<div class="well">
+									<h1 class="grey lighter smaller">
+										<span class="blue bigger-125">
+											<i class="icon-coffee"></i>
+											KPU
+										</span>
+										WebApps
+									</h1>
+									<hr />
+									<h3 class="lighter smaller">
+										Keep Calm
+										<i class="icon-wrench icon-animated-wrench bigger-125"></i>
+										on progress!
+									</h3>
 
+									<div class="space"></div>
+
+									<div>
+										<h4 class="lighter smaller">Penjelasannya nanti, intinya aplikasi ini jadi dulu.</h4>
+									</div>
+									<hr />
+									<div class="space"></div>
+									<h4 class="lighter smaller pull-right">Regard, <a href="http://github.com/novay" target="_blank"> Noviyanto Rachmady</a></h4><br />
+									<div class="space"></div>
+								</div>
+							</div>
+							<!--PAGE CONTENT ENDS-->
+						</div><!--/.span-->
+					</div><!--/.row-fluid-->
+				</div><!--/.page-content-->
+			</div>
+			</div>
+		</div>
 		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
 			<i class="icon-double-angle-up icon-only bigger-110"></i>
 		</a>
