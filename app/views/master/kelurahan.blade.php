@@ -68,21 +68,21 @@
 
 										<ul class="dropdown-menu dropdown-icon-only dropdown-yellow pull-right dropdown-caret dropdown-close">
 											<li>
-												<a data-toggle="modal" onclick="modalLihatKelurahan({{$temp->id}})" class="tooltip-info" data-rel="tooltip" title="View">
+												<a data-toggle="modal" onclick="modalLihatKelurahan({{$temp->id}})" class="tooltip-info" data-rel="tooltip" title="Lihat">
 													<span class="blue">
 														<i class="icon-zoom-in bigger-120"></i>
 													</span>
 												</a>
 											</li>
 											<li>
-												<a data-toggle="modal" onclick="modalUbahKelurahan({{$temp->id}})" class="tooltip-success" data-rel="tooltip" title="Edit">
+												<a data-toggle="modal" onclick="modalUbahKelurahan({{$temp->id}})" class="tooltip-success" data-rel="tooltip" title="Ubah">
 													<span class="green">
 														<i class="icon-edit bigger-120"></i>
 													</span>
 												</a>
 											</li>
 											<li>
-												<a data-toggle="modal" onclick="modalHapusKelurahan({{$temp->id}})" class="tooltip-error" data-rel="tooltip" title="Delete">
+												<a data-toggle="modal" onclick="modalHapusKelurahan({{$temp->id}})" class="tooltip-error" data-rel="tooltip" title="Hapus">
 													<span class="red">
 														<i class="icon-trash bigger-120"></i>
 													</span>
