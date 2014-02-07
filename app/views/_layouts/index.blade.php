@@ -42,7 +42,7 @@
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<a onclick="home()" class="brand">
-						<img src="{{ asset('/assets/img/kpu.png') }}" width="25px"> 
+						<img src="{{ asset('/assets/img') }}/{{ Organisasi::data()->logo }}" width="25px"> 
 						<small>{{{ Organisasi::data()->nama }}}</small>
 					</a>
 				</div>
@@ -60,6 +60,7 @@
 				<div class="konten">
 					<div class="row-fluid">
 						<div class="span12">
+
 							<!--PAGE CONTENT BEGINS-->
 							<div class="error-container">
 								<div class="well">

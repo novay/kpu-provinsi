@@ -58,18 +58,32 @@ Route::post('tps/hapus/{id?}', array('uses' => 'TpsController@postHapus'))->wher
 Route::get('tps/excel', array('as' => 'excel_tps', 'uses' => 'TpsController@getExcel'));
 Route::get('tps/{id?}', array('as' => 'lihat_tps', 'uses' => 'TpsController@getLihat'))->where('id', '\d+');
 
-## Tamu / Username
-Route::get('tamu', array('as' => 'tamu', 'uses' => 'TamuController@getIndex'));
-Route::get('tamu/tambah', array('as' => 'tamu_baru', 'uses' => 'TamuController@getBaru'));
-Route::post('tamu/tambah', array('uses' => 'TamuController@postBaru'));
-Route::get('tamu/rubah/{id?}', array('as' => 'ubah_tamu', 'uses' => 'TamuController@getBanti'))->where('id', '\d+');
-Route::post('tamu/rubah/{id?}', array('uses' => 'TamuController@postGanti'))->where('id', '\d+');
-Route::get('tamu/foto/{id?}', array('as' => 'foto_pengguna', 'uses' => 'TamuController@foto'))->where('id', '\d+');
-Route::get('tamu/hapus/{id?}', array('as' => 'hapus_tamu', 'uses' => 'TamuController@getHapus'))->where('id', '\d+');
-Route::post('tamu/hapus/{id?}', array('uses' => 'TamuController@postHapus'))->where('id', '\d+');
-Route::get('tamu/hapus/ceklis', array('as' => 'hapus_daftar_tamu', 'uses' => 'TamuController@getHapusCeklis'));
-Route::post('tamu/hapus/ceklis', array('uses' => 'TamuController@postHapusCeklis'));
-Route::get('tamu/excel', array('as' => 'excel_tamu', 'uses' => 'TamuController@getExcel'));
+## Pengaturan
+Route::get('pengaturan', array('as' => 'pengaturan', 'uses' => 'PengaturanController@getIndex'));
+
+# Organisasi
+Route::get('organisasi/nama', array('as' => 'nama_organisasi', 'uses' => 'OrganisasiController@getNama'));
+Route::get('organisasi/alamat', array('as' => 'alamat_organisasi', 'uses' => 'OrganisasiController@getAlamat'));
+Route::get('organisasi/kota', array('as' => 'kota_organisasi', 'uses' => 'OrganisasiController@getKota'));
+Route::get('organisasi/provinsi', array('as' => 'provinsi_organisasi', 'uses' => 'OrganisasiController@getProvinsi'));
+Route::get('organisasi/negara', array('as' => 'negara_organisasi', 'uses' => 'OrganisasiController@getNegara'));
+Route::get('organisasi/logo', array('as' => 'logo_organisasi', 'uses' => 'OrganisasiController@getLogo'));
+Route::post('organisasi/nama', array('uses' => 'OrganisasiController@postNama'));
+Route::post('organisasi/alamat', array('uses' => 'OrganisasiController@postAlamat'));
+Route::post('organisasi/kota', array('uses' => 'OrganisasiController@postKota'));
+Route::post('organisasi/provinsi', array('uses' => 'OrganisasiController@postKota'));
+Route::post('organisasi/negara', array('uses' => 'OrganisasiController@postNegara'));
+Route::post('organisasi/logo', array('uses' => 'OrganisasiController@postLogo'));
+
+# Pengguna
+Route::get('pengguna/nama', array('as' => 'nama_tampilan', 'uses' => 'AdminController@getNama'));
+Route::get('pengguna/user', array('as' => 'nama_pengguna', 'uses' => 'AdminController@getUser'));
+Route::get('pengguna/sandi', array('as' => 'kata_sandi', 'uses' => 'AdminController@getSandi'));
+Route::get('pengguna/avatar', array('as' => 'avatar', 'uses' => 'AdminController@getAvatar'));
+Route::post('pengguna/nama', array('uses' => 'AdminController@postNama'));
+Route::post('pengguna/user', array('uses' => 'AdminController@postUser'));
+Route::post('pengguna/sandi', array('uses' => 'AdminController@postSandi'));
+Route::post('pengguna/avatar', array('uses' => 'AdminController@postAvatar'));
 
 ## Halaman Database
 Route::get('db/backup',   ['as'   => 'backup',  'uses' => 'DatabaseController@getBackup']);

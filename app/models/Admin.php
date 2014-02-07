@@ -20,8 +20,16 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 
 	# Rules validasi
 	public static $rules = [
-		'username'=>'required|min:5|exists:admin,username', 
-		'password'=>'required|min:5'
+		'nama_tampilan'		  => 'required|max:50|nama_baru',
+		'username'			  => 'required|min:5|max:20|exists:admin,username', 
+		'username_sekarang'   => 'required|min:5|max:20|username_sekarang',
+		'username_baru' 	  => 'required|min:5|max:20|different:username_sekarang|unique:admin,username',
+		'konfirmasi_username' => 'required|min:5|max:20|same:username_baru',
+		'password'			  => 'required|min:5',
+		'password_sekarang'   => 'required|min:6|password_sekarang',
+		'password_baru'       => 'required|min:6|different:password_sekarang',
+		'konfirmasi_password' => 'required|min:6|same:password_baru',
+		'avatar' 			  => 'required|mimes:jpg,jpeg,png|max:5000'
 	];
 
 	/**
@@ -67,7 +75,7 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 	public static function tambah($username, $password, $nama_tampilan, $avatar)
 	{
 		// Kirim data ke dalam database disesuaikan berdasarkan field
-		Satpam::create(compact('username', 'password', 'nama_tampilan', 'avatar'));
+		Admin::create(compact('username', 'password', 'nama_tampilan', 'avatar'));
 	}
 
 	/**
@@ -75,7 +83,7 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function ganti($id, $username, $password, $nama_tampilan, $avatar)
 	{
-		$temp = Satpam::find($id);
+		$temp = Admin::find($id);
 		$temp->username	   	 = $username;
 		$temp->password 	 = $password;
 		$temp->nama_tampilan = $nama_tampilan;
@@ -90,7 +98,7 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function hapus($id) 
 	{
-		Satpam::destroy($id);
+		Admin::destroy($id);
 	}
 
 	/**
@@ -98,7 +106,7 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function username($id, $username_baru)
 	{
-		$temp = Satpam::find($id);
+		$temp = Admin::find($id);
 		$temp->username = $username_baru;
 		$temp->save();
 	}
@@ -108,7 +116,7 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function password($id, $password_baru)
 	{
-		$temp = Satpam::find($id);
+		$temp = Admin::find($id);
 		$temp->password = $password_baru;
 		$temp->save();
 	}
@@ -118,7 +126,7 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function nama_tampilan($id, $nama_tampilan)
 	{
-		$temp = Satpam::find($id);
+		$temp = Admin::find($id);
 		$temp->nama_tampilan = $nama_tampilan;
 		$temp->save();
 	}
@@ -128,7 +136,7 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	public static function avatar($id, $avatar)
 	{
-		$temp = Satpam::find($id);
+		$temp = Admin::find($id);
 		$temp->avatar = $avatar;
 		$temp->save();
 	}

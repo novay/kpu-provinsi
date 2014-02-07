@@ -81,7 +81,13 @@ App::down(function()
 
 require app_path().'/filters.php';
 
-// error
+# Untuk Halaman Error 404
 App::missing(function() {
 	return Response::view('master.404');
+});
+
+# Ciptakan Validasi baru
+Validator::resolver(function($translator, $data, $rules, $messages) {
+	# Ciptakan KpuValidator
+	return new KpuValidator($translator, $data, $rules, $messages);
 });

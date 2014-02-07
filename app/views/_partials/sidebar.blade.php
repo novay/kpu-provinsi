@@ -79,29 +79,11 @@
 			</ul>
 		</li>
 
-		<li class="">
-			<a href="#" class="dropdown-toggle">
+		<li>
+			<a onclick="dataPengaturan()">
 				<i class="icon-cogs"></i>
 				<span class="menu-text"> Pengaturan </span>
-				<b class="arrow icon-angle-down"></b>
 			</a>
-
-			<ul class="submenu" style="display: block;">
-				<li>
-					<a onclick="modalAplikasi()" data-toggle="modal">
-						<i class="icon-double-angle-right"></i>
-						<i class="icon-edit"></i> Aplikasi
-					</span>
-					</a>
-				</li>
-
-				<li>
-					<a onclick="halamanAkun()" data-toggle="modal">
-						<i class="icon-double-angle-right"></i>
-						<i class="icon-user"></i> Akun
-					</a>
-				</li>
-			</ul>
 		</li>
 
 		<li>

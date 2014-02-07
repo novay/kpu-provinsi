@@ -15,7 +15,71 @@ function dataTps() {
 	$('title').text('Data TPS');
 	$('.konten').load(url_tps, function() { properti(); });
 }
+function dataPengaturan() {
+	$('title').text('Pengaturan Aplikasi');
+	$('.konten').load(url_pengaturan, function() { properti(); });
+}
 // ################# Akhir Master Link ###################### //
+
+// ################# Modal Pengaturan ###################### //
+function modalNamaOrganisasi() {
+	$('.modal').load(url_org_nama, function() {
+		$('.modal').modal('show');
+	});
+}
+function modalAlamatOrganisasi() {
+	$('.modal').load(url_org_alamat, function() {
+		$('.modal').modal('show');
+	});
+}
+function modalKotaOrganisasi() {
+	$('.modal').load(url_org_kota, function() {
+		$('.modal').modal('show');
+	});
+}
+function modalProvinsiOrganisasi() {
+	$('.modal').load(url_org_provinsi, function() {
+		$('.modal').modal('show');
+	});
+}
+function modalNegaraOrganisasi() {
+	$('.modal').load(url_org_negara, function() {
+		$('.modal').modal('show');
+	});
+}
+function modalLogoOrganisasi() {
+	$('.modal').load(url_org_logo, function() {
+		$('.modal').modal('show');
+	});
+}
+function modalNamaTampilan() {
+	$('.modal').load(url_nama_tampilan, function() {
+		$('.modal').modal('show');
+	});
+}
+function modalUsername() {
+	$('.modal').load(url_nama_pengguna, function() {
+		$('.modal').modal('show');
+	});
+}
+function modalPassword() {
+	$('.modal').load(url_password, function() {
+		$('.modal').modal('show');
+	});
+}
+function modalAvatar() {
+	$('.modal').load(url_avatar, function() {
+		$('.modal').modal('show');
+	});
+}
+// ################# Akhir Modal Pengaturan ###################### //
+
+// ################# Ubah Pengaturan ###################### //
+//// Nama Organisasi
+
+
+
+// ################# Akhir Ubah Pengaturan ###################### //
 
 // ################# Modal tambah ###################### //
 function modalTambahKabupaten() {

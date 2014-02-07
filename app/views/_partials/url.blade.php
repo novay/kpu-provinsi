@@ -7,6 +7,19 @@
 	var url_kecamatan = '{{ route('kecamatan') }}';
 	var url_kelurahan = '{{ route('kelurahan') }}';
 	var url_tps		  = '{{ route('tps') }}';
+	var url_pengaturan= '{{ route('pengaturan') }}';
+	// Modal Organisasi
+	var url_org_nama     = '{{ route('nama_organisasi') }}';
+	var url_org_alamat   = '{{ route('alamat_organisasi') }}';
+	var url_org_kota     = '{{ route('kota_organisasi') }}';
+	var url_org_provinsi = '{{ route('provinsi_organisasi') }}';
+	var url_org_negara   = '{{ route('negara_organisasi') }}';
+	var url_org_logo     = '{{ route('logo_organisasi') }}';
+	// Modal Pengguna
+	var url_nama_tampilan = '{{ route('nama_tampilan') }}';
+	var url_nama_pengguna = '{{ route('nama_pengguna') }}';
+	var url_password      = '{{ route('kata_sandi') }}';
+	var url_avatar        = '{{ route('avatar') }}';
 	// Modal Tambah
 	var url_tambah_kabupaten = '{{ route('kabupaten_baru') }}';
 	var url_tambah_kecamatan = '{{ route('kecamatan_baru') }}';

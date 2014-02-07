@@ -61,12 +61,12 @@ return array(
 		"file"    => "Inputan :attribute harus sebesar :size kilobytes.",
 		"string"  => "Inputan :attribute harus sebanyak :size karakter.",
 	),
-	"unique"           => "Inputan :attribute sudah ada sebelumnya.",
-	"url"              => "Inputan :attribute harus berupa URL.",
-	"nama_baru" => "Inputan :attribute tidak boleh menggunakan nama lama.",
-	"username_sekarang" => "Inputan :attribute tidak cocok.",
-	"password_sekarang" => "Inputan :attribute tidak cocok.",
-	"sql" => "Inputan :attribute harus berupa file sql.",
+	"unique"			=> "Inputan :attribute sudah ada sebelumnya.",
+	"url"				=> "Inputan :attribute harus berupa URL.",
+	"nama_baru" 		=> "Inputan :attribute tidak boleh menggunakan nama lama.",
+	"username_sekarang" => "Inputan :attribute tidak sama dengan sebelumnya.",
+	"password_sekarang" => "Inputan :attribute tidak sama dengan sebelumnya.",
+	"sql" 				=> "Inputan :attribute harus berupa file sql.",
 
 	/*
 	|--------------------------------------------------------------------------

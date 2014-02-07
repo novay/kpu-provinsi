@@ -12,60 +12,85 @@ class OrganisasiController extends BaseController {
 	public function __construct() {
 		# Koleksi filter
 		$this->beforeFilter('auth');
-		$this->beforeFilter('ajax', array('except' => array('excel')));
-		$this->beforeFilter('csrf', array('only' => 'postGanti'));
+		$this->beforeFilter('ajax');
 	}
 
 	/**
-	 * Halaman Ganti profil organisasi
+	 * Modal Nama Organisasi
 	 */
-	public function getGanti() {
-		# tentukan database
-		$org = Organisasi::data();
-		# tampilkan halaman
-		return View::make('_partials.modal.organisasi', compact('org'));
+	public function getNama() { 
+		## Koleksi Variabel untuk Form
+		#$judul		 = 'Ubah Nama Organisasi';
+		#$id		 = 'nama';
+		#$type		 = 'text';
+		#$set		 = Organisasi::data()->nama;
+		#$label		 = 'Nama Organisasi';
+		#$onKeyPress = 'enterGantiNama(event)';
+		#$onclick 	 = 'gantiNama()';
+		## Tampilkan halaman beserta variabel
+		return View::make('_modal.pengaturan.organisasi.nama');
+		#, compact('judul', 'id', 'type', 'set', 'label', 'onKeyPress', 'onclick')); 
 	}
 
 	/**
-	 * Simpan profil organisasi baru dalam database
+	 * Modal Nama Organisasi
 	 */
-	public function postGanti()
-	{
-		# validasi
-		$v = Validator::make(Input::all(), Organisasi::$rules);
-
-		# jika validasi berhasil
-		if ($v->passes()) {
-			# jika inputan punya logo
-			if (Input::hasFile('logo')) {
-				# tentukan id yang bersangkutan
-				$org = Organisasi::data();
-				# jika organisasi punya logo maka hapus logo lama
-				if ($org->logo) unlink(public_path() . 'assets/img/' . $org->logo);
-				# beri nama logo berdasarkan tanggal
-				$logo = date('dmYHis') . '.png';
-				# sekarang unggah logo ke direktori yg dimaksud
-				Input::file('logo')->move('foto/org', $logo);
-			# sedang, jika tidak ada logo
-			} else {
-				# kosongkan
-				$logo = null;
-			}
-			# koleksi inputan dari form
-			$nama   = Input::get('nama');
-			$alamat = Input::get('alamat');
-			# lakukan perubahan database
-			Sekolah::ganti($nama, $alamat, $logo);
-		# sekarng bila validasi gagal	
-		} else {
-			# koleksi pesan error untuk di kirim ke form
-			$logo = $v->messages()->first('logo') ?: '';
+	public function postNama() {
+		# Validasi
+		$input = Input::all();
+		$rules = array('nama' => 'required|max:50|nama_baru');
+		$v = Validator::make(Input::all(), $rules);
+		# Bila tidak valid
+		if ($v->fails()) {
+			# Koleksi pesan error lalu kirim ke view
 			$nama = $v->messages()->first('nama') ?: '';
-			$alamat = $v->messages()->first('alamat') ?: '';
-			$status = '';
-
-			return Response::json(compact('logo', 'nama', 'alamat', 'status'));
+			return Response::json(compact('nama'));
 		}
+		# Temukan id User Aktif dan nama tampilan
+		$id = Auth::user()->id;
+		$nama = ucwords(Input::get('nama'));
+		# Ubah isi database
+		Organisasi::ubahNama($id, $nama);
+	}
+
+	/**
+	 * Modal Alamat Organisasi
+	 */
+	public function getAlamat() { 
+		# tampilkan modal
+		return View::make('_modal.pengaturan.organisasi.alamat');
+	}
+
+	/**
+	 * Modal Domisili Kota
+	 */
+	public function getKota() { 
+		# tampilkan modal
+		return View::make('_modal.pengaturan.organisasi.kota');
+	}
+
+	/**
+	 * Modal Domisili Provinsi
+	 */
+	public function getProvinsi() { 
+		# tampilkan modal
+		return View::make('_modal.pengaturan.organisasi.provinsi');
+	}
+
+	/**
+	 * Modal Domisili Negara
+	 */
+	public function getNegara() { 
+		# tampilkan modal
+		return View::make('_modal.pengaturan.organisasi.negara');
+	}
+
+	/**
+	 * Modal Nama Organisasi
+	 */
+	public function getLogo() {
+		# tampilkan modal
+		return View::make('_modal.pengaturan.organisasi.logo'); 
 	}
 
 }
