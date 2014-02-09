@@ -2,7 +2,7 @@
 
 	<ul class="nav nav-list">
 		<li class="center ace-nav active">
-			<br/><img class="nav-user-photo" src="{{ asset('assets/img') }}/{{Auth::user()->avatar}}" alt="Foto Novay" style="margin-bottom:10px"/> Hai, {{{ Auth::user()->nama_tampilan }}}
+			<br/><img class="nav-user-photo" src="{{ asset('assets/img') }}/{{Auth::user()->avatar}}" alt="Foto Novay" style="margin-bottom:10px"/> Hai, <span id="ganti-nama_tampilan2">{{{ Auth::user()->nama_tampilan }}}</span>
 		</li>
 		<li class="">
 			<a href="{{ route('home') }}">

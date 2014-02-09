@@ -22,7 +22,7 @@ function gantiNama() {
 			$('.modal').html('');
 			$('.brand small').text(nama);
 			$('#ganti-nama').text(nama);
-			notif('Nama Organisasi Anda berhasil diubah.', 'info');
+			notif('Perubahan Nama Organisasi sukses.', 'info');
 		};
 	});
 }
@@ -44,8 +44,8 @@ function gantiAlamat() {
 		} else {
 			$('.modal').modal('hide');
 			$('.modal').html('');
-			$('#ganti-alamat').text(alamat);
-			notif('Alamat Organisasi Anda berhasil diubah.', 'info');
+			$('#ganti-alamat').text(alamat); 
+			notif('Perubahan Alamat Organisasi sukses.', 'info');
 		};
 	});
 }
@@ -68,7 +68,7 @@ function gantiKota() {
 			$('.modal').modal('hide');
 			$('.modal').html('');
 			$('#ganti-kota').text(kota);
-			notif('Kota Organisasi Anda berhasil diubah.', 'info');
+			notif('Perubahan Kota Organisasi sukses.', 'info');
 		};
 	});
 }
@@ -91,7 +91,7 @@ function gantiProvinsi() {
 			$('.modal').modal('hide');
 			$('.modal').html('');
 			$('#ganti-provinsi').text(provinsi);
-			notif('Provinsi Organisasi Anda berhasil diubah.', 'info');
+			notif('Perubahan Provinsi Organisasi sukses.', 'info');
 		};
 	});
 }
@@ -114,7 +114,7 @@ function gantiNegara() {
 			$('.modal').modal('hide');
 			$('.modal').html('');
 			$('#ganti-negara').text(negara);
-			notif('Negara Organisasi Anda berhasil diubah.', 'info');
+			notif('Perubahan Negara Organisasi sukses.', 'info');
 		};
 	});
 }
@@ -145,7 +145,8 @@ function gantiNamaTampilan() {
 			$('.modal').modal('hide');
 			$('.modal').html('');
 			$('#ganti-nama_tampilan').text(nama_tampilan);
-			notif('Nama Tampilan Anda berhasil diubah.', 'info');
+			$('#ganti-nama_tampilan2').text(nama_tampilan);
+			notif('Perubahan Nama Tampilan sukses.', 'info');
 		};
 	});
 }
@@ -192,7 +193,7 @@ function gantiUsername() {
 			$('.modal').modal('hide');
 			$('.modal').html('');
 			$('#ganti-username').text(username_baru);
-			notif('Username Anda berhasil diubah.', 'info');
+			notif('Perubahan Nama Pengguna sukses.', 'info');
 		};
 	});
 }
@@ -245,7 +246,7 @@ function gantiPassword() {
 			$('.modal').modal('hide');
 			$('.modal').html('');
 			$('#ganti-password').text('Perubahan Password sukses. Ubah lagi?');
-			notif('Password anda berhasil dirubah.', 'info');
+			notif('Perubahan Kata Sandi sukses.', 'info');
 		};
 	});
 }
