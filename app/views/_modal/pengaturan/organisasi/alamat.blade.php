@@ -10,7 +10,6 @@
 				{{ Form::label('alamat', 'Alamat Organisasi', ['class'=>'control-label']) }}
 				<div class="controls">
 					{{ Form::textarea('alamat', Organisasi::data()->alamat, [
-						'id'=>'alamat',
 						'class'=>'input-focus',
 						'onKeyPress'=>'enterGantiAlamat(event)',
 						'maxlength'=>50]) 

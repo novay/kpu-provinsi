@@ -10,7 +10,6 @@
 				{{ Form::label('nama', 'Nama Organisasi', ['class'=>'control-label']) }}
 				<div class="controls">
 					{{ Form::text('nama', Organisasi::data()->nama, [
-						'id'=>'nama',
 						'class'=>'input-focus',
 						'onKeyPress'=>'enterGantiNama(event)',
 						'maxlength'=>50]) 

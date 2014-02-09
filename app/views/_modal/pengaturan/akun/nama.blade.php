@@ -10,7 +10,6 @@
 				{{ Form::label('nama_tampilan', 'Nama Tampilan', array('class' => 'control-label')) }}
 				<div class="controls">
 					{{ Form::text('nama_tampilan', Auth::user()->nama_tampilan, array( 
-						'id' => 'nama_tampilan', 
 						'onkeypress' => 'enterGantiNamaTampilan(event)', 
 						'maxlength' => 50, 
 						'class' => 'input-focus', 

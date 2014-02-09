@@ -10,7 +10,6 @@
 				{{ Form::label('kota', 'Kota', ['class'=>'control-label']) }}
 				<div class="controls">
 					{{ Form::text('kota', Organisasi::data()->kota, [
-						'id'=>'kota',
 						'class'=>'input-focus',
 						'onKeyPress'=>'enterGantiKota(event)',
 						'maxlength'=>50]) 

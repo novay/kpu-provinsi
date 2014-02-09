@@ -10,7 +10,6 @@
 				{{ Form::label('negara', 'Negara', ['class'=>'control-label']) }}
 				<div class="controls">
 					{{ Form::text('negara', Organisasi::data()->negara, [
-						'id'=>'negara',
 						'class'=>'input-focus',
 						'onKeyPress'=>'enterGantiNegara(event)',
 						'maxlength'=>50]) 

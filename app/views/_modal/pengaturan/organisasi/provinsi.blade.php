@@ -10,7 +10,6 @@
 				{{ Form::label('provinsi', 'Provinsi', ['class'=>'control-label']) }}
 				<div class="controls">
 					{{ Form::text('provinsi', Organisasi::data()->provinsi, [
-						'id'=>'provinsi',
 						'class'=>'input-focus',
 						'onKeyPress'=>'enterGantiProvinsi(event)',
 						'maxlength'=>50]) 
