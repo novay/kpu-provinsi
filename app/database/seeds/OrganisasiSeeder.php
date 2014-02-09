@@ -18,6 +18,7 @@ class OrganisasiSeeder extends Seeder {
 			'kota'			=> 'Samarinda',
 			'provinsi'		=> 'Kalimantan Timur',
 			'negara'		=> 'Indonesia',
+			'logo'			=> 'logo.png',
 			'created_at' 	=> new DateTime, 
 			'updated_at' 	=> new DateTime
 		);

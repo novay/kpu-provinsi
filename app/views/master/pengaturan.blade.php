@@ -55,7 +55,7 @@
 										<div class="profile-info-name"> Nama </div>
 										<div class="profile-info-value">
 											<a onclick="modalNamaOrganisasi()" style="text-decoration:none;color:black">
-												<span class="editable editable-click">{{ Organisasi::data()->nama }}</span>
+												<span class="editable editable-click" id="ganti-nama">{{ Organisasi::data()->nama }}</span>
 											</a>
 										</div>
 									</div>
@@ -64,7 +64,7 @@
 										<div class="profile-info-name"> Alamat </div>
 										<div class="profile-info-value">
 											<a onclick="modalAlamatOrganisasi()" style="text-decoration:none;color:black">
-												<span class="editable editable-click">{{ Organisasi::data()->alamat }}</span>
+												<span class="editable editable-click" id="ganti-alamat">{{ Organisasi::data()->alamat }}</span>
 											</a>
 										</div>
 									</div>
@@ -73,7 +73,7 @@
 										<div class="profile-info-name"> Kota </div>
 										<div class="profile-info-value">
 											<a onclick="modalKotaOrganisasi()" style="text-decoration:none;color:black">
-												<span class="editable editable-click">{{ Organisasi::data()->kota }}</span>
+												<span class="editable editable-click" id="ganti-kota">{{ Organisasi::data()->kota }}</span>
 											</a>
 										</div>
 									</div>
@@ -82,7 +82,7 @@
 										<div class="profile-info-name"> Provinsi </div>
 										<div class="profile-info-value">
 											<a onclick="modalProvinsiOrganisasi()" style="text-decoration:none;color:black">
-												<span class="editable editable-click">{{ Organisasi::data()->provinsi }}</span>
+												<span class="editable editable-click" id="ganti-provinsi">{{ Organisasi::data()->provinsi }}</span>
 											</a>
 										</div>
 									</div>
@@ -91,7 +91,7 @@
 										<div class="profile-info-name"> Negara </div>
 										<div class="profile-info-value">
 											<a onclick="modalNegaraOrganisasi()" style="text-decoration:none;color:black">
-												<span class="editable editable-click">{{ Organisasi::data()->negara }}</span>
+												<span class="editable editable-click" id="ganti-negara">{{ Organisasi::data()->negara }}</span>
 											</a>
 										</div>
 									</div>

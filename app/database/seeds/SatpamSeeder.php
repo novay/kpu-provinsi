@@ -15,6 +15,7 @@ class SatpamSeeder extends Seeder {
 		$org = array(
 			'nama_tampilan'	=> 'Admin',
 			'username'		=> 'admin',
+			'avatar'		=> 'user.jpg',
 			'password'		=> Hash::make('admins'),
 			'created_at' 	=> new DateTime, 
 			'updated_at' 	=> new DateTime

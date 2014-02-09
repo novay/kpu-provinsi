@@ -10,20 +10,10 @@ class Organisasi extends Eloquent {
 	protected $table = 'organisasi';
 
 	# Field yang boleh di input
-	protected $fillable = ['nama', 'alamat'];
+	protected $fillable = ['nama', 'alamat', 'kota', 'provinsi', 'negara', 'logo'];
 
 	# Field yang jadi patokan
 	protected $guarded = ['id'];
-
-	# Validasi
-	public static $rules = [
-		'nama'=>'required|max:50|nama_baru', 
-		'alamat'=>'required|max:255', 
-		'logo'=>'required|mimes:png,jpg,bmp|max:5000',
-		'kota'=>'required',
-		'provinsi'=>'required',
-		'negara'=>'required'
-		];
 
 	/**
 	 * Tambah data ke database
@@ -36,7 +26,7 @@ class Organisasi extends Eloquent {
 	/**
 	 * Ganti logo Organisasi
 	 */
-	public static function ubahLogo($id, $logo)
+	public static function gantiLogo($id, $logo)
 	{
 		$temp = Organisasi::find($id);
 		$temp->logo = $logo;
@@ -46,7 +36,7 @@ class Organisasi extends Eloquent {
 	/**
 	 * Ganti nama Organisasi
 	 */
-	public static function ubahNama($id, $nama)
+	public static function gantiNama($id, $nama)
 	{
 		$temp = Organisasi::find($id);
 		$temp->nama = $nama;
@@ -56,7 +46,7 @@ class Organisasi extends Eloquent {
 	/**
 	 * Ganti alamat Organisasi
 	 */
-	public static function ubahAlamat($id, $alamat)
+	public static function gantiAlamat($id, $alamat)
 	{
 		$temp = Organisasi::find($id);
 		$temp->alamat = $alamat;
@@ -66,7 +56,7 @@ class Organisasi extends Eloquent {
 	/**
 	 * Ganti kota Organisasi berada
 	 */
-	public static function ubahKota($id, $kota)
+	public static function gantiKota($id, $kota)
 	{
 		$temp = Organisasi::find($id);
 		$temp->kota = $kota;
@@ -76,7 +66,7 @@ class Organisasi extends Eloquent {
 	/**
 	 * Ganti provinsi Organisasi
 	 */
-	public static function ubahProvinsi($id, $provinsi)
+	public static function gantiProvinsi($id, $provinsi)
 	{
 		$temp = Organisasi::find($id);
 		$temp->provinsi = $provinsi;
@@ -86,7 +76,7 @@ class Organisasi extends Eloquent {
 	/**
 	 * Ganti negara Organisasi
 	 */
-	public static function ubahNegara($id, $negara)
+	public static function gantiNegara($id, $negara)
 	{
 		$temp = Organisasi::find($id);
 		$temp->negara = $negara;

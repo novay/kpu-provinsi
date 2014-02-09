@@ -142,6 +142,11 @@
 {{-- JSON Dev --}}
 		{{ HTML::script('assets/js/dev/dev.js') }}
 		{{ HTML::script('assets/js/dev/autentikasi.js') }}
+		{{ HTML::script('assets/js/dev/kabupaten.js') }}
+		{{ HTML::script('assets/js/dev/kecamatan.js') }}
+		{{ HTML::script('assets/js/dev/kelurahan.js') }}
+		{{ HTML::script('assets/js/dev/tps.js') }}
+		{{ HTML::script('assets/js/dev/pengaturan.js') }}
 
 		@include('_partials.url')
 {{-- Untuk JS tambahan --}}
