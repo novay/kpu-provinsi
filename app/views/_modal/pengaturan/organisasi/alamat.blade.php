@@ -15,7 +15,7 @@
 						'onKeyPress'=>'enterGantiAlamat(event)',
 						'maxlength'=>50]) 
 					}}
-					<small><span class="help-block text-center" id="error-alamat"></span></small>
+					<small><span class="help-block" id="error-alamat"></span></small>
 				</div>
 			</div>
 		</div>

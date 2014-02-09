@@ -15,7 +15,7 @@
 						'onKeyPress'=>'enterGantiNama(event)',
 						'maxlength'=>50]) 
 					}}
-					<small><span class="help-block text-center" id="error-nama"></span></small>
+					<small><span class="help-block" id="error-nama"></span></small>
 				</div>
 			</div>
 		</div>

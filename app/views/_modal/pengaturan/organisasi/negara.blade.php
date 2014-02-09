@@ -12,10 +12,10 @@
 					{{ Form::text('negara', Organisasi::data()->negara, [
 						'id'=>'negara',
 						'class'=>'input-focus',
-						'onKeyPress'=>'enterGantiNegara()',
+						'onKeyPress'=>'enterGantiNegara(event)',
 						'maxlength'=>50]) 
 					}}
-					<small><span class="help-block text-center" id="error-negara"></span></small>
+					<small><span class="help-block" id="error-negara"></span></small>
 				</div>
 			</div>
 		</div>

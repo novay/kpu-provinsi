@@ -12,10 +12,10 @@
 					{{ Form::text('kota', Organisasi::data()->kota, [
 						'id'=>'kota',
 						'class'=>'input-focus',
-						'onKeyPress'=>'enterGantiKota()',
+						'onKeyPress'=>'enterGantiKota(event)',
 						'maxlength'=>50]) 
 					}}
-					<small><span class="help-block text-center" id="error-kota"></span></small>
+					<small><span class="help-block" id="error-kota"></span></small>
 				</div>
 			</div>
 		</div>

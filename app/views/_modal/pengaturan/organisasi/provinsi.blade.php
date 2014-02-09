@@ -12,10 +12,10 @@
 					{{ Form::text('provinsi', Organisasi::data()->provinsi, [
 						'id'=>'provinsi',
 						'class'=>'input-focus',
-						'onKeyPress'=>'enterGantiProvinsi()',
+						'onKeyPress'=>'enterGantiProvinsi(event)',
 						'maxlength'=>50]) 
 					}}
-					<small><span class="help-block text-center" id="error-provinsi"></span></small>
+					<small><span class="help-block" id="error-provinsi"></span></small>
 				</div>
 			</div>
 		</div>

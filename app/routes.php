@@ -71,7 +71,7 @@ Route::get('organisasi/logo', array('as' => 'logo_organisasi', 'uses' => 'Organi
 Route::post('organisasi/nama', array('uses' => 'OrganisasiController@postNama'));
 Route::post('organisasi/alamat', array('uses' => 'OrganisasiController@postAlamat'));
 Route::post('organisasi/kota', array('uses' => 'OrganisasiController@postKota'));
-Route::post('organisasi/provinsi', array('uses' => 'OrganisasiController@postKota'));
+Route::post('organisasi/provinsi', array('uses' => 'OrganisasiController@postProvinsi'));
 Route::post('organisasi/negara', array('uses' => 'OrganisasiController@postNegara'));
 Route::post('organisasi/logo', array('uses' => 'OrganisasiController@postLogo'));
 
