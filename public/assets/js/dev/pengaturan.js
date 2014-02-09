@@ -132,6 +132,24 @@ function modalNamaTampilan() {
 		$('.modal').modal('show');
 	});
 }
+
+function enterGantiNamaTampilan(k) { if (k.which == 13) gantiNamaTampilan(); }
+
+function gantiNamaTampilan() {
+	var nama_tampilan = $('#nama_tampilan').val();
+	$.post(url_nama_tampilan, { nama_tampilan:nama_tampilan, _token:token }, function(r) {
+		if (r.nama_tampilan) {
+			$('#control-nama').removeClass('info').addClass('error');
+			$('#error-nama').text(r.nama_tampilan);
+		} else {
+			$('.modal').modal('hide');
+			$('.modal').html('');
+			$('#ganti-nama_tampilan').text(nama_tampilan);
+			notif('Nama Tampilan Anda berhasil diubah.', 'info');
+		};
+	});
+}
+
 function modalUsername() {
 	$('.modal').load(url_nama_pengguna, function() {
 		$('.modal').modal('show');

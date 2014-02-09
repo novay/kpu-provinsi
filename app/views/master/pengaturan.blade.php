@@ -119,7 +119,7 @@
 										<div class="profile-info-name"> Nama Tampilan </div>
 										<div class="profile-info-value">
 											<a onclick="modalNamaTampilan()" style="text-decoration:none;color:black">
-												<span class="editable" id="nama_tampilan">{{ Auth::user()->nama_tampilan }}</span>
+												<span class="editable editable-click" id="ganti-nama_tampilan">{{ Auth::user()->nama_tampilan }}</span>
 											</a>
 										</div>
 									</div>
@@ -128,7 +128,7 @@
 										<div class="profile-info-name"> Username </div>
 										<div class="profile-info-value">
 											<a onclick="modalUsername()" style="text-decoration:none;color:black">
-												<span class="editable" id="username">{{ Auth::user()->username }}</span>
+												<span class="editable editable-click" id="ganti-username">{{ Auth::user()->username }}</span>
 											</a>
 										</div>
 									</div>
@@ -137,7 +137,7 @@
 										<div class="profile-info-name"> Password </div>
 										<div class="profile-info-value">
 											<a onclick="modalPassword()" style="text-decoration:none;color:black">
-												<span class="editable" id="password">klikuntukrubah***</span>
+												<span class="editable editable-click" id="ganti-password">klikuntukrubah***</span>
 											</a>
 										</div>
 									</div>

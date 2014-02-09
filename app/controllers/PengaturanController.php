@@ -12,8 +12,7 @@ class PengaturanController extends BaseController {
 	public function __construct() {
 		# Koleksi filter
 		$this->beforeFilter('auth');
-		$this->beforeFilter('ajax', array('except' => array('excel')));
-		$this->beforeFilter('csrf', array('on' => 'post'));
+		$this->beforeFilter('ajax');
 	}
 
 	/**

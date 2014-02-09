@@ -91,11 +91,13 @@ class AdminController extends BaseController {
 	## Untuk POST Nama Tampilan
 	public function postNama() {
 		# Validasi
-		$validasi = Validator::make(Input::all(), Admin::$rules);
+		$input = Input::all();
+		$rules = array('nama_tampilan' => 'required|min:2|nama_baru');
+		$v = Validator::make(Input::all(), $rules);
 		# Bila tak valid
-		if ($validasi->fails()) {
+		if ($v->fails()) {
 			# Koleksi pesan error lalu kirim via json
-			$nama_tampilan = $validasi->messages()->first('nama_tampilan') ?: '';
+			$nama_tampilan = $v->messages()->first('nama_tampilan') ?: '';
 			return Response::json(compact('nama_tampilan'));
 		}
 		# tarik id admin aktif

@@ -4,19 +4,19 @@
 </div>
 
 <div class="modal-body overflow-visible">
-	<div class="row-fluid form-horizontal form-ubah-nama">
+	<div class="row-fluid form-horizontal">
 		<div class="span12">
 			<div class="control-group" id="control-nama">
 				{{ Form::label('nama_tampilan', 'Nama Tampilan', array('class' => 'control-label')) }}
 				<div class="controls">
-					{{ Form::text('nama_tampilan', null, array( 
-						'id' => 'nama', 
+					{{ Form::text('nama_tampilan', Auth::user()->nama_tampilan, array( 
+						'id' => 'nama_tampilan', 
 						'onkeypress' => 'enterGantiNamaTampilan(event)', 
 						'maxlength' => 50, 
 						'class' => 'input-focus', 
 						'autocomplete' => 'off')) 
 					}}
-					<span class="help-block text-center" id="error-nama"></span>
+					<small><span class="help-block" id="error-nama"></span></small>
 				</div>
 			</div>
 		</div>
