@@ -93,7 +93,7 @@ class AdminController extends BaseController {
 		# Validasi
 		$input = Input::all();
 		$rules = array('nama_tampilan' => 'required|min:2|nama_baru');
-		$v = Validator::make(Input::all(), $rules);
+		$v = Validator::make($input, $rules);
 		# Bila tak valid
 		if ($v->fails()) {
 			# Koleksi pesan error lalu kirim via json
@@ -111,13 +111,19 @@ class AdminController extends BaseController {
 	## Untuk POST Username
 	public function postUser() {
 		# Validasi
-		$validasi = Validator::make(Input::all(), Admin::$rules);
+		$input = Input::all();
+		$rules = array(
+			'username_sekarang'   => 'required|min:5|max:20|username_sekarang',
+			'username_baru' 	  => 'required|min:5|max:20|different:username_sekarang|unique:admin,username',
+			'konfirmasi_username' => 'required|min:5|max:20|same:username_baru'
+		);
+		$v = Validator::make($input, $rules);
 		# Bila tidak valid
-		if ($validasi->fails()) {
+		if ($v->fails()) {
 			# Koleksi pesan error lalu kirim via json
-			$username_sekarang	 = $validasi->messages()->first('username_sekarang') ?: '';
-			$username_baru 		 = $validasi->messages()->first('username_baru') ?: '';
-			$konfirmasi_username = $validasi->messages()->first('konfirmasi_username') ?: '';
+			$username_sekarang	 = $v->messages()->first('username_sekarang') ?: '';
+			$username_baru 		 = $v->messages()->first('username_baru') ?: '';
+			$konfirmasi_username = $v->messages()->first('konfirmasi_username') ?: '';
 			$status 			 = '';
 			return Response::json(compact('username_sekarang', 'username_baru', 'konfirmasi_username', 'status'));
 		}
@@ -132,13 +138,19 @@ class AdminController extends BaseController {
 	## Untuk POST Password
 	public function postSandi() {
 		# Validasi
-		$validasi = Validator::make(Input::all(), Admin::$rules);
+		$input = Input::all();
+		$rules = array(
+			'password_sekarang'   => 'required|min:6|password_sekarang',
+			'password_baru'       => 'required|min:6|different:password_sekarang',
+			'konfirmasi_password' => 'required|min:6|same:password_baru'
+		);
+		$v = Validator::make($input, $rules);
 		# Untuk yg tdk valid
-		if ($validasi->fails()) {
+		if ($v->fails()) {
 			# Koleksi pesan error lalu kirim
-			$password_sekarang   = $validasi->messages()->first('password_sekarang') ?: '';
-			$password_baru 		 = $validasi->messages()->first('password_baru') ?: '';
-			$konfirmasi_password = $validasi->messages()->first('konfirmasi_password') ?: '';
+			$password_sekarang   = $v->messages()->first('password_sekarang') ?: '';
+			$password_baru 		 = $v->messages()->first('password_baru') ?: '';
+			$konfirmasi_password = $v->messages()->first('konfirmasi_password') ?: '';
 			$status = '';
 			return Response::json(compact('password_sekarang', 'password_baru', 'konfirmasi_password', 'status'));
 		}

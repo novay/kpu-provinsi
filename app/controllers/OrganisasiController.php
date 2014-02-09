@@ -40,7 +40,7 @@ class OrganisasiController extends BaseController {
 		# Validasi
 		$input = Input::all();
 		$rules = array('nama' => 'required|min:2');
-		$v = Validator::make(Input::all(), $rules);
+		$v = Validator::make($input, $rules);
 		# jika validasi gagal
 		if ($v->fails()) {
 			# koleksi variabel error lalu kirim via json
@@ -72,7 +72,7 @@ class OrganisasiController extends BaseController {
 		# Validasi
 		$input = Input::all();
 		$rules = array('alamat' => 'required|min:5');
-		$v = Validator::make(Input::all(), $rules);
+		$v = Validator::make($input, $rules);
 		# jika validasi gagal
 		if ($v->fails()) {
 			# koleksi variabel error lalu kirim via json
@@ -104,7 +104,7 @@ class OrganisasiController extends BaseController {
 		# Validasi
 		$input = Input::all();
 		$rules = array('kota' => 'required|min:2');
-		$v = Validator::make(Input::all(), $rules);
+		$v = Validator::make($input, $rules);
 		# jika validasi gagal
 		if ($v->fails()) {
 			# koleksi variabel error lalu kirim via json
@@ -136,7 +136,7 @@ class OrganisasiController extends BaseController {
 		# Validasi
 		$input = Input::all();
 		$rules = array('provinsi' => 'required|min:2');
-		$v = Validator::make(Input::all(), $rules);
+		$v = Validator::make($input, $rules);
 		# jika validasi gagal
 		if ($v->fails()) {
 			# koleksi variabel error lalu kirim via json
@@ -168,7 +168,7 @@ class OrganisasiController extends BaseController {
 		# Validasi
 		$input = Input::all();
 		$rules = array('negara' => 'required|min:2');
-		$v = Validator::make(Input::all(), $rules);
+		$v = Validator::make($input, $rules);
 		# jika validasi gagal
 		if ($v->fails()) {
 			# koleksi variabel error lalu kirim via json

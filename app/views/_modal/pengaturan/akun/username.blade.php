@@ -11,12 +11,11 @@
 				{{ Form::label('username_sekarang', 'Username Sekarang', array('class' => 'control-label')) }}
 				<div class="controls">
 					{{ Form::text('username_sekarang', null, array(
-						'id' 			=> 'username_sekarang', 
 						'onkeypress' 	=> 'enterGantiUsername(event)', 
 						'maxlength' 	=> 20, 
 						'class' 		=> 'input-focus', 
 						'autocomplete' 	=> 'off')) }}
-					<span class="help-block text-center" id="error-username-sekarang"></span>
+					<small><span class="help-block" id="error-username-sekarang"></span></small>
 				</div>
 			</div>
 
@@ -24,12 +23,11 @@
 				{{ Form::label('username_baru', 'Username Baru', array('class' => 'control-label')) }}
 				<div class="controls">
 					{{ Form::text('username_baru', null, array( 
-						'id' 			=> 'username_baru', 
 						'onkeypress' 	=> 'enterGantiUsername(event)', 
 						'maxlength' 	=> 20, 
 						'autocomplete' 	=> 'off')) 
 					}}
-					<span class="help-block text-center" id="error-username-baru"></span>
+					<small><span class="help-block" id="error-username-baru"></span></small>
 				</div>
 			</div>
 
@@ -37,12 +35,11 @@
 				{{ Form::label('konfirmasi_username', 'Konfirmasi Username', array('class' => 'control-label')) }}
 				<div class="controls">
 					{{ Form::text('konfirmasi_username', null, array( 
-						'id' 			=> 'konfirmasi_username', 
-						'onkeypress' 	=> 'enterRubahUsername(event)', 
+						'onkeypress' 	=> 'enterGantiUsername(event)', 
 						'maxlength' 	=> 20, 
 						'autocomplete' 	=> 'off')) 
 					}}
-					<span class="help-block text-center" id="error-konfirmasi-username"></span>
+					<small><span class="help-block" id="error-konfirmasi-username"></span></small>
 				</div>
 			</div>
 		</div>

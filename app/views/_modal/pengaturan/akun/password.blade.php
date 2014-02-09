@@ -10,11 +10,10 @@
 				{{ Form::label('password_sekarang', 'Password Sekarang', array('class' => 'control-label')) }}
 				<div class="controls">
 					{{ Form::password('password_sekarang', array( 
-						'id' 			=> 'password_sekarang', 
 						'onkeypress'	=> 'enterGantiPassword(event)', 
 						'class' 		=> 'input-focus')) 
 					}}
-					<span class="help-block text-center" id="error-password-sekarang"></span>
+					<small><span class="help-block" id="error-password-sekarang"></span></small>
 				</div>
 			</div>
 
@@ -22,10 +21,9 @@
 				{{ Form::label('password_baru', 'Password Baru', array('class' => 'control-label')) }}
 				<div class="controls">
 					{{ Form::password('password_baru', array( 
-						'id' => 'password_baru', 
 						'onkeypress' => 'enterGantiPassword(event)')) 
 					}}
-					<span class="help-block text-center" id="error-password-baru"></span>
+					<small><span class="help-block" id="error-password-baru"></span></small>
 				</div>
 			</div>
 
@@ -33,10 +31,9 @@
 				{{ Form::label('konfirmasi_password', 'Konfirmasi Password', array('class' => 'control-label')) }}
 				<div class="controls">
 					{{ Form::password('konfirmasi_password', array( 
-						'id' 			=> 'konfirmasi_password', 
 						'onkeypress' 	=> 'enterGantiPassword(event)')) 
 					}}
-					<span class="help-block text-center" id="error-konfirmasi-password"></span>
+					<small><span class="help-block" id="error-konfirmasi-password"></span></small>
 				</div>
 			</div>
 	</div>

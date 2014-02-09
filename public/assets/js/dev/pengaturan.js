@@ -155,11 +155,101 @@ function modalUsername() {
 		$('.modal').modal('show');
 	});
 }
+
+function enterGantiUsername(k) { if (k.which == 13) gantiUsername(); }
+
+function gantiUsername() {
+	var username_sekarang = $('#username_sekarang').val().trim();
+	var username_baru = $('#username_baru').val().trim();
+	var konfirmasi_username = $('#konfirmasi_username').val().trim();
+
+	$.post(url_nama_pengguna, { username_sekarang:username_sekarang, username_baru:username_baru, konfirmasi_username:konfirmasi_username, _token:token }, function(r) {
+		if (r.status == '') {
+			if (r.username_sekarang) {
+				$('#control-username-sekarang').removeClass('info').addClass('error');
+				$('#error-username-sekarang').text(r.username_sekarang);
+			} else {
+				$('#control-username-sekarang').removeClass('error').addClass('info');
+				$('#error-username-sekarang').text('');
+			};
+
+			if (r.username_baru) {
+				$('#control-username-baru').removeClass('info').addClass('error');
+				$('#error-username-baru').text(r.username_baru);
+			} else {
+				$('#control-username-baru').removeClass('error').addClass('info');
+				$('#error-username-baru').text('');
+			};
+
+			if (r.konfirmasi_username) {
+				$('#control-konfirmasi-username').removeClass('info').addClass('error');
+				$('#error-konfirmasi-username').text(r.konfirmasi_username);
+			} else {
+				$('#control-konfirmasi-username').removeClass('error').addClass('info');
+				$('#error-konfirmasi-username').text('');
+			};
+		} else {
+			$('.modal').modal('hide');
+			$('.modal').html('');
+			$('#ganti-username').text(username_baru);
+			notif('Username Anda berhasil diubah.', 'info');
+		};
+	});
+}
+
 function modalPassword() {
 	$('.modal').load(url_password, function() {
 		$('.modal').modal('show');
 	});
 }
+
+function enterGantiPassword(k) { if (k.which == 13) gantiPassword(); }
+
+function gantiPassword() {
+	var password_sekarang = $('#password_sekarang').val().trim();
+	var password_baru = $('#password_baru').val().trim();
+	var konfirmasi_password = $('#konfirmasi_password').val().trim();
+
+	$.post(url_password, { password_sekarang:password_sekarang, password_baru:password_baru, konfirmasi_password:konfirmasi_password, _token:token }, function(r)
+	{
+		if (r.status == '')
+		{
+			if (r.password_sekarang)
+			{
+				$('#control-password-sekarang').removeClass('info').addClass('error');
+				$('#error-password-sekarang').text(r.password_sekarang);
+			} else {
+				$('#control-password-sekarang').removeClass('error').addClass('info');
+				$('#error-password-sekarang').text('');
+			};
+
+			if (r.password_baru)
+			{
+				$('#control-password-baru').removeClass('info').addClass('error');
+				$('#error-password-baru').text(r.password_baru);
+			} else {
+				$('#control-password-baru').removeClass('error').addClass('info');
+				$('#error-password-baru').text('');
+			};
+
+			if (r.konfirmasi_password)
+			{
+				$('#error-konfirmasi-password').text(r.konfirmasi_password);
+			} else {
+				$('#error-konfirmasi-password').text('');
+			};
+
+			$('.modal').find('.control-group').addClass('error');
+			$('.modal').find('input').val('');
+		} else {
+			$('.modal').modal('hide');
+			$('.modal').html('');
+			$('#ganti-password').text('Perubahan Password sukses. Ubah lagi?');
+			notif('Password anda berhasil dirubah.', 'info');
+		};
+	});
+}
+
 function modalAvatar() {
 	$('.modal').load(url_avatar, function() {
 		$('.modal').modal('show');
