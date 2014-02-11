@@ -165,11 +165,13 @@ class AdminController extends BaseController {
 	## Untuk POST Avatar
 	public function postAvatar() {
 		# Validasi
-		$validasi = Validator::make(Input::all(), Admin::$rules);
+		$input = Input::all();
+		$rules = array('avatar' => 'required|mimes:jpg,jpeg,png|max:5000');
+		$v = Validator::make($input, $rules);
 		# Bila tidak valid
-		if ($validasi->fails()) {
+		if ($v->fails()) {
 			# Koleksi pesan error dan kirim via json
-			$avatar = $validasi->messages()->first('avatar') ?: '';
+			$avatar = $v->messages()->first('avatar') ?: '';
 			return Response::json(compact('avatar'));
 		# Bila sukses
 		} else {
@@ -182,7 +184,7 @@ class AdminController extends BaseController {
 				# jika admin memiliki avatar maka hapus avatar yang lama
 				if (Auth::user()->avatar) unlink(public_path() . '/assets/img/' . Auth::user()->avatar);
 				# unggah avatar baru ke direktori "assets/img"
-				Input::file('avatar')->move('assets/img', $avatar);
+				Input::file('avatar')->move(public_path() . '/assets/img', $avatar);
 				# juga ubah isi database
 				Admin::avatar($id, $avatar);
 			# Jika tidak ada avatar
@@ -193,5 +195,4 @@ class AdminController extends BaseController {
 			}
 		}
 	}
-
 }

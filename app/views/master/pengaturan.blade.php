@@ -1,7 +1,3 @@
-
-<link rel="stylesheet" href="assets/css/select2.css" />
-<link rel="stylesheet" href="assets/css/bootstrap-editable.css" />
-
 <div class="row-fluid">
 	<div class="span12">
 

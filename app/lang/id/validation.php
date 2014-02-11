@@ -66,7 +66,7 @@ return array(
 	"nama_baru" 		=> "Inputan :attribute tidak boleh menggunakan nama lama.",
 	"username_sekarang" => "Inputan :attribute tidak sama dengan sebelumnya.",
 	"password_sekarang" => "Inputan :attribute tidak sama dengan sebelumnya.",
-	"sql" 				=> "Inputan :attribute harus berupa file sql.",
+	"sql" 				=> "File inputan harus berupa file :attribute.",
 
 	/*
 	|--------------------------------------------------------------------------

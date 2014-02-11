@@ -125,7 +125,20 @@ function modalLogoOrganisasi() {
 	});
 }
 
-
+function gantiLogo() {
+	$('.form-ubah-logo').ajaxSubmit({
+		success : function(r) {
+			if (r.logo) {
+				$('#control-logo').removeClass('info').addClass('error');
+				$('#error-logo').text(r.logo);
+			} else {
+				$('.modal').modal('hide');
+				notif('Perubahan Logo Organisasi sukses.', 'info');
+				dataPengaturan();
+			};
+		}
+	});
+}
 
 function modalNamaTampilan() {
 	$('.modal').load(url_nama_tampilan, function() {
@@ -211,10 +224,8 @@ function gantiPassword() {
 	var password_baru = $('#password_baru').val().trim();
 	var konfirmasi_password = $('#konfirmasi_password').val().trim();
 
-	$.post(url_password, { password_sekarang:password_sekarang, password_baru:password_baru, konfirmasi_password:konfirmasi_password, _token:token }, function(r)
-	{
-		if (r.status == '')
-		{
+	$.post(url_password, { password_sekarang:password_sekarang, password_baru:password_baru, konfirmasi_password:konfirmasi_password, _token:token }, function(r) {
+		if (r.status == '') {
 			if (r.password_sekarang)
 			{
 				$('#control-password-sekarang').removeClass('info').addClass('error');
@@ -224,8 +235,7 @@ function gantiPassword() {
 				$('#error-password-sekarang').text('');
 			};
 
-			if (r.password_baru)
-			{
+			if (r.password_baru) {
 				$('#control-password-baru').removeClass('info').addClass('error');
 				$('#error-password-baru').text(r.password_baru);
 			} else {
@@ -233,8 +243,7 @@ function gantiPassword() {
 				$('#error-password-baru').text('');
 			};
 
-			if (r.konfirmasi_password)
-			{
+			if (r.konfirmasi_password) {
 				$('#error-konfirmasi-password').text(r.konfirmasi_password);
 			} else {
 				$('#error-konfirmasi-password').text('');
@@ -257,3 +266,17 @@ function modalAvatar() {
 	});
 }
 
+function gantiAvatar() {
+	$('.form-ubah-avatar').ajaxSubmit({
+		success : function(r) {
+			if (r.avatar) {
+				$('#control-avatar').removeClass('info').addClass('error');
+				$('#error-avatar').text(r.avatar);
+			} else {
+				$('.modal').modal('hide');
+				notif('Perubahan Avatar Pengguna sukses.', 'info');
+				$(location).prop('href', url_home);
+			};
+		}
+	});
+}

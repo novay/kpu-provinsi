@@ -77,11 +77,22 @@
 										<i class="icon-wrench icon-animated-wrench bigger-125"></i>
 										on progress!
 									</h3>
-
+									
 									<div class="space"></div>
 
 									<div>
 										<h4 class="lighter smaller">Penjelasannya nanti, intinya aplikasi ini jadi dulu.</h4>
+									</div>
+									<hr />
+									<div>
+										<h4 class="lighter smaller">Fitur</h4>
+										<ul>
+											<li>Fully AJAX Process</li>
+											<li>Complete City/Regency, District, and Village on East Borneo</li>
+											<li>Google Maps Integrated</li>
+											<li>Responsive Template</li>
+											<li>And so on..</li>
+										</ul>
 									</div>
 									<hr />
 									<div class="space"></div>
@@ -147,6 +158,7 @@
 		{{ HTML::script('assets/js/dev/kelurahan.js') }}
 		{{ HTML::script('assets/js/dev/tps.js') }}
 		{{ HTML::script('assets/js/dev/pengaturan.js') }}
+		{{ HTML::script('assets/js/dev/database.js') }}
 
 		@include('_partials.url')
 {{-- Untuk JS tambahan --}}

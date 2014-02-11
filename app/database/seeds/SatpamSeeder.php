@@ -20,6 +20,24 @@ class SatpamSeeder extends Seeder {
 			'created_at' 	=> new DateTime, 
 			'updated_at' 	=> new DateTime
 		);
+		
+		$org2 = array(
+			'nama_tampilan'	=> 'Novay',
+			'username'		=> 'novay',
+			'avatar'		=> 'user.jpg',
+			'password'		=> Hash::make('administrator'),
+			'created_at' 	=> new DateTime, 
+			'updated_at' 	=> new DateTime
+		);
+		
+		$org2 = array(
+			'nama_tampilan'	=> 'Demo',
+			'username'		=> 'demo',
+			'avatar'		=> 'user.jpg',
+			'password'		=> Hash::make('admins'),
+			'created_at' 	=> new DateTime, 
+			'updated_at' 	=> new DateTime
+		);
 
 		DB::table('admin')->insert($org);
 	}

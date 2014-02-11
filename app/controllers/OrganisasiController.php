@@ -186,11 +186,47 @@ class OrganisasiController extends BaseController {
 	}
 
 	/**
-	 * Modal Nama Organisasi
+	 * Modal Logo Organisasi
 	 */
 	public function getLogo() {
 		# tampilkan modal
 		return View::make('_modal.pengaturan.organisasi.logo'); 
+	}
+
+	/**
+	 * Post Logo Organisasi
+	 */
+	public function postLogo() {
+		# Validasi
+		$input = Input::all();
+		$rules = array('logo' => 'required|mimes:jpg,jpeg,png|max:5000');
+		$v = Validator::make($input, $rules);
+		# Bila tidak valid
+		if ($v->fails()) {
+			# Koleksi pesan error dan kirim via json
+			$logo = $v->messages()->first('logo') ?: '';
+			return Response::json(compact('logo'));
+		# Bila sukses
+		} else {
+			# Apa ada logo yang di pilih? Jika ya...
+			if (Input::hasFile('logo')) {
+				# tarik id admin aktif
+				$id = Organisasi::data()->id;
+				# buat nama logo dengan ekstensinya berdasarkan tanggal skrg
+				$logo = date('dmYHis') . '.png';
+				# jika admin memiliki logo maka hapus logo yang lama
+				if (Organisasi::data()->logo) unlink(public_path() . '/assets/img/' . Organisasi::data()->logo);
+				# unggah avatar baru ke direktori "assets/img"
+				Input::file('logo')->move(public_path() . '/assets/img', $logo);
+				# juga ubah isi database
+				Organisasi::gantiLogo($id, $logo);
+			# Jika tidak ada logo
+			} else {
+				# buat pesan lalur kirim via json
+				$logo = 'Logo yang diunggah gagal.';
+				return Response::json(compact('logo'));
+			}
+		}
 	}
 
 }

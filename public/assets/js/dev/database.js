@@ -1,4 +1,4 @@
-function backup() {
+function backupDB() {
 	window.open(url_backup);
 }
 
@@ -8,7 +8,7 @@ function modalRestore() {
 	});
 }
 
-function restore() {
+function restoreDB() {
 	$('.form-restore').ajaxSubmit({
 		success: function(r) {		
 			if (r.sql) {
@@ -17,7 +17,7 @@ function restore() {
 			} else {
 				$('.modal').modal('hide');
 				$('.modal').html('');
-				notif('Database berhasil direstore.', 'info');
+				notif('Restorasi Basis Data Berhasil.', 'info');
 				redirect();
 			};
 		}

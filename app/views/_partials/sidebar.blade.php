@@ -63,7 +63,7 @@
 
 			<ul class="submenu" style="display: block;">
 				<li>
-					<a onclick="backup()">
+					<a onclick="backupDB()">
 						<i class="icon-double-angle-right"></i>
 						<i class="icon-download-alt"></i> Backup
 					</span>

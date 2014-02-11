@@ -43,7 +43,7 @@ class DatabaseController extends BaseController {
 	 */
 	public function getRestore() {
 		# tampilkan modal
-		return View::make('_modal.master.restore');
+		return View::make('_modal.database.restore');
 	}
 
 	/**
